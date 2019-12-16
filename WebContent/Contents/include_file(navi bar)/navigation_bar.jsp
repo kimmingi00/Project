@@ -8,7 +8,7 @@
 	<link href="cssfile.css" media="screen and (min-width: 1080px) and (max-width: 1920px)" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
 	<link rel="stylesheet" type="text/css" href="/Project/Contents/CSS/CSS_Index/hsilder(navi).css">
-
+	
 
 	
 	
@@ -82,7 +82,7 @@
 						</ul>
 					<ul class="menu">
 						<li><a href="#"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
-						<li><a href="/Project/Contents/Reservation/R_Business/UploadService/upload_main.jsp"><font size="4">사업자 상품등록 </font>&nbsp; &nbsp; &nbsp;</a></li>
+						<li><a href="/Project/Contents/Reservation/R_Business/upload_main.jsp"><font size="4">사업자 상품등록 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="###"><font size="4">공지사항 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="####"><font size="4">문의하기 </font>&nbsp; &nbsp; &nbsp;</a></li>
 					</ul>
