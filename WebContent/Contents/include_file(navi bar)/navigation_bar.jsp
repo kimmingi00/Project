@@ -7,7 +7,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link href="cssfile.css" media="screen and (min-width: 1080px) and (max-width: 1920px)" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
-	<link rel="stylesheet" type="text/css" href="/Project/Contents/CSS/CSS_Index/hsilder(navi).css">
+	<link rel="stylesheet" type="text/css" href="/Contents/CSS/CSS_Index/hsilder(navi).css">
 	
 
 	
@@ -78,11 +78,11 @@
 		<div class = "nav">
 				<nav>
 						<ul class ="logo">
-							<li><font size="6"><a href="/Project/Contents/index.jsp"> LOGO</font></a> </li>
+							<li><font size="6"><a href="/Contents/index.jsp"> LOGO</font></a> </li>
 						</ul>
 					<ul class="menu">
 						<li><a href="#"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
-						<li><a href="/Project/Contents/Reservation/R_Business/upload_main.jsp"><font size="4">사업자 상품등록 </font>&nbsp; &nbsp; &nbsp;</a></li>
+						<li><a href="/Contents/Reservation/R_Business/upload_main.jsp"><font size="4">사업자 상품등록 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="###"><font size="4">공지사항 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="####"><font size="4">문의하기 </font>&nbsp; &nbsp; &nbsp;</a></li>
 					</ul>
@@ -92,14 +92,14 @@
 		<div class = "login">
 			<a href="###.jsp">
 				<div class="menubar">
-      		<li><a href="#" id="current"><img src="/Project/Contents/img/index_img/login.png"></a>
+      		<li><a href="#" id="current"><img src="/Contents/img/index_img/login.png"></a>
          		<ul>
-           		<li><a href="/Project/Contents/Member/login_select.jsp">로그인</a></li>
-		          <li><a href="/Project/Contents/Member/signup_select.jsp">회원가입</a></li>
+           		<li><a href="/Contents/Member/login_select.jsp">로그인</a></li>
+		          <li><a href="/Contents/Member/signup_select.jsp">회원가입</a></li>
          		</ul>
 
       		</li>
-					<img src="/Project/Contents/img/index_img/message.png">
+					<img src="/Contents/img/index_img/message.png">
 				</div>
 			</a>
 		</div>

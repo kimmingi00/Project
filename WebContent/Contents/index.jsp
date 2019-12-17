@@ -69,11 +69,11 @@
 		<div class = "nav">
 				<nav>
 						<ul class ="logo">
-							<li><font size="6"><a href="/Project/Contents/index.jsp"> LOGO</font></a> </li>
+							<li><font size="6"><a href="/Contents/index.jsp"> LOGO</font></a> </li>
 						</ul>
 					<ul class="menu">
 						<li><a href="#"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
-						<li><a href="/Project/Contents/Reservation/R_Business/upload_main.jsp"><font size="4">사업자 상품등록 </font>&nbsp; &nbsp; &nbsp;</a></li>
+						<li><a href="/Contents/Reservation/R_Business/upload_main.jsp"><font size="4">사업자 상품등록 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="###"><font size="4">공지사항 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="####"><font size="4">문의하기 </font>&nbsp; &nbsp; &nbsp;</a></li>
 					</ul>

@@ -12,20 +12,20 @@ import model.reserv.ProductDAO;
 import model.reserv.ProductVO;
 import service.Action;
 
-public class MyProductListAction implements Action {
+public class ProductViewAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String b_id = request.getParameter("b_id");
+		String p_idx = request.getParameter("p_idx");
 		
 		ProductDAO dao = ProductDAO.getInstance();
 		
-		List<ProductVO> mlist = dao.MyTourList(b_id);
+		ProductVO pvo = dao.ProductView(p_idx);
 		
-		request.setAttribute("mlist", mlist);
+		request.setAttribute("pvo", pvo);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/My_TourList.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/Product_view.jsp");
 		rd.forward(request, response);
 	}
 

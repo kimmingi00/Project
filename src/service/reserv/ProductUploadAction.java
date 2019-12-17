@@ -12,7 +12,7 @@ import model.reserv.ProductDAO;
 import model.reserv.ProductVO;
 import service.Action;
 
-public class MyProductListAction implements Action {
+public class ProductUploadAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,7 +25,7 @@ public class MyProductListAction implements Action {
 		
 		request.setAttribute("mlist", mlist);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/My_TourList.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/UploadService/Product_Upload.jsp");
 		rd.forward(request, response);
 	}
 
