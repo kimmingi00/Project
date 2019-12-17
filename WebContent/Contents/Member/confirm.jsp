@@ -132,7 +132,7 @@
   <input type="submit" value="동의합니다."  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" >
   <input type="reset" value="동의하지않음." style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" >
  </div>
-   <br>
+   <br> 
 </div>
 
 </form>
