@@ -85,8 +85,8 @@
 				<div class="menubar">
       		<li><a href="#" id="current"><img src="img/index_img/login.png"></a>
          		<ul>
-           		<li><a href="Member/login_select.jsp">로그인</a></li>
-		          <li><a href="Member/signup_select.jsp">회원가입</a></li>
+           		<li><a href="Member/login.jsp">로그인</a></li>
+		          <li><a href="Member/confirm.jsp">회원가입</a></li>
          		</ul>
 
       		</li>

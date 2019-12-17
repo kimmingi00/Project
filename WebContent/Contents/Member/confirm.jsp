@@ -26,7 +26,7 @@
 
 
 <body>
-<form action="signup.html" method="get" id="form1">
+<form action="signup.jsp" method="get" id="form1">
 <div id="d1">
  <font size="6">
  <h2 align="center">SignUp</h2>
