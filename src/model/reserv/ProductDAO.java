@@ -26,7 +26,7 @@ public class ProductDAO {
 		
 		List<ProductVO> mlist = new ArrayList<ProductVO>();
 		
-		String query = "select * from product where b_id = ?";
+		String query = "select * from product where b_id = ? order by p_regdate desc";
 		
 		try {
 			conn = DBConn.getConnection();
@@ -161,5 +161,71 @@ public class ProductDAO {
 		
 		return vo;
 		
+	}
+	
+	public int productModify(ProductVO pvo) {
+		Connection conn=null;
+		PreparedStatement pstmt = null;
+	
+		
+		int row=0;
+
+		String query="update product set p_title = ?, p_contents = ?, p_indate = ?,"
+				+ " p_outdate = ?, p_in = ?, p_out = ?, p_maxpeople = ?, p_price = ?,"
+				+ "theme = ?, p_filename = ?, p_picture = ? where p_idx = ?";
+		
+		
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, pvo.getP_title());
+			pstmt.setString(2, pvo.getP_contents());
+			pstmt.setString(3, pvo.getP_indate());
+			pstmt.setString(4, pvo.getP_outdate());
+			pstmt.setString(5, pvo.getP_in());
+			pstmt.setString(6, pvo.getP_out());
+			pstmt.setInt(7, pvo.getP_maxpeople());
+			pstmt.setInt(8, pvo.getP_price());
+			pstmt.setString(9, pvo.getTheme());
+			pstmt.setString(10, pvo.getP_filename());
+			pstmt.setString(11, pvo.getP_picture());
+			pstmt.setInt(12, pvo.getP_idx());
+			row = pstmt.executeUpdate();
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBConn.close(conn, pstmt);
+		}
+		
+		
+		
+		
+		
+		return row;
+		
+	}
+	
+	public int plusReadcnt(String p_idx) {
+		Connection conn=null;
+		PreparedStatement pstmt = null;
+		
+		int row = 0;
+		
+		String query = "update into product set p_readcnt = p_readcnt + 1 where p_idx = ?";
+		
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(query);
+			row = pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		return row;
 	}
 }

@@ -12,7 +12,7 @@ import model.reserv.ProductDAO;
 import model.reserv.ProductVO;
 import service.Action;
 
-public class ProductViewAction implements Action {
+public class ProductModifyAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,13 +21,11 @@ public class ProductViewAction implements Action {
 		
 		ProductDAO dao = ProductDAO.getInstance();
 		
-		dao.plusReadcnt(p_idx);
-		
 		ProductVO pvo = dao.ProductView(p_idx);
 		
 		request.setAttribute("pvo", pvo);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/Product_view.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/UploadService/Product_Upload.jsp");
 		rd.forward(request, response);
 	}
 
