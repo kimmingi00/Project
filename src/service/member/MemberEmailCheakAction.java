@@ -17,7 +17,8 @@ public class MemberEmailCheakAction implements Action {
 		String email = request.getParameter("email");
 		EmailConfirm emailconf = new EmailConfirm();
 		String authNum = emailconf.connectEmail(email);
-		
+		int row=0;
+		request.setAttribute("row", row);
 		request.setAttribute("authNum", authNum);
 		request.setAttribute("email", email);
 		RequestDispatcher dispatcher =

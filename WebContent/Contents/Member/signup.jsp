@@ -82,18 +82,13 @@ function send() {
 
 }
 function busi_send() {
-	  var pass = business.pass.value;
+	  var pass = business.b_pass.value;
 
 	  if(business.b_name.value=="") {
 	    alert("이름은 필수 입력 사항입니다");
 	    business.b_name.focus();
 	    return;
 	  }
-	  if(business.b_number.value=="") {
-		    alert("사업자 번호를 입력해주세요 ");
-		    business.b_number.focus();
-		    return;
-		  }
 	  if(business.b_id.value=="") {
 	  alert("아이디를 입력해주세요");
 	  business.b_id.focus();
@@ -104,12 +99,12 @@ function busi_send() {
 	    alert("비밀번호는 6자에서 12자 이내입니다");
 	    business.b_pass.focus();
 	    return;
-	  }else if(pass!=business.repasswd.value) {
+	  }else if(pass!=business.b_repasswd.value) {
 	    alert("비밀번호를 확인해주세요");
 	    business.b_pass.focus();
 	    return;
 	  }
-	    else if(business.tel.value=="") {
+	    else if(business.b_tel.value=="") {
 	    alert("전화번호는 필수 입력 사항입니다");
 	    business.tel.focus();
 	    return;
@@ -176,13 +171,14 @@ function emailcheck2(b_email01, b_email02, b_selectEmail){
 
 <div class="container">
 
-	<form name="member" method="post" action="/MemberServlet?command=member_write_pro">
+	
 
     <ul class="tabs">
         <li><a href="#tab1"><font size="4" style="line-height: 50px; "><center><b>일반 회원가입</center></font></a></li>
         <li><a href="#tab2"><font size="4" style="line-height: 50px;"><center><b>사업자 회원가입</center></font></a></li>
     </ul>
     <div class="tab_container">
+    	<form name="member" method="post" action="/MemberServlet?command=member_write_pro">
         <div id="tab1" class="tab_content">
           <div class="box">
                   <center><font size="6">회원가입</font></center>
@@ -232,14 +228,15 @@ function emailcheck2(b_email01, b_email02, b_selectEmail){
 
                     <div class="inputBox">
                       <input type=button style="width:130px;" value="이메일 인증" onClick="emailcheck(member.str_email01.value, member.str_email02.value, member.selectEmail.value)">
-                      </div>
+                    </div>
 
                     <a href="javascript:send()"><input type="button" value="등록완료."  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" ></a>
                     <a href="javascript:cansel()"><input type="button" value="취소하기." style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" ></a>
 
                   
-                </div>
-        </div>
+          </div>
+      </div>
+      </form>
 
         <div id="tab2" class="tab_content">
           <br>
@@ -274,7 +271,7 @@ function emailcheck2(b_email01, b_email02, b_selectEmail){
 
                     <div class="inputBox">
                           <input type="text" name="b_email01" id="b_email01" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">@
-                            <input type="hidden" name="b_email"value=""></input> 
+                            <input type="hidden" name="b_email" value=""></input> 
                           <label><font size="4">이메일</font></label>
                           <input type="text" name="b_email02" id="b_email02" style="width:140px;" disabled value="naver.com">
                           <select name="b_selectEmail" id="b_selectEmail">

@@ -20,7 +20,7 @@ public class BusinessWriteProAction implements Action {
 		request.setCharacterEncoding("utf-8");
 		BusinessDAO dao=BusinessDAO.getInstance();
 		
-	String enctype="utf-8";
+	
 		
 		String b_tel=request.getParameter("b_tel");
 		String b_name =request.getParameter("b_name");
@@ -28,7 +28,7 @@ public class BusinessWriteProAction implements Action {
 		String b_pass =request.getParameter("b_pass");
 		String b_id=request.getParameter("b_id");
 		String b_number=request.getParameter("b_number");
-		int b_rating=Integer.parseInt(request.getParameter("b_rating"));
+		int b_rating=0;
 		String theme1[] = request.getParameterValues("them");
 		String them=null;
 		if (theme1 == null)
@@ -41,7 +41,7 @@ public class BusinessWriteProAction implements Action {
 				}
 			}
 		}
-		String reserv_num=request.getParameter("reserv_num");
+		
 		String str1[] = request.getParameterValues("fa");
 		String fa=null;
 		if (str1 == null)
@@ -67,8 +67,15 @@ public class BusinessWriteProAction implements Action {
 			
 			int row=dao.BusinessWrite(vo);
 			request.setAttribute("row", row);
-			RequestDispatcher rd=
-					request.getRequestDispatcher("Contents/Member/complete.jsp");
+			
+			RequestDispatcher rd = null;
+			
+			if(row==1) {
+				rd=request.getRequestDispatcher("Contents/Member/complete.jsp");
+			}else {
+				rd=request.getRequestDispatcher("/MemberServlet?command=member_login");
+			}
+			
 			rd.forward(request, response);
 	}
 	}

@@ -7,12 +7,12 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link href="cssfile.css" media="screen and (min-width: 1080px) and (max-width: 1920px)" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
-	<link rel="stylesheet" type="text/css" href="CSS/CSS_Index/reset.css">
-	<link rel="stylesheet" type="text/css" href="CSS/CSS_Index/hsilder.css">
-	<link rel="stylesheet" type="text/css" href="CSS/CSS_Index/default-style.css">
-	<link rel="stylesheet" type="text/css" href="CSS/CSS_Index/popup.css">
-	<script type="text/javascript" src="Index/index_js/jquery-2.0.3.min.js"></script>
-	<script type="text/javascript" src="Index/index_js/jquery.HSlider.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/Contents/CSS/CSS_Index/reset.css">
+	<link rel="stylesheet" type="text/css" href="/Contents/CSS/CSS_Index/hsilder.css">
+	<link rel="stylesheet" type="text/css" href="/Contents/CSS/CSS_Index/default-style.css">
+	<link rel="stylesheet" type="text/css" href="/Contents/CSS/CSS_Index/popup.css">
+	<script type="text/javascript" src="/Contents/Index/index_js/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="/Contents/Index/index_js/jquery.HSlider.min.js"></script>
 
 
 	<style type="text/css" media="screen and (min-width: 1080px) and (max-width:1920px)">
@@ -63,7 +63,7 @@
 	
 </style>
 
-	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="/Contents/js/jquery-1.11.0.min.js"></script>
 	<script>
 	$(document).ready(function() {
   $(".btn").click(function() {

@@ -2,6 +2,11 @@ package controller.member;
 
 
 import service.Action;
+import service.member.BusinessEmailCheakAction;
+import service.member.BusinessIdCheckAction;
+import service.member.BusinessLoginProAction;
+import service.member.BusinessWriteAction;
+import service.member.BusinessWriteProAction;
 
 
 public class BusinessActionFactory {
@@ -16,15 +21,17 @@ private static BusinessActionFactory instance=new BusinessActionFactory();
 	public Action getAction(String command) {
 		Action action=null;
 		if(command.contentEquals("business_write")) {
-		/*	action=new BusinessWriteAction();
+			action=new BusinessWriteAction();
 		}else if(command.contentEquals("business_write_pro")) {
 			action=new BusinessWriteProAction();
-			
+				
 		}else if(command.contentEquals("business_email")) {
 			action=new BusinessEmailCheakAction();
 		}else if(command.contentEquals("business_idCheck")) {
 			action=new BusinessIdCheckAction();
-		}*/
+		}else if(command.contentEquals("business_login_pro")) {
+			action=new BusinessLoginProAction();
+		}
 		
 		/*if(command.equals("business_list")) {
 			action=new businessListAction();	
@@ -48,7 +55,8 @@ private static BusinessActionFactory instance=new BusinessActionFactory();
 			action=new businessDeleteAction();
 		}else if(command.equals("business_delete_pro")){
 			action=new businessDeleteProAction();
-			}*/}
+			}*/
+		
 		return action;
 	
 	

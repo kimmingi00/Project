@@ -86,13 +86,13 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {background: #fff; borde
           <div class="box">
                   <center><font size="6">사업자 로그인</font></center>
                   <br>
-                  <form>
+                  <form  name="b_login" method="post" action="/BusinessServlet?command=business_login_pro">
                     <div class="inputBox">
-                      <input type="text" name="text" required onkeyup="this.setAttribute('value', this.value);"  value="">
+                      <input type="text" name="b_id" required onkeyup="this.setAttribute('value', this.value);"  value="">
                       <label><font size="4">BUSINESS ID</font></label>
                     </div>
                     <div class="inputBox">
-                          <input type="password" name="password" required onkeyup="this.setAttribute('value', this.value);" value="">
+                          <input type="password" name="b_pass" required onkeyup="this.setAttribute('value', this.value);" value="">
                           <label><font size="4">Password</font></label>
                         </div>
 

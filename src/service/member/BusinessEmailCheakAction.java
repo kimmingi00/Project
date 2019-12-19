@@ -17,9 +17,10 @@ public class BusinessEmailCheakAction implements Action {
 		String email = request.getParameter("email");
 		EmailConfirm emailconf = new EmailConfirm();
 		String authNum = emailconf.connectEmail(email);
-		
+		int row=1;
 		request.setAttribute("authNum", authNum);
 		request.setAttribute("email", email);
+		request.setAttribute("row", row);
 		RequestDispatcher dispatcher =
 				request.getRequestDispatcher("Contents/Member/Member_email.jsp");
 		dispatcher.forward(request, response);
