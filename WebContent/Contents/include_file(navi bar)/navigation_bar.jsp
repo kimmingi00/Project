@@ -83,7 +83,7 @@
 					<ul class="menu">
 						<li><a href="#"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="/Contents/Reservation/R_Business/upload_main.jsp"><font size="4">사업자 상품등록 </font>&nbsp; &nbsp; &nbsp;</a></li>
-						<li><a href="###"><font size="4">공지사항 </font>&nbsp; &nbsp; &nbsp;</a></li>
+						<li><a href="/BoardServlet?command=board_notice"><font size="4">공지사항 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="####"><font size="4">문의하기 </font>&nbsp; &nbsp; &nbsp;</a></li>
 					</ul>
 				</nav>
@@ -99,7 +99,12 @@
          		</ul>
 
       		</li>
-					<img src="/Contents/img/index_img/message.png">
+				<c:if test="${!empty id }">
+					<a href="/MessageServlet?command=MyMsgList&id=${ id }"><img src="img/index_img/message.png"></a>
+				</c:if>
+				<c:if test="${!empty b_id }">
+					<a href="/MessageServlet?command=MyMsgList&id=${ b_id }"><img src="img/index_img/message.png"></a>
+				</c:if>
 				</div>
 			</a>
 		</div>

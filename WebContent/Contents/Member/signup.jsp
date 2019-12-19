@@ -34,16 +34,11 @@ function cansel() {
 }
 
 function id_check() {
-  var user = member.userid.value;
-  if(user==""||user.length<5||user.length>16) {
-    alert("ID입력이 잘못되었습니다");
-    member.userid.focus();
-    return;
-  }
-  url = "id_check.do?userid="+user;
-  window.open(url,"ID_check", "width=350 height=250");
+		
+		url = "MemberServlet?command=member_idCheck&userid=";
+		window.open(url,"ID_check", "width=350 height=250");
 
-}
+	}
 
 function post_win() {
   url = "post_check.do";
@@ -114,8 +109,8 @@ function emailcheck(str_email01, str_email02, selectEmail){
   }else{
     email=str_email01+"@"+selectEmail;
   }
-  url = "userinfo_email.do?email=" + email;
-  window.open(url, "email 인증", "width=450 height=350");
+  url = "MemberServlet?command=member_email&email=" + email;
+	window.open(url, "email 인증", "width=450 height=350");
 }
 </script>
 
@@ -138,7 +133,7 @@ function emailcheck(str_email01, str_email02, selectEmail){
           <div class="box">
                   <center><font size="6">회원가입</font></center>
                   <br>
-                  <form name="member" method="post" action="####">
+                  <form name="member" method="post" action="MemberServlet?command=member_write_pro">
                     <div class="inputBox">
                       <input type="text" name="name" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
                       <label><font size="4">성명</font></label>성명은 빈칸없이 입력해주세요.
@@ -148,6 +143,7 @@ function emailcheck(str_email01, str_email02, selectEmail){
                   <div class="inputBox" >
                     <input type="text" name="userid" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
                     <label><font size="4">아이디</font></label>5~16자 이내의 영문, 숫자
+                    <a href="javascript:id_check()"><input type="button" value="중복확인"></a>
                   </div>
 
                     <div class="inputBox">
@@ -177,6 +173,7 @@ function emailcheck(str_email01, str_email02, selectEmail){
   				                <option value="nate.com">nate.com</option>
   				                <option value="yahoo.co.kr">yahoo.co.kr</option>
   				                <option value="gmail.com">gmail.com</option>
+  				          </select>      
                     </div>
 
                     <div class="inputBox">
@@ -238,6 +235,7 @@ function emailcheck(str_email01, str_email02, selectEmail){
   				                <option value="nate.com">nate.com</option>
   				                <option value="yahoo.co.kr">yahoo.co.kr</option>
   				                <option value="gmail.com">gmail.com</option>
+  				          </select>      
                     </div>
 
                     <div class="inputBox">
@@ -276,6 +274,20 @@ $(document).ready(function() {
 		var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
 		$(activeTab).fadeIn(); //Fade in the active content
 		return false;
+	});
+	
+	//이메일 입력방식 선택
+	$('#selectEmail').change(function(){
+	   $("#selectEmail option:selected").each(function () {
+
+			if($(this).val()== '1'){ //직접입력일 경우
+				 $("#str_email02").val('');                        //값 초기화
+				 $("#str_email02").attr("disabled",false); //활성화
+			}else{ //직접입력이 아닐경우
+				 $("#str_email02").val($(this).text());      //선택값 입력
+				 $("#str_email02").attr("disabled",true); //비활성화
+			}
+	   });
 	});
 
 });

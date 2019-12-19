@@ -1,6 +1,7 @@
-package controller.reserv;
+package controller.board;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,38 +10,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.Action;
 
-/**
- * Servlet implementation class ReservServlet
- */
-@WebServlet("/ReservServlet")
-public class ReservServlet extends HttpServlet {
+
+@WebServlet("/BoardServlet")
+public class BoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ReservServlet() {
+
+    public BoardServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
 		String command = request.getParameter("command");
-		ReservActionFactory af = ReservActionFactory.getInstance();
+		BoardActionFactory af = BoardActionFactory.getInstance();
 		Action action = af.getAction(command);
-		
 		if(action != null) {
 			action.execute(request, response);
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		doGet(request, response);

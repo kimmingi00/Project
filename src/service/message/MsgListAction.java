@@ -1,34 +1,34 @@
-package service.reserv;
+package service.message;
 
 import java.io.IOException;
-
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.reserv.ProductDAO;
-import model.reserv.ProductVO;
+import model.message.MessageDAO;
+import model.message.MessageVO;
 import service.Action;
 
-public class ProductViewAction implements Action {
+public class MsgListAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String p_idx = request.getParameter("p_idx");
 		
-		ProductDAO dao = ProductDAO.getInstance();
+		String id = request.getParameter("id");
 		
-		dao.plusReadcnt(p_idx);
+		MessageDAO dao = MessageDAO.getInstance();
 		
-		ProductVO pvo = dao.ProductView(p_idx);
+		List<MessageVO> mlist = dao.myReceiveMsgList(id);
 		
-		request.setAttribute("pvo", pvo);
+		request.setAttribute("mlist", mlist);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/Product_view.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Message/Message_main.jsp");
 		rd.forward(request, response);
+	
 	}
 
 }

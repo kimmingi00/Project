@@ -1,4 +1,4 @@
-package controller.reserv;
+package controller.message;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.reserv.ReservActionFactory;
 import service.Action;
 
 /**
- * Servlet implementation class ReservServlet
+ * Servlet implementation class MessageServlet
  */
-@WebServlet("/ReservServlet")
-public class ReservServlet extends HttpServlet {
+@WebServlet("/MessageServlet")
+public class MessageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReservServlet() {
+    public MessageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
