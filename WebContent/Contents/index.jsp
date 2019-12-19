@@ -63,6 +63,26 @@
 	
 </style>
 
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script>
+	$(document).ready(function() {
+  $(".btn").click(function() {
+    $(".modal").fadeIn();
+  });
+  $(".btn_close").click(function() {
+    $(".modal").fadeOut();
+  });
+});
+	</script>
+
+	<script type="text/javascript">
+		$(".slider").HSlider({
+			easing: 'ease',
+			animationTime: '400',
+			pagination: true
+		});
+	</script>
+
 </head>
 <body>
 
@@ -70,7 +90,7 @@
 		<div class = "nav">
 				<nav>
 						<ul class ="logo">
-							<li><font size="6"><a href="/Contents/index.jsp"> LOGO</font></a> </li>
+							<li><font size="6"><a href="/IndexServlet?command=index"> LOGO</font></a> </li>
 						</ul>
 					<ul class="menu">
 						<li><a href="#"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
@@ -84,18 +104,28 @@
 		<div class = "login">
 			<a href="###.jsp">
 				<div class="menubar">
-      		<li><a href="#" id="current"><img src="img/index_img/login.png"></a>
+      		<li style="color:white; margin-top:11px;"><c:if test="${!empty user.name }">${ user.name }님</c:if></li>
+      		<li>
+      			
+      			<a href="#" id="current"><img src="/Contents/img/index_img/login.png"></a>
+      			
          		<ul>
-           		<li><a href="Member/login.jsp">로그인</a></li>
-		          <li><a href="Member/confirm.jsp">회원가입</a></li>
+         		<c:if test="${empty user }">
+           			<li><a href="/MemberServlet?command=member_login">로그인</a></li>
+		        	<li><a href="/MemberServlet?command=member_confirm">회원가입</a></li>
+		        </c:if>
+		        <c:if test="${!empty user }">
+           			<li><a href="/MemberServlet?command=member_logout">로그아웃</a></li>
+		          	<li><a href="#">회원정보</a></li>
+		         </c:if> 
          		</ul>
 
       		</li>
       			<c:if test="${!empty id }">
-					<a href="/MessageServlet?command=MyMsgList&id=${ id }"><img src="img/index_img/message.png"></a>
+					<a href="/MessageServlet?command=MyMsgList&id=${ id }"><img src="/Contents/img/index_img/message.png"></a>
 				</c:if>
 				<c:if test="${!empty b_id }">
-					<a href="/MessageServlet?command=MyMsgList&id=${ b_id }"><img src="img/index_img/message.png"></a>
+					<a href="/MessageServlet?command=MyMsgList&id=${ b_id }"><img src="/Contents/img/index_img/message.png"></a>
 				</c:if>
 				</div>
 			</a>
@@ -135,7 +165,7 @@
 				 </div>
 
 					</article>
-				<img src="img/index_img/1.jpg" >
+				<img src="/Contents/img/index_img/1.jpg" >
 			</section>
 
 
@@ -156,7 +186,7 @@
 					<font size="5"><p> 물론 계정이 없더라도 서비스 이용이 가능하답니다.</p></font>
 					</center>
 				</article>
-				<img src="img/index_img/2.jpg" >
+				<img src="/Contents/img/index_img/2.jpg" >
 			</section>
 
 
@@ -177,31 +207,13 @@
 					</div>
 					</center>
 				</article>
-				<img src="img/index_img/3.jpg" >
+				<img src="/Contents/img/index_img/3.jpg" >
 			</section>
 
 
 		</div>
 	</div>
 
- <script src="js/jquery-1.11.0.min.js"></script>
-	<script>
-	$(document).ready(function() {
-  $(".btn").click(function() {
-    $(".modal").fadeIn();
-  });
-  $(".btn_close").click(function() {
-    $(".modal").fadeOut();
-  });
-});
-	</script>
 
-	<script type="text/javascript">
-		$(".slider").HSlider({
-			easing: 'ease',
-			animationTime: '400',
-			pagination: true
-		});
-	</script>
 </body>
 </html>

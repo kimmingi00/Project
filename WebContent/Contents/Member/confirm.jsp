@@ -24,9 +24,10 @@
   </script>
 </head>
 
+<!-- <form action="/MemberServlet?command=member_write" method="get" id="form1"> -->
 
 <body>
-<form action="signup.jsp" method="get" id="form1">
+<form action="/MemberServlet?command=member_write" method="post" id="form1">
 <div id="d1">
  <font size="6">
  <h2 align="center">SignUp</h2>
@@ -150,11 +151,14 @@ var doc = document;
   var c1 = doc.getElementById('c1');
   var c2 = doc.getElementById('c2');
   var c3 = doc.getElementById('c3');
+  
   function checkboxListener() {
    form1_data[this.name] = this.checked;
   }
+  
    c1.onclick = c2.onclick = c3.onclick = checkboxListener;
    var all = doc.getElementById('all');
+   
    all.onclick = function() {  //전체 체크를 누를 시 모든 체크박스 활성화
     if (this.checked) {
      setCheckbox(form1_data, true);
@@ -162,17 +166,7 @@ var doc = document;
      setCheckbox(form1_data, false);
     }
    };
-   function setCheckbox(obj, state) {
-    for (var x in obj) {
-     obj[x] = state;
-     for(var i = 0; i < inputs.length; i++) {
-      if(inputs[i].type == "checkbox") {
-       inputs[i].checked = state;
-      }
-     }
-
-    }
-   }
+ 
   form1.onsubmit = function(e) {
    e.preventDefault();
    if ( !form1_data['c1'] ) {

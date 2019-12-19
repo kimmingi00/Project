@@ -43,13 +43,13 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {background: #fff; borde
 					<div class="box">
 	                <center><font size="6">로그인</font></center>
 	                <br>
-	                <form>
+	                <form  name="login" method="post" action="/MemberServlet?command=member_login_pro">
 	                  <div class="inputBox">
-	                    <input type="text" name="text" required onkeyup="this.setAttribute('value', this.value);"  value="">
-	                    <label><font size="4">USER ID</font></label>
+	                    <input type="text" name="id" required onkeyup="this.setAttribute('value', this.value);"  value="">
+	                    <label><font size="4">ID</font></label>
 	                  </div>
 	                  <div class="inputBox">
-	                        <input type="password" name="password" required onkeyup="this.setAttribute('value', this.value);" value="">
+	                        <input type="password" name="pass" required onkeyup="this.setAttribute('value', this.value);" value="">
 	                        <label><font size="4">Password</font></label>
 	                      </div>
 
@@ -67,11 +67,11 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {background: #fff; borde
 	          <table>
 	            <tr>
 	              <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-	              <td><a href="confirm.jsp"><font size="4">회원가입</font></a></td>
+	              <td><a href="MemberServlet?command=member_confirm"><font size="4">회원가입</font></a></td>
 	              <td>&nbsp; | &nbsp; </td>
-	              <td><a href="#"><font size="3">아이디찾기</a></td>
+	              <td><a href="MemberServle?command=member_idSearch"><font size="3">아이디찾기</a></td>
 	              <td>&nbsp; | &nbsp;</td>
-	              <td><a href="#"><font size="3">비밀번호찾기</a></td>
+	              <td><a href=""><font size="3">비밀번호찾기</a></td>
 	            </tr>
 	          </table>
 	        </div>
@@ -110,7 +110,7 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {background: #fff; borde
             <table>
               <tr>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td><a href="confirm.jsp"><font size="4">회원가입</font></a></td>
+                <td><a href="MemberServlet?command=member_confirm"><font size="4">회원가입</font></a></td>
                 <td>&nbsp; | &nbsp; </td>
                 <td><a href="#"><font size="3">아이디찾기</a></td>
                 <td>&nbsp; | &nbsp;</td>
