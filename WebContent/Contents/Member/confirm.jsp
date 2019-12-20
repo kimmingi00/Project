@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,17 +13,8 @@
 
     </style>
 
-  <script>
-  $(function() {
-    $( "#accordion" ).accordion();
-    $('#accordion input[type="checkbox"]').click(function(e) {
-        e.stopPropagation();
-    });
-  });
-  </script>
 </head>
 
-<!-- <form action="/MemberServlet?command=member_write" method="get" id="form1"> -->
 
 <body>
 <form action="/MemberServlet?command=member_write" method="post" id="form1">
@@ -34,25 +24,25 @@
 </font>
 
   <tr>
-		<h1>
-			<center>
+      <h1>
+         <center>
    <td align="left"><font size="4">
-		 이용약관, 개인정보 수집 등 필수동의 항목에 모두 동의합니다.
+       이용약관, 개인정보 수집 등 필수동의 항목에 모두 동의합니다.
    <input type="checkbox" name="all" id="all" style="width:25px;height:25px;"><hr/></h3>
  </center>
-	 </font>
-	 </td>
+    </font>
+    </td>
   </tr>
  <div id="accordion">
 
-		 <center>
-			 <font size="4">
-			 개인정보취급방침 이용약관 동의 (필수)
-		 </font><input type="checkbox" name="c1" id="c1"/ style="width:20px;height:20px;"></a></h3>
+       <center>
+          <font size="4">
+          개인정보취급방침 이용약관 동의 (필수)
+       </font><input type="checkbox" name="c1" id="c1" style="width:20px;height:20px;"></a></h3>
 
-		 </center>
-		 <center>
-			 <textarea readonly="readonly" rows="8" cols="66">
+       </center>
+       <center>
+          <textarea readonly="readonly" rows="8" cols="66">
 제 1 조 (목적)
 
 이 약관은 네이버 주식회사 ("회사" 또는 "네이버")가 제공하는 네이버 및 네이버 관련 제반 서비스의 이용과 관련하여 회사와 회원과의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
@@ -68,15 +58,15 @@
 ⑤"유료서비스"라 함은 "회사"가 유료로 제공하는 각종 온라인디지털콘텐츠(각종 정보콘텐츠, VOD, 아이템 기타 유료콘텐츠를 포함) 및 제반 서비스를 의미합니다.
 ⑥"포인트"라 함은 서비스의 효율적 이용을 위해 회사가 임의로 책정 또는 지급, 조정할 수 있는 재산적 가치가 없는 "서비스" 상의 가상 데이터를 의미합니다.
 ⑦"게시물"이라 함은 "회원"이 "서비스"를 이용함에 있어 "서비스상"에 게시한 부호ㆍ문자ㆍ음성ㆍ음향ㆍ화상ㆍ동영상 등의 정보 형태의 글, 사진, 동영상 및 각종 파일과 링크 등을 의미합니다.
-	 </textarea>
-		 <center>
+    </textarea>
+       <center>
        <br>
 
-			 <font size="4">개인정보 수집 및 이용에 대한 안내 (필수)
-			 </font><input type="checkbox" name="c2" id="c2"/ style="width:20px;height:20px;"></a></h3>
-		</center>
+          <font size="4">개인정보 수집 및 이용에 대한 안내 (필수)
+          </font><input type="checkbox" name="c2" id="c2" style="width:20px;height:20px;"></a></h3>
+      </center>
    <div>
-		 <center>
+       <center>
      <textarea readonly="readonly" rows="8" cols="66">
 정보통신망법 규정에 따라 네이버에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
 
@@ -85,15 +75,15 @@
 
 이용자는 회원가입을 하지 않아도 정보 검색, 뉴스 보기 등 대부분의 네이버 서비스를 회원과 동일하게 이용할 수 있습니다. 이용자가 메일, 캘린더, 카페, 블로그 등과 같이 개인화 혹은 회원제 서비스를 이용하기 위해 회원가입을 할 경우, 네이버는 서비스 이용을 위해 필요한 최소한의 개인정보를 수집합니다.
    </textarea>
-	 </center>
+    </center>
    <br>
    </div>
 
-	 <center>
-			 <font size="4">위치정보 이용약관 동의 (선택)
-       </font><input type="checkbox" name="c3" id="c3"/ style="width:20px;height:20px;"></center></a>
+    <center>
+          <font size="4">위치정보 이용약관 동의 (선택)
+       </font><input type="checkbox" name="c3" id="c3" style="width:20px;height:20px;"></center></a>
    <div>
-		 <center>
+       <center>
      <textarea readonly="readonly" rows="8" cols="66">
 
 위치정보 이용약관에 동의하시면, 위치를 활용한 광고 정보 수신 등을 포함하는 네이버 위치기반 서비스를 이용할 수 있습니다.
@@ -120,65 +110,75 @@
  </div>
 
 <br>
-  <tr>
-		<center>
-   <td align="left"><font size="4"> 이벤트 등 프로모션 알림 메일 수신 (선택)</font>
- 	</td>
-   <td><input type="checkbox" name="c4" id="c4" style="width:20px;height:20px;"></td><hr/>
-	 </center>
-  </tr>
+<hr/>
 
   <br>
  <div align="center">
   <input type="submit" value="동의합니다."  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" >
   <input type="reset" value="동의하지않음." style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" >
  </div>
-   <br> 
+   <br>
 </div>
 
 </form>
 
-<!-- 체크박스 이벤트처리 -->
 <script>
-var doc = document;
-  var form1 = doc.getElementById('form1');
-  var inputs = form1.getElementsByTagName('INPUT');
-  var form1_data = {
-   "c1": false,
-   "c2": false,
-   "c3": false
-  };
-  var c1 = doc.getElementById('c1');
-  var c2 = doc.getElementById('c2');
-  var c3 = doc.getElementById('c3');
-  
-  function checkboxListener() {
-   form1_data[this.name] = this.checked;
-  }
-  
-   c1.onclick = c2.onclick = c3.onclick = checkboxListener;
-   var all = doc.getElementById('all');
-   
-   all.onclick = function() {  //전체 체크를 누를 시 모든 체크박스 활성화
-    if (this.checked) {
-     setCheckbox(form1_data, true);
-    } else {
-     setCheckbox(form1_data, false);
-    }
+   var doc = document;
+   var form1 = doc.getElementById('form1');
+   var inputs = form1.getElementsByTagName('INPUT');
+   var form1_data = {
+      "c1": false,
+      "c2": false,
+      "c3": false
+   }; // 창에 새로 들어왔을때 체크박스 3개는 무조건 false
+   var c1 = doc.getElementById('c1');
+   var c2 = doc.getElementById('c2');
+   var c3 = doc.getElementById('c3');
+   function checkboxListener() {
+      form1_data[this.name] = this.checked;
+      if(this.checked) {
+         // submit 할때 체크하지 않아 색이 변한 font 를 다시 원래 색으로 바꾸는 부분.
+         this.parentNode.style.color = "#000";
+      }
+   }
+      c1.onclick = c2.onclick = c3.onclick = checkboxListener;
+      var all = doc.getElementById('all');
+      all.onclick = function() {
+         if (this.checked) {
+            setCheckbox(form1_data, true);
+         } else {
+            setCheckbox(form1_data, false);
+         }
+      };
+      function setCheckbox(obj, state) {
+         for (var x in obj) {
+            obj[x] = state;
+            for(var i = 0; i < inputs.length; i++) {
+               if(inputs[i].type == "checkbox") {
+                  inputs[i].checked = state;
+               }
+            }
+         }
+      }
+
+   form1.onsubmit = function(e) {
+      e.preventDefault(); // 서브밋 될때 화면이 깜빡이지 않게 방지
+      if ( !form1_data['c1'] ) {
+         alert('개인정보취급방침 이용약관 동의를 해주세요.');
+         c1.parentNode.style.color = 'red';
+         return false;
+      }
+      if ( !form1_data['c2'] ) {
+         alert('개인정보 수집 및 이용약관 동의를 해주세요.');
+      c2.parentNode.style.color = 'red';
+         return false;
+      }
+      this.submit();
    };
- 
-  form1.onsubmit = function(e) {
-   e.preventDefault();
-   if ( !form1_data['c1'] ) {
-    alert('이용동의 약관에 동의하지 않았습니다.');
-    return false;
-   }
-   if ( !form1_data['c2'] ) {
-    alert('개인정보 수집 및 이용에 대한 안내를 동의하지 않았습니다.');
-    return false;
-   }
-   this.submit();
-  };
 </script>
+
+
+
+
 </body>
 </html>

@@ -136,4 +136,91 @@ public class BusinessDAO {
 					return id;
 				
 			}
+			
+			public BusinessVO getBusiness(String b_id) {
+				Connection conn = null;
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				
+				String query="select * from business where b_id=?";
+				
+				
+				BusinessVO bvo = new BusinessVO();
+				try {
+					conn = getConnection();
+					pstmt = conn.prepareStatement(query);
+					pstmt.setString(1, b_id);
+					rs = pstmt.executeQuery();
+					
+					while(rs.next()) {
+					bvo.setB_id(rs.getString("b_id"));
+					bvo.setB_email(rs.getString("b_email"));
+					bvo.setB_lastdate(rs.getString("b_lastdate"));
+					bvo.setB_name(rs.getString("b_name"));
+					bvo.setB_rating(rs.getInt("b_rating"));
+					bvo.setB_regdate(rs.getString("b_regdate"));
+					bvo.setB_tel(rs.getString("b_tel"));
+					
+					
+					}
+					
+					
+					
+					}catch(Exception e) {
+						e.printStackTrace();
+					}finally {try {
+						if(rs!=null) rs.close();
+						if(pstmt!=null) pstmt.close();
+						if(conn!=null) conn.close();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}	
+						
+					
+				}
+					return bvo;
+				
+			}
+			
+			public int BusinessLogin( String id, String pass) {
+				Connection conn=null;
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				String query = "select b_pass from business where b_id=?";
+				int row = 0;
+				try {
+					conn=getConnection();
+					pstmt = conn.prepareStatement(query);
+					pstmt.setString(1, id);
+					rs = pstmt.executeQuery();
+					if(rs.next()) {
+						String dbpass = rs.getString("b_pass");
+						if(dbpass.equals(pass)) {
+							query = "update business set b_lastdate=sysdate where b_id=?";
+							
+							pstmt = conn.prepareStatement(query);
+							pstmt.setString(1, id);
+							pstmt.executeUpdate();
+							row = 1;
+						} else {
+							row = 0;
+						}
+					} else {
+						row = -1;
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally  {
+					try {
+						if (rs != null)
+							rs.close();
+						if (pstmt != null)
+							pstmt.close();
+					} catch (Exception e) {
+						e.printStackTrace();
+					} 
+				}
+				
+				return row;
+			}	
 }

@@ -31,7 +31,7 @@ public class ProductDAO {
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(0, b_id);
+			pstmt.setString(1, b_id);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -72,7 +72,7 @@ public class ProductDAO {
 	public int productUpload(ProductVO pvo) {
 		Connection conn=null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		
 		
 		int row=0;
 

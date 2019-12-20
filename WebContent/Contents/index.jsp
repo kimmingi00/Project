@@ -63,7 +63,7 @@
 	
 </style>
 
-	<script src="/Contents/js/jquery-1.11.0.min.js"></script>
+	<script src="js/jquery-1.11.0.min.js"></script>
 	<script>
 	$(document).ready(function() {
   $(".btn").click(function() {
@@ -94,7 +94,7 @@
 						</ul>
 					<ul class="menu">
 						<li><a href="#"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
-						<li><a href="/Contents/Reservation/R_Business/upload_main.jsp"><font size="4">사업자 상품등록 </font>&nbsp; &nbsp; &nbsp;</a></li>
+						<li><a href="/ReservServlet?command=upload_main"><font size="4">사업자 상품등록 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="/BoardServlet?command=board_notice"><font size="4">공지사항 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="####"><font size="4">문의하기 </font>&nbsp; &nbsp; &nbsp;</a></li>
 					</ul>
@@ -104,27 +104,30 @@
 		<div class = "login">
 			<a href="###.jsp">
 				<div class="menubar">
-      		<li style="color:white; margin-top:11px;"><c:if test="${!empty user.name }">${ user.name }님</c:if></li>
+      		<li style="color:white; margin-top:11px;">
+      			<c:if test="${!empty user }">${ user.name }님</c:if>
+      			<c:if test="${!empty b_user }">${ b_user.b_name }님</c:if>
+      		</li>
       		<li>
       			
       			<a href="#" id="current"><img src="/Contents/img/index_img/login.png"></a>
       			
          		<ul>
-         		<c:if test="${empty user }">
+         		<c:if test="${empty user&&empty b_user }">
            			<li><a href="/MemberServlet?command=member_login">로그인</a></li>
 		        	<li><a href="/MemberServlet?command=member_confirm">회원가입</a></li>
 		        </c:if>
-		        <c:if test="${!empty user }">
+		        <c:if test="${!empty user||!empty b_user }">
            			<li><a href="/MemberServlet?command=member_logout">로그아웃</a></li>
 		          	<li><a href="#">회원정보</a></li>
 		         </c:if> 
          		</ul>
 
       		</li>
-      			<c:if test="${!empty id }">
+      			<c:if test="${!empty user }">
 					<a href="/MessageServlet?command=MyMsgList&id=${ id }"><img src="/Contents/img/index_img/message.png"></a>
 				</c:if>
-				<c:if test="${!empty b_id }">
+				<c:if test="${!empty b_user }">
 					<a href="/MessageServlet?command=MyMsgList&id=${ b_id }"><img src="/Contents/img/index_img/message.png"></a>
 				</c:if>
 				</div>

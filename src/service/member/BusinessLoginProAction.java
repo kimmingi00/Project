@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import KISA.SHA256;
-import model.member.MemberDAO;
-import model.member.MemberVO;
+import model.member.BusinessDAO;
+import model.member.BusinessVO;
 import service.Action;
 import sun.misc.BASE64Encoder;
 
@@ -18,21 +18,21 @@ public class BusinessLoginProAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberDAO dao=MemberDAO.getInstance();
+		BusinessDAO dao=BusinessDAO.getInstance();
 		request.setCharacterEncoding("utf-8");
 		String id=request.getParameter("b_id");
 		String pass=request.getParameter("b_pass");
 		SHA256 s = new SHA256(pass.getBytes());
 		BASE64Encoder Base64Encoder = new BASE64Encoder();
 		pass=Base64Encoder.encode(s.GetHashCode());
-		int row=dao.memberLogin(id, pass);	
+		int row=dao.BusinessLogin(id, pass);	
 		//request.setAttribute("row", row);
 
 		if(row==1) { 
-			MemberVO user = dao.getMember(id);
+			BusinessVO user = dao.getBusiness(id);
 			
 			HttpSession session = request.getSession(); 
-			session.setAttribute("user", user);
+			session.setAttribute("b_user", user);
 			session.setMaxInactiveInterval(1800); 
 			request.setAttribute("id", id);
 		

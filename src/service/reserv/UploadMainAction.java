@@ -12,16 +12,13 @@ import model.reserv.ProductDAO;
 import model.reserv.ProductVO;
 import service.Action;
 
-public class ProductUploadAction implements Action {
+public class UploadMainAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String b_id = request.getParameter("b_id");
 		
-		request.setAttribute("b_id", b_id);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/UploadService/Product_Upload.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/upload_main.jsp");
 		rd.forward(request, response);
 	}
 

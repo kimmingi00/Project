@@ -7,6 +7,7 @@ import service.reserv.ProductModifyProAction;
 import service.reserv.ProductUploadAction;
 import service.reserv.ProductUploadProAction;
 import service.reserv.ProductViewAction;
+import service.reserv.UploadMainAction;
 
 public class ReservActionFactory {
 	private static ReservActionFactory instance = new ReservActionFactory();
@@ -34,6 +35,8 @@ public class ReservActionFactory {
 			action = new ProductModifyAction();
 		}else if(command.equals("ProductModifyPro")) {
 			action = new ProductModifyProAction();
+		}else if(command.equals("upload_main")) {
+			action = new UploadMainAction();
 		}
 		
 		/* 

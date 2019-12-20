@@ -2,13 +2,8 @@ package model.member;
 
 public class BusinessVO {
 	private int b_rating;
-	private String b_id,b_name,b_pass,b_tel,b_email,b_regdate,b_lastdate,b_number;
-	public String getB_number() {
-		return b_number;
-	}
-	public void setB_number(String b_number) {
-		this.b_number = b_number;
-	}
+	private String b_id,b_name,b_pass,b_tel,b_email,b_regdate,b_lastdate;
+	
 	public int getB_rating() {
 		return b_rating;
 	}

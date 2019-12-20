@@ -68,6 +68,8 @@ public class ProductUploadProAction implements Action {
 		
 		row = dao.productUpload(pvo);
 		
+		System.out.println(row);
+		
 		request.setAttribute("row", row);
 		
 				

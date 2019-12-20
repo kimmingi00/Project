@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -92,18 +93,31 @@
 		<div class = "login">
 			<a href="###.jsp">
 				<div class="menubar">
-      		<li><a href="#" id="current"><img src="/Contents/img/index_img/login.png"></a>
+      		<li style="color:white; margin-top:11px;">
+      			<c:if test="${!empty user }">${ user.name }님</c:if>
+      			<c:if test="${!empty b_user }">${ b_user.b_name }님</c:if>
+      		</li>
+      		<li>
+      			
+      			<a href="#" id="current"><img src="/Contents/img/index_img/login.png"></a>
+      			
          		<ul>
-           		<li><a href="/Contents/Member/login.jsp">로그인</a></li>
-		          <li><a href="/Contents/Member/confirm.jsp">회원가입</a></li>
+         		<c:if test="${empty user&&empty b_user }">
+           			<li><a href="/MemberServlet?command=member_login">로그인</a></li>
+		        	<li><a href="/MemberServlet?command=member_confirm">회원가입</a></li>
+		        </c:if>
+		        <c:if test="${!empty user||!empty b_user }">
+           			<li><a href="/MemberServlet?command=member_logout">로그아웃</a></li>
+		          	<li><a href="#">회원정보</a></li>
+		         </c:if> 
          		</ul>
 
       		</li>
-				<c:if test="${!empty id }">
-					<a href="/MessageServlet?command=MyMsgList&id=${ id }"><img src="img/index_img/message.png"></a>
+      			<c:if test="${!empty user }">
+					<a href="/MessageServlet?command=MyMsgList&id=${ user.id }"><img src="/Contents/img/index_img/message.png"></a>
 				</c:if>
-				<c:if test="${!empty b_id }">
-					<a href="/MessageServlet?command=MyMsgList&id=${ b_id }"><img src="img/index_img/message.png"></a>
+				<c:if test="${!empty b_user }">
+					<a href="/MessageServlet?command=MyMsgList&id=${ b_user.b_id }"><img src="/Contents/img/index_img/message.png"></a>
 				</c:if>
 				</div>
 			</a>

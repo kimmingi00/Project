@@ -27,7 +27,7 @@ public class BusinessWriteProAction implements Action {
 		String b_email =request.getParameter("b_email");
 		String b_pass =request.getParameter("b_pass");
 		String b_id=request.getParameter("b_id");
-		String b_number=request.getParameter("b_number");
+		
 		int b_rating=0;
 		String theme1[] = request.getParameterValues("them");
 		String them=null;
@@ -60,7 +60,7 @@ public class BusinessWriteProAction implements Action {
 			vo.setB_email(b_email);
 			vo.setB_id(b_id);
 			vo.setB_name(b_name);
-			vo.setB_number(b_number);
+			
 			vo.setB_pass(Base64Encoder.encode(s.GetHashCode()));
 			vo.setB_rating(b_rating);
 			vo.setB_tel(b_tel);
