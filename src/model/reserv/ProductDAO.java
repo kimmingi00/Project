@@ -115,7 +115,7 @@ public class ProductDAO {
 		
 	}
 	
-	public ProductVO ProductView(String p_idx) {
+	public ProductVO ProductView(int p_idx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -126,7 +126,7 @@ public class ProductDAO {
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(0, p_idx);
+			pstmt.setInt(1, p_idx);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -207,7 +207,7 @@ public class ProductDAO {
 		
 	}
 	
-	public int plusReadcnt(String p_idx) {
+	public int plusReadcnt(int p_idx) {
 		Connection conn=null;
 		PreparedStatement pstmt = null;
 		
@@ -218,6 +218,7 @@ public class ProductDAO {
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, p_idx);
 			row = pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();

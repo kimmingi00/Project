@@ -114,10 +114,10 @@
 
       		</li>
       			<c:if test="${!empty user }">
-					<a href="/MessageServlet?command=MyMsgList&id=${ user.id }"><img src="/Contents/img/index_img/message.png"></a>
+					<a href="/MessageServlet?command=MyMsgList&id=${ user.id }&user_num=1"><img src="/Contents/img/index_img/message.png"></a>
 				</c:if>
 				<c:if test="${!empty b_user }">
-					<a href="/MessageServlet?command=MyMsgList&id=${ b_user.b_id }"><img src="/Contents/img/index_img/message.png"></a>
+					<a href="/MessageServlet?command=MyMsgList&id=${ b_user.b_id }&user_num=2"><img src="/Contents/img/index_img/message.png"></a>
 				</c:if>
 				</div>
 			</a>

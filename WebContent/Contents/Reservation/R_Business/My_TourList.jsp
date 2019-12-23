@@ -13,7 +13,7 @@
 			<div class="list_cont">
 				<ul>
 					<li>
-						<a href="/Contents/Reservation/R_Business/My_TourCont.jsp?p_idx=${mlist.p_idx}">${mlist.p_title}</a>
+						<a href="/ReservServlet?command=ProductView&p_idx=${mlist.p_idx}">${mlist.p_title}</a>
 					</li>
 					<li>
 						<img src="" alt="">

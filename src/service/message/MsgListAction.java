@@ -18,11 +18,21 @@ public class MsgListAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String id = request.getParameter("id");
-		
+		String receive_id = request.getParameter("id");
+		int user_num = Integer.parseInt(request.getParameter("user_num"));
 		MessageDAO dao = MessageDAO.getInstance();
+		List<MessageVO> mlist = null;
+		if(user_num==1) {
+			String id=receive_id;
+			
+			
+		mlist = dao.myReceiveMsgList1(receive_id, id);
+		}else {
+			String b_id=receive_id;
+		mlist = dao.myReceiveMsgList2(receive_id, b_id);
+		}
 		
-		List<MessageVO> mlist = dao.myReceiveMsgList(id);
+		
 		
 		request.setAttribute("mlist", mlist);
 		

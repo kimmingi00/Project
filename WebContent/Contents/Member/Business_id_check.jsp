@@ -18,12 +18,13 @@ td   { font-family: 돋움, Verdana; font-size: 9pt; text-decoration: none; colo
 			frm.id.focus();
 			return;
 		}
-		frm.action="/MemberServlet?command=member_idCheckPro";
+		frm.action="/BusinessServlet?command=business_idCheckPro";
 		frm.submit();
 	}
 	function win_close(){
-		opener.member.id.value=frm.id2.value;
-		opener.member.check.value=1;
+		opener.business.b_id.value=frm.id2.value;
+		opener.business.b_check.value=1;
+		
 		self.close();
 	}
 </script>
@@ -52,7 +53,7 @@ td   { font-family: 돋움, Verdana; font-size: 9pt; text-decoration: none; colo
     	<BR><FONT COLOR="#483cae"><b>${ id }</b></FONT>는 이미 사용 중인 아이디입니다<br>
     	다른 아이디를 사용하여 주십시오.
 	</c:if>
-	<form name="frm" method="post" action="MemberServlet?command=member_idCheckPro"  >
+	<form name="frm" method="post" action="/BusinessServlet?command=business_idCheckPro"  >
            <INPUT NAME=id type=text size=16 maxlength=16 value="${ id }">
       	   <input type=image src="Contents/img/u_bt08.gif" border=0 vspace=0 onclick="id_check()">
       	   <input type=hidden name="id2" value="${ id }">

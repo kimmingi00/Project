@@ -34,11 +34,18 @@ function cansel() {
 }
 
 function id_check() {
-  	
-  url = "/MemberServlet?command=member_idCheck";
+  var id = member.id.value;	
+  url = "/MemberServlet?command=member_idCheck&id="+id;
   window.open(url,"ID_check", "width=350 height=250");
 
 }
+
+function b_id_check() {
+	var id = business.b_id.value;			
+	  url = "/BusinessServlet?command=business_idCheck&id="+id;
+	  window.open(url,"b_ID_check", "width=350 height=250");
+
+	}
 
 
 function send() {
@@ -54,9 +61,10 @@ function send() {
   alert("아이디를 입력해주세요");
   member.id.focus();
   return;
-  }
-
-  else if(pass.length<6) {
+  }else if(member.check.value==0) {
+	    alert("ID 중복체크를 실시해주세요");
+	    return;
+	  }else if(pass.length<6) {
     alert("비밀번호는 6자에서 12자 이내입니다");
     member.pass.focus();
     return;
@@ -75,7 +83,10 @@ function send() {
   alert("이메일을 입력해주세요");
   member.str_email01.focus();
   return;
-  }
+  }else if(member.email_check.value=="0") {
+	  alert("이메일 인증을 실시해주세요");
+	  return;
+	  }
 
 
   member.submit();
@@ -93,9 +104,10 @@ function busi_send() {
 	  alert("아이디를 입력해주세요");
 	  business.b_id.focus();
 	  return;
-	  }
-
-	  else if(pass.length<6) {
+	  }else if(business.b_check.value==0) {
+	  alert("ID 중복체크를 실시해주세요");
+	  return;
+	  }else if(pass.length<6) {
 	    alert("비밀번호는 6자에서 12자 이내입니다");
 	    business.b_pass.focus();
 	    return;
@@ -114,7 +126,10 @@ function busi_send() {
 	  alert("이메일을 입력해주세요");
 	  business.b_email01.focus();
 	  return;
-	  }
+	  }else if(business.b_email_check.value=="0") {
+		  alert("이메일 인증을 실시해주세요");
+		  return;
+		  }
 
 business.submit();
 
@@ -194,6 +209,7 @@ function emailcheck2(b_email01, b_email02, b_selectEmail){
                     <input type="text" name="id" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
                     <label><font size="4">아이디</font></label>5~16자 이내의 영문, 숫자
                     <input type= "button" value="중복검사" onClick="javascript:id_check()"></input>
+                    <input type= "hidden" name="check" value="0"></input> 
                   </div>
 
                     <div class="inputBox">
@@ -225,11 +241,11 @@ function emailcheck2(b_email01, b_email02, b_selectEmail){
   				                <option value="yahoo.co.kr">yahoo.co.kr</option>
   				                <option value="gmail.com">gmail.com</option>
                     </div>
-
+					
                     <div class="inputBox">
                       <input type=button style="width:130px;" value="이메일 인증" onClick="emailcheck(member.str_email01.value, member.str_email02.value, member.selectEmail.value)">
                     </div>
-
+					<input type="hidden" name="email_check" value="0">
                     <a href="javascript:send()"><input type="button" value="등록완료."  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" ></a>
                     <a href="javascript:cansel()"><input type="button" value="취소하기." style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" ></a>
 
@@ -252,6 +268,8 @@ function emailcheck2(b_email01, b_email02, b_selectEmail){
                   <div class="inputBox" >
                     <input type="text" name="b_id" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
                     <label><font size="4">아이디</font></label>5~16자 이내의 영문, 숫자
+                    <input type= "button" value="중복검사" onClick="javascript:b_id_check()"></input>
+                  	<input type= "text" name="b_check" value="0"></input> 
                   </div>
 
                     <div class="inputBox">
@@ -282,11 +300,13 @@ function emailcheck2(b_email01, b_email02, b_selectEmail){
   				                <option value="nate.com">nate.com</option>
   				                <option value="yahoo.co.kr">yahoo.co.kr</option>
   				                <option value="gmail.com">gmail.com</option>
+  				          </select>      
                     </div>
 
                     <div class="inputBox">
                       <input type=button style="width:130px;" value="이메일 인증" onClick="emailcheck2(b_email01.value, b_email02.value, b_selectEmail.value)">
                       </div>
+                      <input type="hidden" name="b_email_check" value="0"></input>
 
                     <a href="javascript:busi_send()"><input type="button" value="등록완료."  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" ></a>
                     <a href="javascript:cansel()"><input type="button" value="취소하기." style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" ></a>

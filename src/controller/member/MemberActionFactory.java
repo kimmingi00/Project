@@ -4,6 +4,7 @@ import service.Action;
 import service.member.MemberConfirmAction;
 import service.member.MemberEmailCheakAction;
 import service.member.MemberIdCheckAction;
+import service.member.MemberIdCheckProAction;
 import service.member.MemberLoginAction;
 import service.member.MemberLoginProAction;
 import service.member.MemberLogoutAction;
@@ -33,6 +34,8 @@ private static MemberActionFactory instance=new MemberActionFactory();
 			action=new MemberEmailCheakAction();
 		}else if(command.contentEquals("member_idCheck")) {
 			action=new MemberIdCheckAction();
+		}else if(command.contentEquals("member_idCheckPro")) {
+			action=new MemberIdCheckProAction();
 		}else if(command.contentEquals("member_login")) {
 			action=new MemberLoginAction();
 		}else if(command.contentEquals("member_login_pro")) {

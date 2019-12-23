@@ -17,7 +17,7 @@ public class ProductViewAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String p_idx = request.getParameter("p_idx");
+		int p_idx = Integer.parseInt(request.getParameter("p_idx"));
 		
 		ProductDAO dao = ProductDAO.getInstance();
 		
@@ -27,7 +27,7 @@ public class ProductViewAction implements Action {
 		
 		request.setAttribute("pvo", pvo);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/Product_view.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/My_Tour_Cont.jsp");
 		rd.forward(request, response);
 	}
 

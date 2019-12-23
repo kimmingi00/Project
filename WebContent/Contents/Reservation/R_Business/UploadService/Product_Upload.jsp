@@ -1,17 +1,23 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>회원가입</title>
+    <title>상품 업로드</title>
     <link rel="stylesheet" href="/Contents/Index/jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="/Contents/Index/jquery-ui-1.12.1/jquery-ui.min.js"></script>
     <script src="/Contents/Index/jquery-ui-1.12.1/datepicker-ko.js"></script>
     <link rel="stylesheet" href="/Contents/CSS/CSS_Member/signupstyle.css">
-
+    <style type="text/css">
+      body{
+        margin-top: 17%;
+      }
+    </style>
     <script>
     //캘린더 함수
     $(function() {
@@ -24,7 +30,7 @@
     function send(){
       if(member.p_title.value==""){
         alert("관광상품의 이름을 적어주세요");
-        member.p_title.focus();
+        member.p_tile.focus();
         return false;
       }
       if(member.p_contents.value==""){
@@ -56,29 +62,18 @@
     }
 
     //Row 추가
-    function addRow(){
-       mytable = document.getElementById('insert');  //행을 추가할 테이블
-       row = mytable.insertRow(mytable.rows.length);  //추가할 행
+    function add_div(){
+    var div = document.createElement('div');
 
-       cell1 = row.insertCell(0);  //실제 행 추가 여기서의 숫자는 컬럼 수
-       cell2 = row.insertCell(1);
+    div.innerHTML = document.getElementById('p_in').innerHTML;
+    document.getElementById('field').appendChild(div);
+  }
+    //Row　삭제
+    function remove_div(obj){
+    document.getElementById('field').removeChild(obj.parentNode);
 
-
-       cell1.innerHTML = "<input type='text' name='place1' align=right> <input type=button value='삭제' onclick='delItem();'> "; //추가한 행에 원하는  요소추가
-    }
-
-    //Row 삭제
-    function delItem(){
-      var lo_table = document.getElementById("insert");
-      var row_index = lo_table.rows.length-1;      // 테이블(TR) row 개수
-
-      if(row_index > 0) lo_table.deleteRow(row_index);
-    }
-
+  }
     </script>
-    <style>
-    body {margin-top:17%;}
-    </style>
 
 </head>
 
@@ -106,13 +101,17 @@
                         <input type="text" name="p_outdate" id="datepicker2" style="width:180px;"required onkeyup="this.setAttribute('value', this.value);" value="">
                         <label><font size="4">도착일자</font></label>
                   </div>
-                  <table class="insert">
-                    <div class="inputBox">
+
+                  <div class="inputBox" id="p_in">
                           <input type="text" name="p_in" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
                           <label><font size="4">탑승지</font></label>
-                          <input type="button" value="추가"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" >
-                    </div>
-                </table>
+                          <input type="button" value="지역추가"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" onclick="add_div()">
+                          <input type="button" value="삭제"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" onclick="remove_div(this)">
+                  </div>
+
+                  <div class="inputBox" id="field">
+
+                  </div>
 
                   <div class="inputBox">
                         <input type="text" name="p_out" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
@@ -133,16 +132,16 @@
                     <span><font size="4">테마</font></span>
                     <br><br>
                     <div class="sub-thema">
-                      <input type="checkbox" name="tema" value="팀장은 김민기">팀장은 김민기
-                      <input type="checkbox" name="tema" value="팀장은 김민기">팀장은 김민기
-                      <input type="checkbox" name="tema" value="팀장은 김민기">팀장은 김민기
+                      <input type="checkbox" name="thema" value="팀장은 김민기">팀장은 김민기
+                      <input type="checkbox" name="thema" value="팀장은 김민기">팀장은 김민기
+                      <input type="checkbox" name="thema" value="팀장은 김민기">팀장은 김민기
                     </div>
                   </div>
 
                   <div class="thema">
                     <label><font size="4">첨부파일</font></label>
                     <br><br>
-                    <input type="file" name="file" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
+                    <input type="file" name="p_filename" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
                   </div>
 
                   <input type="button" value="등록"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" onclick="send();">

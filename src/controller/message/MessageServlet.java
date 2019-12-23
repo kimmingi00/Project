@@ -31,7 +31,7 @@ public class MessageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String command = request.getParameter("command");
-		ReservActionFactory af = ReservActionFactory.getInstance();
+		MessageActionFactory af = MessageActionFactory.getInstance();
 		Action action = af.getAction(command);
 		
 		if(action != null) {

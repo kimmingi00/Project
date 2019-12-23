@@ -4,6 +4,7 @@ package controller.member;
 import service.Action;
 import service.member.BusinessEmailCheakAction;
 import service.member.BusinessIdCheckAction;
+import service.member.BusinessIdCheckProAction;
 import service.member.BusinessLoginProAction;
 import service.member.BusinessWriteAction;
 import service.member.BusinessWriteProAction;
@@ -29,6 +30,8 @@ private static BusinessActionFactory instance=new BusinessActionFactory();
 			action=new BusinessEmailCheakAction();
 		}else if(command.contentEquals("business_idCheck")) {
 			action=new BusinessIdCheckAction();
+		}else if(command.contentEquals("business_idCheckPro")) {
+			action=new BusinessIdCheckProAction();
 		}else if(command.contentEquals("business_login_pro")) {
 			action=new BusinessLoginProAction();
 		}

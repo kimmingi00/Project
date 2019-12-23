@@ -23,19 +23,62 @@ public class MessageDAO {
 	
 	
 	
-	public List<MessageVO> mySendMsgList(String send_id) {
+	public List<MessageVO> myReceiveMsgList1(String receive_id, String id) {
 		List<MessageVO> mList = new ArrayList<MessageVO>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String query = "select * from message where send_id = ?";
+		String query = "select * from message where receive_id = ? and id = ?";
 		
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, send_id);
+			pstmt.setString(1, receive_id);
+			pstmt.setString(2, id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MessageVO mvo = new MessageVO();
+				mvo.setB_id(rs.getString("b_id"));
+				mvo.setSend_id(rs.getString("send_id"));
+				mvo.setId(rs.getString("id"));
+				mvo.setTitle(rs.getString("title"));
+				mvo.setContents(rs.getString("contents"));
+				mvo.setReceive_id(rs.getString("receive_id"));
+				mvo.setReadcnt(rs.getInt("readcnt"));
+				mvo.setM_idx(rs.getInt("m_idx"));
+				mvo.setRegdate(rs.getString("regdate"));
+				
+				mList.add(mvo);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBConn.close(conn, pstmt, rs);
+		}
+		
+		
+		
+		return mList;
+	}
+	
+	public List<MessageVO> myReceiveMsgList2(String receive_id, String b_id) {
+		List<MessageVO> mList = new ArrayList<MessageVO>();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String query = "select * from message where receive_id = ? and b_id = ?";
+		
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, receive_id);
+			pstmt.setString(2, b_id);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -144,7 +187,7 @@ public class MessageDAO {
 		return row;
 	}
 	
-	public MessageVO msgView(String m_idx) {
+	public MessageVO msgView(int m_idx) {
 		MessageVO mvo = null;
 		
 		Connection conn = null;
@@ -156,7 +199,7 @@ public class MessageDAO {
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, m_idx);
+			pstmt.setInt(1, m_idx);
 			rs = pstmt.executeQuery();
 			
 			
@@ -214,5 +257,36 @@ public class MessageDAO {
 		
 		return row;
 		
+	}
+	
+	public int msgReadcnt(int m_idx) {
+		int row=0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		
+		String query = "update message set readcnt = readcnt + 1 where m_idx = ?";
+		
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, m_idx);
+			
+			row = pstmt.executeUpdate();
+			
+			
+			
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+		
+		}
+		
+		
+		
+		return row;
 	}
 }
