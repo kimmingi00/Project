@@ -19,7 +19,10 @@
 						<img src="" alt="">
 					</li>
 					<li>
-						출발일 &nbsp;${mlist.p_in}/종료일&nbsp;${mlist.p_out}
+						출발일 &nbsp;${mlist.p_indate.substring(0,10)}/종료일&nbsp;${mlist.p_outdate.substring(0,10)}
+					</li>
+					<li>
+						출발지 &nbsp;${mlist.p_in}/도착지&nbsp;${mlist.p_out}
 					</li>
 					<li>
 						예약인원&nbsp;${mlist.p_reservpeople}명/${mlist.p_maxpeople}명

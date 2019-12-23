@@ -34,7 +34,7 @@ public class BusinessIdCheckProAction implements Action {
 		request.setAttribute("id", id);
 		request.setAttribute("row", row);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("Contents/Member/Member_id_check.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("Contents/Member/Business_id_check.jsp");
 		rd.forward(request, response);
 		
 	}

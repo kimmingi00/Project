@@ -23,20 +23,19 @@ public class MessageDAO {
 	
 	
 	
-	public List<MessageVO> myReceiveMsgList1(String receive_id, String id) {
+	public List<MessageVO> myReceiveMsgList(String receive_id) {
 		List<MessageVO> mList = new ArrayList<MessageVO>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String query = "select * from message where receive_id = ? and id = ?";
+		String query = "select * from message where receive_id = ? order by regdate desc";
 		
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, receive_id);
-			pstmt.setString(2, id);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -72,7 +71,7 @@ public class MessageDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String query = "select * from message where receive_id = ? and b_id = ?";
+		String query = "select * from message where receive_id = ? and b_id = ? order by regdate desc";
 		
 		try {
 			conn = DBConn.getConnection();
@@ -107,19 +106,19 @@ public class MessageDAO {
 		return mList;
 	}
 	
-	public List<MessageVO> myReceiveMsgList(String receive_id) {
+	public List<MessageVO> mySendMsgList(String send_id) {
 		List<MessageVO> mList = new ArrayList<MessageVO>();
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String query = "select * from message where receive_id = ?";
+		String query = "select * from message where send_id = ? order by regdate desc";
 		
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, receive_id);
+			pstmt.setString(1, send_id);
 			rs = pstmt.executeQuery();
 			
 			
@@ -226,7 +225,7 @@ public class MessageDAO {
 		return mvo;
 	}
 	
-	public int msgDelete(String m_idx) {
+	public int msgDelete(int m_idx) {
 		int row=0;
 		
 		Connection conn = null;
@@ -238,7 +237,7 @@ public class MessageDAO {
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, m_idx);
+			pstmt.setInt(1, m_idx);
 			
 			
 			row = pstmt.executeUpdate();

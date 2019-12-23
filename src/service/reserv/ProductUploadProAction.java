@@ -44,8 +44,10 @@ public class ProductUploadProAction implements Action {
 		String p_out = multi.getParameter("p_out"); //목적지
 		int p_maxpeople = Integer.parseInt(multi.getParameter("p_maxpeople")); //최대 인원
 		int p_price = Integer.parseInt(multi.getParameter("p_price")); //가격
-		String[] tema = multi.getParameterValues("tema"); //테마
+		String[] tema = multi.getParameterValues("thema"); //테마
 		String p_filename = multi.getParameter("filename"); //파일 이름
+		
+		System.out.println(p_in);
 		
 		String theme="";
 		

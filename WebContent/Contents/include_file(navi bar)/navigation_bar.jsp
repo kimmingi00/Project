@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link href="cssfile.css" media="screen and (min-width: 1080px) and (max-width: 1920px)" rel="stylesheet">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 	<link rel="stylesheet" type="text/css" href="/Contents/CSS/CSS_Index/hsilder(navi).css">
 	
 

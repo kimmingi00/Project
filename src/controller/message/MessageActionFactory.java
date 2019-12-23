@@ -4,7 +4,9 @@ import service.Action;
 import service.message.MsgDeleteAction;
 import service.message.MsgListAction;
 import service.message.MsgSendAction;
+import service.message.MsgSendListAction;
 import service.message.MsgSendProAction;
+import service.message.MsgSendViewAction;
 import service.message.MsgViewAction;
 
 public class MessageActionFactory {
@@ -32,6 +34,10 @@ public class MessageActionFactory {
 			action = new MsgViewAction();
 		}else if(command.equals("MsgDelete")) {
 			action = new MsgDeleteAction();
+		}else if(command.equals("MsgSendList")) {
+			action = new MsgSendListAction();
+		}else if(command.equals("MsgSendView")) {
+			action = new MsgSendViewAction();
 		}
 		
 		/* 

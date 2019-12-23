@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -23,6 +24,9 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {background: #fff; borde
 .tab_content {padding: 20px;}
 .tab_content h3 a{color: #254588;}
 .tab_content img {float: left;	margin: 0 20px 20px 0; padding: 5px;}
+
+
+
 </style>
 </head>
 
@@ -118,13 +122,11 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {background: #fff; borde
               </tr>
             </table>
           </div>
-
+          
+          
+          
         </div>
 
-
-
-    </div>
-</div>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -149,6 +151,12 @@ $(document).ready(function() {
 
 });
 </script>
-
+<c:if  test="${row==0 }">
+	<p style="text-align:center; color:red;">비밀번호가 틀립니다</p>
+</c:if>
+<c:if  test="${row==-1 }">
+	<p style="text-align:center; color:red;">아이디가 틀립니다</p>
+</c:if>
 </body>
+
 </html>

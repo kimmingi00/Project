@@ -1,6 +1,7 @@
 package service.message;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,37 +9,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.message.MessageDAO;
+import model.message.MessageVO;
 import service.Action;
 
-public class MsgDeleteAction implements Action {
+public class MsgSendListAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String s_idx = request.getParameter("idx");
-		String id = request.getParameter("id");
-		
-		String[] s_idx_array = s_idx.split(",");
-		int[] idx_array = new int[s_idx_array.length];
-		for(int i=0; i<idx_array.length; i++) {
-			idx_array[i]=Integer.parseInt(s_idx_array[i]);
-		}
+		String send_id = request.getParameter("id");
 		
 		MessageDAO dao = MessageDAO.getInstance();
+		List<MessageVO> mlist = dao.mySendMsgList(send_id);
+				
 		
-		for(int i=0; i<idx_array.length; i++) {
-			dao.msgDelete(idx_array[i]);
-		}
 		
-		request.setAttribute("id", id);
+		request.setAttribute("mlist", mlist);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/MessageServlet?command=MyMsgList");
+		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Message/My_Send_Message.jsp");
 		rd.forward(request, response);
-		
-		
-		
-
+	
 	}
 
 }

@@ -269,7 +269,7 @@ function emailcheck2(b_email01, b_email02, b_selectEmail){
                     <input type="text" name="b_id" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
                     <label><font size="4">아이디</font></label>5~16자 이내의 영문, 숫자
                     <input type= "button" value="중복검사" onClick="javascript:b_id_check()"></input>
-                  	<input type= "text" name="b_check" value="0"></input> 
+                  	<input type= "hidden" name="b_check" value="0"></input> 
                   </div>
 
                     <div class="inputBox">

@@ -18,6 +18,7 @@ td   { font-family: 돋움, Verdana; font-size: 9pt; text-decoration: none; colo
 			frm.id.focus();
 			return;
 		}
+		
 		frm.action="/BusinessServlet?command=business_idCheckPro";
 		frm.submit();
 	}
@@ -26,15 +27,16 @@ td   { font-family: 돋움, Verdana; font-size: 9pt; text-decoration: none; colo
 		opener.business.b_check.value=1;
 		
 		self.close();
+		
 	}
 </script>
 </HEAD>
 <BODY bgcolor="#FFFFFF">
 <TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=330>
   <TR BGCOLOR=#7AAAD5>
-    <td align=left><img src="Contents/img/u_b02.gif"></td>
-    <td align=center><FONT COLOR="#FFFFFF"><b>아이디 중복 체크</FONT></td>
-    <td align=right><img src="Contents/img/u_b03.gif"></td>
+   
+    <td align=center><FONT COLOR="#FFFFFF"><b>사업자 아이디 중복 체크</FONT></td>
+ 
   </tr>
 </table>
 <TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=330>
@@ -55,7 +57,7 @@ td   { font-family: 돋움, Verdana; font-size: 9pt; text-decoration: none; colo
 	</c:if>
 	<form name="frm" method="post" action="/BusinessServlet?command=business_idCheckPro"  >
            <INPUT NAME=id type=text size=16 maxlength=16 value="${ id }">
-      	   <input type=image src="Contents/img/u_bt08.gif" border=0 vspace=0 onclick="id_check()">
+      	   <a href="javascript:id_check()"><input type="button" value="ID찾기"></a>
       	   <input type=hidden name="id2" value="${ id }">
 	</form>
         </TD>
@@ -67,12 +69,10 @@ td   { font-family: 돋움, Verdana; font-size: 9pt; text-decoration: none; colo
 
 <TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=330>
   <TR BGCOLOR=#7AAAD5>
-    <td align=left><img src="Contents/img/u_b04.gif"></td>
-    <td align=right><img src="Contents/img/u_b05.gif"></td>
   </tr>
   <tr>
     <td colspan=3 align=center>
-      <a href="javascript:win_close()"><img src="Contents/img/u_bt13.gif" border=0 vspace=5></a>
+      <a href="javascript:win_close()"><input type="button" value="닫기"></a>
     </td>
   </tr>
 </table>

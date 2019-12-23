@@ -20,6 +20,7 @@
 	
 	.msg_table th {width:250px;}
 	.msg_ul {font-size:20px; margin-bottom:5%;}
+	h2 {text-align:center;}
 	
 	
 </style>

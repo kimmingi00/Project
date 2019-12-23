@@ -1,7 +1,6 @@
 package service.message;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,27 +11,25 @@ import model.message.MessageDAO;
 import model.message.MessageVO;
 import service.Action;
 
-public class MsgListAction implements Action {
+public class MsgSendViewAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String receive_id = request.getParameter("id");
+		int m_idx = Integer.parseInt(request.getParameter("m_idx"));
+		
 		
 		MessageDAO dao = MessageDAO.getInstance();
-		List<MessageVO> mlist = null;
-		
-		mlist = dao.myReceiveMsgList(receive_id);
 		
 		
+		MessageVO mvo = dao.msgView(m_idx);
 		
+		request.setAttribute("mvo", mvo);
 		
-		request.setAttribute("mlist", mlist);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Message/Message_main.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Message/msg_view.jsp");
 		rd.forward(request, response);
-	
+
 	}
 
 }
