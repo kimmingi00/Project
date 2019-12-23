@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/Contents/include_file(navi bar)/navigation_bar.jsp" %> 
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <section>
 	<ul class="msg_ul">
@@ -14,6 +14,12 @@
 		</c:if>
 		
 	</ul>
+	<c:if test="${ !empty user }">
+					<h2 style="text-align:center;">${ user.name }님의 보낸쪽지함입니다.</h2> 
+				</c:if>
+				<c:if test="${ !empty b_user }">
+					<h2 style="text-align:center;">${ b_user.b_name }님의 보낸쪽지함입니다.</h2>
+				</c:if>
 
 	<table class="msg_table">	
 		<tr>
@@ -29,12 +35,7 @@
 			</c:if>
 		</tr>	
 			<c:if test="${!empty mlist}">
-				<c:if test="${ !empty user }">
-					<h2 style="text-align:center;">${ user.name }님의 보낸쪽지함입니다.</h2> 
-				</c:if>
-				<c:if test="${ !empty b_user }">
-					<h2 style="text-align:center;">${ b_user.b_name }님의 보낸쪽지함입니다.</h2>
-				</c:if>
+				<p style="margin-left: 73%; margin-bottom: 10px;">현재 총 ${fn:length(mlist) }개의 메세지가 있습니다</p>
 				<c:forEach var="mlist" items="${ mlist }">
 					
 					<tr>

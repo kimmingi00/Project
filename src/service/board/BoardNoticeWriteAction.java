@@ -13,6 +13,7 @@ public class BoardNoticeWriteAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		RequestDispatcher d = request.getRequestDispatcher("/Contents/Board/Notice/board_notice_write.jsp");
 		d.forward(request, response);
 

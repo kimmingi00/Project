@@ -95,7 +95,7 @@
 			<td width="25%" align="right">
 			
 			  <c:if test="${user.admin == 1}">
-   <a href="BoardServlet?command=board_notice_write"><img src="Board/img/write.gif" border="0"></a>
+   <a href="BoardServlet?command=board_notice_write">쓰기</a>
     </c:if>
 			
 			</td>

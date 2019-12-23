@@ -35,7 +35,7 @@
          <td width="5%" align="right"><img src="Board/img/bullet-02.gif"></td>
          <td width="15%"><font size="2 face="돋움"">아이디</font></td>
          <td width="80%">
-         <input type="text" size="20" name="id" value="${user.userid}" readonly></td>
+         <input type="text" size="20" name="id" value="${user.id}" readonly></td>
        </tr>
 	   <tr>
          <td align="right"><img src="Board/img/bullet-02.gif"></td>
