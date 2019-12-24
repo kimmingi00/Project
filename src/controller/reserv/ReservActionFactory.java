@@ -2,6 +2,7 @@ package controller.reserv;
 
 import service.Action;
 import service.reserv.MyProductListAction;
+import service.reserv.ProductDeleteAction;
 import service.reserv.ProductModifyAction;
 import service.reserv.ProductModifyProAction;
 import service.reserv.ProductUploadAction;
@@ -35,6 +36,8 @@ public class ReservActionFactory {
 			action = new ProductModifyAction();
 		}else if(command.equals("ProductModifyPro")) {
 			action = new ProductModifyProAction();
+		}else if(command.equals("ProductDelete")) {
+			action = new ProductDeleteAction();
 		}else if(command.equals("upload_main")) {
 			action = new UploadMainAction();
 		}

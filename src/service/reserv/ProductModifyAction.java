@@ -17,15 +17,16 @@ public class ProductModifyAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		int p_idx = Integer.parseInt(request.getParameter("p_idx"));
+		int p_idx = Integer.parseInt(request.getParameter("idx"));
 		
 		ProductDAO dao = ProductDAO.getInstance();
 		
 		ProductVO pvo = dao.ProductView(p_idx);
 		
 		request.setAttribute("pvo", pvo);
+		request.setAttribute("p_idx", p_idx);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/UploadService/Product_Upload.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/UploadService/Product_Modify.jsp");
 		rd.forward(request, response);
 	}
 

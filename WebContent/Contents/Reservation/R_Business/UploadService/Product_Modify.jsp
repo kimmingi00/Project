@@ -82,29 +82,29 @@
         <div class="box">
                 <center><font size="6">상품 업로드</font></center>
                 <br>
-                <form name="member" method="post" enctype="multipart/form-data" action="ReservServlet?command=ProductUploadPro&b_id=${ b_user.b_id }">
+                <form name="member" method="post" enctype="multipart/form-data" action="ReservServlet?command=ProductModifyPro&b_id=${ b_user.b_id }&idx=${ p_idx }">
                   <div class="inputBox">
-                    <input type="text" name="p_title" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
+                    <input type="text" name="p_title" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="${ pvo.p_title }">
                     <label><font size="4">관광상품 이름</font></label>
                   </div>
 
                   <div class="inputBox">
-                    <input type="text" name="p_contents" style="width:95%; height:130px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
+                    <input type="text" name="p_contents" style="width:95%; height:130px;" required onkeyup="this.setAttribute('value', this.value);"  value="${ pvo.p_contents }">
                     <label><font size="4">관광상품 내용</font></label>
                   </div>
 
                 <div class="inputBox" >
-                  <input type="text" name="p_indate" id="datepicker" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
+                  <input type="text" name="p_indate" id="datepicker" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="${ pvo.p_indate }">
                   <label><font size="4">출발일자</font></label>
                 </div>
 
                   <div class="inputBox">
-                        <input type="text" name="p_outdate" id="datepicker2" style="width:180px;"required onkeyup="this.setAttribute('value', this.value);" value="">
+                        <input type="text" name="p_outdate" id="datepicker2" style="width:180px;"required onkeyup="this.setAttribute('value', this.value);" value="${ pvo.p_outdate }">
                         <label><font size="4">도착일자</font></label>
                   </div>
 
                   <div class="inputBox" id="p_in">
-                          <input type="text" name="p_in" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
+                          <input type="text" name="p_in" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="${ pvo.p_in }">
                           <label><font size="4">탑승지</font></label>
                           <input type="button" value="지역추가"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" onclick="add_div()">
                           <input type="button" value="삭제"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" onclick="remove_div(this)">
@@ -115,18 +115,19 @@
                   </div>
 
                   <div class="inputBox">
-                        <input type="text" name="p_out" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
+                        <input type="text" name="p_out" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="${ pvo.p_out }">
                         <label><font size="4">목적지</font></label>
                   </div>
 
                   <div class="inputBox" >
-                    <input type="text" name="p_maxpeople" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
+                    <input type="text" name="p_maxpeople" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="${ pvo.p_maxpeople }">
                     <label><font size="4">최대인원수</font></label>
                   </div>
 
                   <div class="inputBox" >
-                    <input type="text" name="p_price" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
+                    <input type="text" name="p_price" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="${ pvo.p_price }">
                     <label><font size="4">가격</font></label>
+                    <input type="hidden" name="idx" value="${ p_idx }">
                   </div>
 
                   <div class="thema">

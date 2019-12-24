@@ -50,12 +50,14 @@ public class ProductUploadProAction implements Action {
 		System.out.println(p_in);
 		
 		String theme="";
-		
-		for(int i=0; i<tema.length; i++) {
-			if(i==tema.length-1) {
-				theme=theme+tema[i];
-			}else theme=theme+tema[i]+",";
+		if(tema!=null) {
+			for(int i=0; i<tema.length; i++) {
+				if(i==tema.length-1) {
+					theme=theme+tema[i];
+				}else theme=theme+tema[i]+",";
+			}
 		}
+		
 		
 		ProductVO pvo = new ProductVO();
 		

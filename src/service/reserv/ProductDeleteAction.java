@@ -12,21 +12,24 @@ import model.reserv.ProductDAO;
 import model.reserv.ProductVO;
 import service.Action;
 
-public class MyProductListAction implements Action {
+public class ProductDeleteAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String b_id = request.getParameter("b_id");
+		
+		
+		String id = request.getParameter("id");
+		
+		int p_idx = Integer.parseInt(request.getParameter("idx"));
 		
 		ProductDAO dao = ProductDAO.getInstance();
 		
-		List<ProductVO> mlist = dao.MyTourList(b_id);
+		dao.productDelete(p_idx);
 		
-		request.setAttribute("mlist", mlist);
-		request.setAttribute("mlist2", mlist);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/My_TourList.jsp");
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/ReservServlet?command=MyTourList&b_id="+id);
 		rd.forward(request, response);
 	}
 

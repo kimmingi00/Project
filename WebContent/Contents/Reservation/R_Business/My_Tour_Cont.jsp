@@ -13,7 +13,12 @@
 	<p>가격 : ${ pvo.p_price }</p>
 	<p>테마 : ${ pvo.theme }</p>
 	<p>등록일 : ${ pvo.p_regdate.substring(0,10) }</p>
-	
+	<form name="fm" method="post">
+	<a href="javascript:modi()"><input type="button" value="수정"></a>
+	<a href="javascript:dele()"><input type="button" value="삭제"></a>
+	<input type="hidden" name="id" value="${ b_user.b_id }">
+	<input type="hidden" name="idx" value="${ pvo.p_idx }">
+	</form>
 </section>
 
 
@@ -23,5 +28,14 @@
 	section {margin-top:20%; color:white; text-align:center;}
 	
 </style>
-
+<script type="text/javascript">
+	function modi() {
+		fm.action="ReservServlet?command=ProductModify&idx="+fm.idx.value;
+		fm.submit();
+	}
+	function dele() {
+		fm.action="ReservServlet?command=ProductDelete&idx="+fm.idx.value+"&id="+fm.id.value;
+		fm.submit();
+	}
+</script>
 </html>

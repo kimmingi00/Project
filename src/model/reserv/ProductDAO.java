@@ -213,7 +213,7 @@ public class ProductDAO {
 		
 		int row = 0;
 		
-		String query = "update into product set p_readcnt = p_readcnt + 1 where p_idx = ?";
+		String query = "update product set p_readcnt = p_readcnt + 1 where p_idx = ?";
 		
 		try {
 			conn = DBConn.getConnection();
@@ -228,5 +228,37 @@ public class ProductDAO {
 		
 		
 		return row;
+	}
+	
+	
+	public int productDelete(int p_idx) {
+		Connection conn=null;
+		PreparedStatement pstmt = null;
+	
+		
+		int row=0;
+
+		String query="delete from product where p_idx = ?";
+		
+		
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, p_idx);
+			row = pstmt.executeUpdate();
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBConn.close(conn, pstmt);
+		}
+		
+		
+		
+		
+		
+		return row;
+		
 	}
 }

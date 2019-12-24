@@ -63,7 +63,7 @@
 	
 </style>
 
-	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
 	$(document).ready(function() {
   $(".btn").click(function() {
@@ -75,13 +75,7 @@
 });
 	</script>
 
-	<script type="text/javascript">
-		$(".slider").HSlider({
-			easing: 'ease',
-			animationTime: '400',
-			pagination: true
-		});
-	</script>
+
 
 </head>
 <body>
@@ -161,7 +155,22 @@
 						 <B><FONT size=5><br>  &nbsp; &nbsp; X</FONT></B>
 					 	</a>
 						<br><br><br><br>
-							<B> <font size="5"> &nbsp; &nbsp;  &nbsp;안녕하세요. JSL 38기 D조입니다.<br> </font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 만약 모두가 많은 것을 만들기에만 바쁘다면 <br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 완벽하게 할 수 있을까요? <br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 헷갈리기 시작합니다. <br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 여행을 추억으로, 인연을 애뜻함으로  <br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 무언가를 만들 때 필요한건 <br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 집중 <br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 우리가 첫번째로 묻는 건<br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 여행방식의 변화가 사람들에게 가져다 줄 느낌<br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 기쁨, 경험, 회상, 추억<br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 그리고 난 후 의도에 맞게 시작합니다. <br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 시간이 좀 걸리지요. <br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 수천 번의 no끝에 얻는 단 하나의 yes <br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 심플하게, 완벽하게 다시 시작하기도 합니다.<br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 우리의 손길이 닿은 모든 것이 사람들의 삶에 닿을 수 있을 때까지 <br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 그때 비로소 우리는 이름을 씁니다. <br></font></B>
+							<B> <font size="5"> &nbsp; &nbsp;  &nbsp;-여기관광-<br><br><br> </font></B>
 							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 팀장 = 김민기 <br></font></B>
 							<B> <font size="4"><br>&nbsp; &nbsp;  &nbsp; &nbsp;  팀원 = 장재희 이하균 안준혁 이예리 </font></B>
 					 </p>
@@ -217,6 +226,12 @@
 		</div>
 	</div>
 
-
+	<script type="text/javascript">
+		$(".slider").HSlider({
+			easing: 'ease',
+			animationTime: '400',
+			pagination: true
+		});
+	</script>
 </body>
 </html>
