@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/Contents/include_file(navi bar)/navigation_bar.jsp" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
 
 
-
-<section>
+<section style="overflow:scroll;">
 	<div class = "product_table">
 		
         <table align="center">
@@ -16,34 +16,44 @@
 		</c:if>
 		<c:if test="${!empty mlist}">
 		<c:set var="cnt" value="0"></c:set>
+		<c:set var="mlist" value="${ mlist }"></c:set>
+		<c:set var="size" value="${fn:length(mlist) }"></c:set>
 		<tr>
 		<c:forEach var="mlist" items="${ mlist }" varStatus="stat">
-          
             <td>
               <section class="hoverEffect">
               	<img style="border: 8px solid #000000; border-radius: 48px; -moz-border-radius: 48px; -khtml-border-radius: 48px; -webkit-border-radius: 48px; width:249px;"
-                src="product_img/4.jpg" width="350" height="240"/>
+                src="${ savePath }/${mlist.p_filename }" width="350" height="240"/>
                 <a href = "ReservServlet?command=ProductView&p_idx=${ mlist.p_idx }">
               	<div class="txt"><h3>${ mlist.p_title }</h3>예약인원수 ${ mlist.p_reservpeople }/${ mlist.p_maxpeople }<br>가격 ${ mlist.p_price }원<br>★★★★★</div>
                 </a>
               </section>
             </td>
-            <c:if test="${ stat.count%4==0||stat.count/4==0 }">`
+            <c:if test="${ stat.count%4==0 }">
+           
             	</tr>
             	<tr>
             	
             	<c:forEach var="mlist2" items="${ mlist2 }" begin="${ cnt*4 }" end="${ (cnt*4)+3 }" varStatus="stat2">
             		<td><font size = "4">
-                      <p><center>도착지: ${ mlist2.p_title } </p>
+                      <p><center>도착지: ${ mlist2.p_title }  </p>
                       <p> 예약인원수 : ${ mlist2.p_reservpeople }/${ mlist2.p_maxpeople } </center></font></p>
             		</td>
             	</c:forEach>
-            	<c:set var="cnt" value="${cnt+1 }"></c:set>
+            	<c:set var="cnt" value="${ cnt+1 }"></c:set>
             	</tr>
             	<tr>
             </c:if>
 		 </c:forEach>
 		 </tr>
+		 <tr>
+		 <c:forEach var="mlist2" items="${ mlist2 }" begin="${ cnt*4 }" end="${ (cnt*4)+3 }" varStatus="stat2">
+            		<td><font size = "4">
+                      <p><center>도착지: ${ mlist2.p_title } </p>
+                      <p> 예약인원수 : ${ mlist2.p_reservpeople }/${ mlist2.p_maxpeople } </center></font></p>
+            		</td>
+         </c:forEach>
+         </tr>
 		 </c:if>	
           </table>
 

@@ -27,8 +27,8 @@ public class ProductUploadProAction implements Action {
 		request.setAttribute("b_id", b_id);
 		
 
-		ServletContext context = request.getServletContext();
-		String path = context.getRealPath("/upload");
+		
+		String path = "C:\\Users\\JSLHRD\\eclipse-workspace\\Web_Project\\Project\\WebContent\\Contents\\img\\product_img";
 		String encType = "utf-8";
 		
 		int sizeLimit = 4*1024*1024; //최대 4MB
@@ -45,7 +45,7 @@ public class ProductUploadProAction implements Action {
 		int p_maxpeople = Integer.parseInt(multi.getParameter("p_maxpeople")); //최대 인원
 		int p_price = Integer.parseInt(multi.getParameter("p_price")); //가격
 		String[] tema = multi.getParameterValues("thema"); //테마
-		String p_filename = multi.getParameter("filename"); //파일 이름
+		String p_filename = multi.getFilesystemName("p_filename"); //파일 이름
 		
 		System.out.println(p_in);
 		
@@ -72,7 +72,7 @@ public class ProductUploadProAction implements Action {
 		
 		row = dao.productUpload(pvo);
 		
-		System.out.println(row);
+	
 		
 		request.setAttribute("row", row);
 		

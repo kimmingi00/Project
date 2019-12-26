@@ -24,7 +24,9 @@ public class ProductViewAction implements Action {
 		dao.plusReadcnt(p_idx);
 		
 		ProductVO pvo = dao.ProductView(p_idx);
+		String savePath = "/Contents/img/product_img";
 		
+		request.setAttribute("savePath", savePath);
 		request.setAttribute("pvo", pvo);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/R_Business/My_Tour_Cont.jsp");

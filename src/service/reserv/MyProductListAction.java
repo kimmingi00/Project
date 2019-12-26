@@ -23,6 +23,9 @@ public class MyProductListAction implements Action {
 		
 		List<ProductVO> mlist = dao.MyTourList(b_id);
 		
+	    String savePath = "/Contents/img/product_img";
+		
+		request.setAttribute("savePath", savePath);
 		request.setAttribute("mlist", mlist);
 		request.setAttribute("mlist2", mlist);
 		
