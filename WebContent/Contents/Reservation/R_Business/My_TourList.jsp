@@ -7,7 +7,7 @@
 
 
 
-<section style="overflow:scroll;">
+<section>
 	<div class = "product_table">
 		
         <table align="center">
@@ -36,7 +36,7 @@
             	
             	<c:forEach var="mlist2" items="${ mlist2 }" begin="${ cnt*4 }" end="${ (cnt*4)+3 }" varStatus="stat2">
             		<td><font size = "4">
-                      <p><center>도착지: ${ mlist2.p_title }  </p>
+                      <p><center>상품명: ${ mlist2.p_title }  </p>
                       <p> 예약인원수 : ${ mlist2.p_reservpeople }/${ mlist2.p_maxpeople } </center></font></p>
             		</td>
             	</c:forEach>

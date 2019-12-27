@@ -1,86 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>상품 업로드</title>
-    <link rel="stylesheet" href="/Contents/Index/jquery-ui-1.12.1/jquery-ui.min.css">
+<%@ include file="/Contents/include_file(navi bar)/navigation_bar.jsp" %> 
+<link rel="stylesheet" href="/Contents/Index/jquery-ui-1.12.1/jquery-ui.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="/Contents/Index/jquery-ui-1.12.1/jquery-ui.min.js"></script>
     <script src="/Contents/Index/jquery-ui-1.12.1/datepicker-ko.js"></script>
-    <link rel="stylesheet" href="/Contents/CSS/CSS_Member/signupstyle.css">
-    <style type="text/css">
-      body{
-        margin-top: 17%;
-      }
-    </style>
-    <script>
-    //캘린더 함수
-    $(function() {
-        //input을 datepicker로 선언
-        $("#datepicker").datepicker();
-        $("#datepicker2").datepicker();
+    <link rel="stylesheet" href="/Contents/CSS/CSS_Reservation/product_css/signupstyle.css">
 
-    });
-
-    function send(){
-      if(member.p_title.value==""){
-        alert("관광상품의 이름을 적어주세요");
-        member.p_tile.focus();
-        return false;
-      }
-      if(member.p_contents.value==""){
-        alert("관광상품의 내용을 적어주세요");
-        member.p_contents.focus();
-        return false;
-      }
-      if(member.p_indate.value==""){
-        alert("출발일자를 선택해주세요");
-        member.p_indate.focus();
-        return false;
-      }
-      if(member.p_outdate.value==""){
-        alert("도착일자를 선택해주세요");
-        member.p_outdate.focus();
-        return false;
-      }
-      if(member.p_in.value==""){
-        alert("탑승지를 입력해주세요");
-        member.p_in.focus();
-        return false;
-      }
-      if(member.p_out.value==""){
-        alert("도착지를 입력해주세요");
-        member.p_out.focus();
-        return false;
-      }
-      member.submit();
-    }
-
-    //Row 추가
-    function add_div(){
-    var div = document.createElement('div');
-	var i = 2;
-    div.innerHTML = document.getElementById('p_in').innerHTML;
-    document.getElementById('field').appendChild(div);
-    
-  }
-    //Row　삭제
-    function remove_div(obj){
-    document.getElementById('field').removeChild(obj.parentNode);
-
-  }
-    </script>
-
-</head>
-
-<body>
         <div class="box">
-                <center><font size="6">상품 업로드</font></center>
+                <center style="color:black;"><font size="6">상품 업로드</font></center>
                 <br>
                 <form name="member" method="post" enctype="multipart/form-data" action="ReservServlet?command=ProductUploadPro&b_id=${ b_user.b_id }">
                   <div class="inputBox">
@@ -153,5 +81,67 @@
               <br>
 
         </div>
+           <style type="text/css">
+      .box{
+        margin-top: 17%;
+      }
+    </style>
+    <script>
+    //캘린더 함수
+    $(function() {
+        //input을 datepicker로 선언
+        $("#datepicker").datepicker();
+        $("#datepicker2").datepicker();
+
+    });
+
+    function send(){
+      if(member.p_title.value==""){
+        alert("관광상품의 이름을 적어주세요");
+        member.p_tile.focus();
+        return false;
+      }
+      if(member.p_contents.value==""){
+        alert("관광상품의 내용을 적어주세요");
+        member.p_contents.focus();
+        return false;
+      }
+      if(member.p_indate.value==""){
+        alert("출발일자를 선택해주세요");
+        member.p_indate.focus();
+        return false;
+      }
+      if(member.p_outdate.value==""){
+        alert("도착일자를 선택해주세요");
+        member.p_outdate.focus();
+        return false;
+      }
+      if(member.p_in.value==""){
+        alert("탑승지를 입력해주세요");
+        member.p_in.focus();
+        return false;
+      }
+      if(member.p_out.value==""){
+        alert("도착지를 입력해주세요");
+        member.p_out.focus();
+        return false;
+      }
+      member.submit();
+    }
+
+    //Row 추가
+    function add_div(){
+    var div = document.createElement('div');
+	var i = 2;
+    div.innerHTML = document.getElementById('p_in').innerHTML;
+    document.getElementById('field').appendChild(div);
+    
+  }
+    //Row　삭제
+    function remove_div(obj){
+    document.getElementById('field').removeChild(obj.parentNode);
+
+  }
+    </script>
 </body>
 </html>

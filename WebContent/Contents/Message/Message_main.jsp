@@ -63,16 +63,17 @@
 	<c:if test="${ !empty b_user }">
 		<input type="hidden" name="id" value="${ b_user.b_id }">
 	</c:if>	
-	<a href="javascript:delet(document.msg_fm.select)"><input type="button" name="del" value="삭제" style="margin-left:19.5%;"></a> 	
+	<a href="javascript:delet(document.msg_fm.select)"><input type="button" name="del" value="삭제" style="margin-left:22.8%;"></a> 	
 	</form>	
 </section>
 <style>
-	section {margin-top:20%;}
+	section {margin-top:15%;}
 	table, tr, td {border:1px solid white;}
-	.msg_table {font-size:20px; text-align:center; margin-left:13%;}
+	.msg_table {font-size:20px; text-align:center; margin-left:17%;}
 	
 	.msg_table th {width:250px;}
-	.msg_ul {font-size:20px; margin-bottom:5%;}
+	.msg_ul {font-size:20px; margin-bottom:5%; margin-left:10%;}
+	a {color:white;}
 	
 	
 </style>

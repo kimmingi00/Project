@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="/Contents/CSS/CSS_Index/reset.css">
 	<link rel="stylesheet" type="text/css" href="/Contents/CSS/CSS_Index/hsilder.css">
 	<link rel="stylesheet" type="text/css" href="/Contents/CSS/CSS_Index/popup.css">
+	<link rel="stylesheet" type="text/css" href="/Contents/CSS/CSS_Index/default-style.css">
 	
 	
 
@@ -21,7 +22,7 @@
 	<style type="text/css" media="screen and (min-width: 1080px) and (max-width:1920px)">
 	
 	html, body{overflow: visible !important;}
-	
+	*{touch-action: none;}
 	*{margin: 0; padding: 0;}
 	li{list-style: none;}
 	a{text-decoration: none;}
@@ -68,32 +69,6 @@
 	
 </style>
 
-	
-	<script>
-	$(document).ready(function() {
-  $(".btn").click(function() {
-    $(".modal").fadeIn();
-  });
-  $(".btn_close").click(function() {
-    $(".modal").fadeOut();
-  });
-});
-	
-	$(".slider").HSlider({
-		easing: "ease",
-		animationTime: 400,
-		pagination: true,
-		description:true
-
-	});
-	
-	
-	
-	</script>
-	<script type="text/javascript">
-	window.addEventListener("HSlider", function (HSlider) { HSlider.preventDefault (); }, {passive: false});
-	</script>
-
 
 </head>
 <body>
@@ -105,7 +80,7 @@
 							<li><font size="6"><a href="/IndexServlet?command=index"> LOGO</font></a> </li>
 						</ul>
 					<ul class="menu">
-						<li><a href="#"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
+						<li><a href="/ReservServlet?command=reserv_main"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="/ReservServlet?command=upload_main"><font size="4">사업자 상품등록 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="/BoardServlet?command=board_notice"><font size="4">공지사항 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="####"><font size="4">문의하기 </font>&nbsp; &nbsp; &nbsp;</a></li>
@@ -233,7 +208,7 @@
 					<font size="5"><p> 소중한 관광상품은 여행자분들이 즉시 바로 확인할 수 있습니다.</p></font>
 					<br><br><br>
 					<div id = "btn_group1">
-						<button id = "button1"><font size="4">&nbsp; 관광상품 등록하기 >  &nbsp; </font></button>
+						<a href="/ReservServlet?command=upload_main"><button id = "button1" ><font size="4">&nbsp; 관광상품 등록하기 >  &nbsp; </font></button></a>
 					</div>
 					</center>
 				</article>
@@ -243,7 +218,25 @@
 
 		</div>
 	</div>
+<script src="js/jquery-1.11.0.min.js"></script>
+	<script>
+	$(document).ready(function() {
+  $(".btn").click(function() {
+    $(".modal").fadeIn();
+  });
+  $(".btn_close").click(function() {
+    $(".modal").fadeOut();
+  });
+});
+	</script>
 
+	<script type="text/javascript">
+		$(".slider").HSlider({
+			easing: 'ease',
+			animationTime: '400',
+			pagination: true
+		});
+	</script>
 	
 </body>
 </html>

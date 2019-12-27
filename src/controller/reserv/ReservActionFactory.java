@@ -8,6 +8,7 @@ import service.reserv.ProductModifyProAction;
 import service.reserv.ProductUploadAction;
 import service.reserv.ProductUploadProAction;
 import service.reserv.ProductViewAction;
+import service.reserv.ReservMainAction;
 import service.reserv.UploadMainAction;
 
 public class ReservActionFactory {
@@ -40,6 +41,8 @@ public class ReservActionFactory {
 			action = new ProductDeleteAction();
 		}else if(command.equals("upload_main")) {
 			action = new UploadMainAction();
+		}else if(command.equals("reserv_main")) {
+			action = new ReservMainAction();
 		}
 		
 		/* 

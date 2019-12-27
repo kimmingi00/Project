@@ -59,12 +59,13 @@
 	</table>	
 </section>
 <style>
-	section {margin-top:20%;}
+	section {margin-top:15%;}
 	table, tr, td {border:1px solid white;}
-	.msg_table {font-size:20px; text-align:center; margin-left:13%;}
+	.msg_table {font-size:20px; text-align:center; margin-left:17%;}
 	
 	.msg_table th {width:250px;}
-	.msg_ul {font-size:20px; margin-bottom:5%;}
+	.msg_ul {font-size:20px; margin-bottom:5%; margin-left:10%;}
+	a {color:white;}
 	
 	
 </style>
