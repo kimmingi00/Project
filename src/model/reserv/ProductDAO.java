@@ -310,4 +310,32 @@ public class ProductDAO {
 		return mlist;
 		
 	}
+	
+	public int reservProduct(int p_idx, String p_customer, int reserv_cnt) {
+		int row=0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		
+		
+		String query="update product set p_reservpeople = p_reservpeople + ?,"
+				+ "p_customer = p_customer + ? where p_idx = ?";
+		
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, reserv_cnt);
+			pstmt.setString(2, p_customer);
+			pstmt.setInt(3, p_idx);
+			row = pstmt.executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			DBConn.close(conn, pstmt);
+		}
+		
+		
+		return row;
+		
+	}
 }

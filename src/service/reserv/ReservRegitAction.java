@@ -12,24 +12,24 @@ import model.reserv.ProductDAO;
 import model.reserv.ProductVO;
 import service.Action;
 
-public class ReservViewAction implements Action {
+public class ReservRegitAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		int idx = Integer.parseInt(request.getParameter("p_idx"));
+		int p_idx = Integer.parseInt(request.getParameter("p_idx"));
+		int reserv_cnt = Integer.parseInt(request.getParameter("reserv_cnt"));
+		String id = request.getParameter("id");
+		
+		String p_customer = id+"("+reserv_cnt+")";
 		
 		ProductDAO dao = ProductDAO.getInstance();
-		dao.plusReadcnt(idx);
-		ProductVO vo = dao.ProductView(idx);
-		String savePath = "/Contents/img/product_img";
 		
-		request.setAttribute("savePath", savePath);
-		request.setAttribute("pvo", vo);
+		int row = dao.reservProduct(p_idx, p_customer, reserv_cnt);
 		
+		request.setAttribute("row", row);
 		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/Reserv_view.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/ReservServlet?command=reserv_main");
 		rd.forward(request, response);
 	}
 

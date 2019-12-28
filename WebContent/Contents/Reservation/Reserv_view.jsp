@@ -27,14 +27,16 @@
 		<div class="cont_info">
 			<h2>${ pvo.p_title }</h2>
 			
+			<p>게시자 : <a href="">${ pvo.b_id }</a></p>
 			<p>출발일 : ${ pvo.p_indate }/ 
 			<fmt:parseDate value="${ pvo.p_indate }" var="indate" pattern="yyyy-MM-dd"/>
 			<fmt:parseNumber value="${ indate.time  / (1000*60*60*24) }" integerOnly="true" var="indateNum"></fmt:parseNumber>
 			 <font style="font-weight:bold;">현재 ${indateNum-sysDateNum}일 남음</font></p>
 			<p>도착일 : ${ pvo.p_outdate }</p>
+
 			<p>출발지 : ${ pvo.p_in }</p>
 			<p>도착지 : ${ pvo.p_out }</p>
-			<p>현재 예약인원 : ${ pvo.p_reservpeople }&nbsp;/&nbsp;정원 : ${ pvo.p_maxpeople }</p>
+			<p>현재 예약인원 : ${ pvo.p_reservpeople }명&nbsp;/&nbsp;정원 : ${ pvo.p_maxpeople }명</p>
 			<p>예약 가능 인원 : <font style="font-weight:bold;">${ pvo.p_maxpeople-pvo.p_reservpeople }명</font></p>
 			<p>가격 : ${ pvo.p_price }원</p>
 			
@@ -44,9 +46,25 @@
 			
 			<p>등록일 : ${ pvo.p_regdate.substring(0,10) }</p>
 			<form name="fm" method="post">
-				<a href="javascript:reserv()"><input type="button" value="예약" class="btn"></a>
-				<input type="hidden" name="id" value="${ b_user.b_id }">
+				<c:if test="${ pvo.p_reservpeople<pvo.p_maxpeople }">
+				
+					<p>
+					  예약 인원&nbsp;&nbsp;&nbsp;&nbsp;
+					 <a href="javascript:cnt_down()"><i class="fa fa-angle-left" aria-hidden="true" style="color:#0071e3;"></i></a>&nbsp;
+					 <input type="button" value="1" name="reserv_cnt" style="background:#fff; border:none; font-size:20px;">&nbsp;
+					 <a href="javascript:cnt_up(${ pvo.p_maxpeople-pvo.p_reservpeople })"><i class="fa fa-angle-right" aria-hidden="true" style="color:#0071e3;"></i></a>&nbsp;&nbsp;&nbsp;
+					 <input type="button" value="${ pvo.p_price }" name="reserv_money" style="background:#fff; border:none; font-size:20px;">원
+					</p>
+				
+					<a href="javascript:reserv()"><input type="button" value="예약" class="btn"></a>
+				</c:if>
+				<c:if test="${ pvo.p_reservpeople>=pvo.p_maxpeople }">
+					<p>매진되었습니다</p>
+				</c:if>
+				<input type="hidden" name="id" value="${ user.id }">
 				<input type="hidden" name="idx" value="${ pvo.p_idx }">
+				<input type="hidden" name="p_price" value="${ pvo.p_price }">
+				
 			</form>
 		</div>
 	
@@ -61,7 +79,7 @@
 <style>
 	
 	section {background-color:#fff; font-color:black; margin-left: 184px; }
-	.product {margin-top:7%; color:black; width:1500px; height:500px; }
+	.product {margin-top:7%; color:black; width:1500px; height:700px; }
 	.product h2 {font-size:35px; margin-bottom:5%;}
 	p {margin-bottom:20px;}
 	.title {font-size: 30px; font-weight:bold;}
@@ -89,6 +107,8 @@
 	.product_cont {margin-top:7%; color:black; width:1500px; height:500px; 
 					text-align:center; font-size:20px;
 	}
+	
+	
 	
 <!--flash css -->
 @-webkit-keyframes flash {
@@ -125,6 +145,35 @@
 <!--flash css 끝 -->	
 	
 </style>
+
+<script>
+	function reserv() {
+		if(fm.id.value=="") {
+			fm.action="/ReservServlet?command=reserv_unregit&p_idx="+fm.idx.value+"&reserv_cnt="+fm.reserv_cnt.value;
+			fm.submit();
+		}else {
+			fm.action="/ReservServlet?command=reserv_regit&p_idx="+fm.idx.value+"&reserv_cnt="+fm.reserv_cnt.value;
+			fm.submit();
+		}
+	}
+	
+	function cnt_up(max) {
+		
+		if(fm.reserv_cnt.value<max) {
+			fm.reserv_cnt.value++;
+			fm.reserv_money.value=fm.p_price.value*fm.reserv_cnt.value;
+		}
+		
+	}
+	function cnt_down() {
+		if(fm.reserv_cnt.value>1) {
+			fm.reserv_cnt.value--;
+			fm.reserv_money.value=fm.p_price.value*fm.reserv_cnt.value;
+		}
+		
+	}
+</script>
+
 </body>
 
 
