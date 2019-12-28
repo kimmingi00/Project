@@ -1,0 +1,56 @@
+﻿@charset "utf-8";
+
+
+/* reset css */
+			* {margin:0; padding:0; box-sizing:border-box;}
+			
+			/* 모든 태그에 바깥 여백과 안쪽여백을 0으로 초기화시킨다 */
+			a {	text-decoration:none;	#202020;}
+			ul, ol {list-style:none;}
+			table, th, td {border-collapse:collapse;}
+			table, th, td {border:1px solid #ccc;}
+
+/* navigation css */
+
+	.top {width:1000px; margin:0 auto; }
+	.top:after {content:""; display:block; clear:both;}
+	.top .logo {float:left; margin-right:200px;}
+	.top .from-search {float:left; }
+	.top .logo-sub {float:right;}
+	
+	.navi {width:100%; border-bottom:1px solid #d9d9d9; border-top:1px solid #d9d9d9; }
+	.navi:after {content:""; display:block; clear:both;}
+	.navi .gnb {width:1000px; margin:0 auto;}
+	.navi .gnb li {float:left; width:166.6666666666667px; text-align:center; height:42px; line-height:42px;}
+
+
+
+/* table css */
+
+	.contents {width:980px; margin:0 auto; padding-top:60px;}
+	
+	.sub-nav {width:215px; float:left; min-height:500px; border:1px solid #949494; }
+	.sub-nav .sub-title {color:#fff; padding-bottom:16px;}
+	.sub-nav .sub-text {color:#fff; font-size:14px; letter-spacing:-1px;}
+	.sub-nav .sub-top {background:#2E9AFE; padding:18px 12px 12px 12px;}
+	.sub-nav .sub-list li {padding:0 12px 0 12px; line-height:38px; border-bottom:1px solid #ddd;}
+	.sub-cont {width:723px; float:right;}
+	.sub-text {font-size:8px;}
+    .sub-nav .sub-list li a {display:block;}
+	.sub-nav .sub-list li a:hover {text-decoration:underline; font-weight:bold;} 
+
+	.tal_board {width:100%; font-size:13px; color:#333; line-height:150%;}										
+	.readonly {font-size:0px; width:0; height:0; line-height:0;}
+	.tal_board .thead {border-top:2px solid #555;}
+	.tal_board th {background:#f8f8f8; padding:7px 6px; border:1px solid #cdcdcd; border-left:0; }
+	.tal_board tbody {border-top:2px solid #555;}
+	.tal_board td {color:#555; padding:7px 6px; border:1px solid #cdcdcd; border-left:0;}
+	
+	/* paging css */
+	
+	.paging {padding-top:32px;}
+	.paging:after {content:""; display:block; clear:both;}
+	.paging ul {margin-left:25%;}
+	.paging ul li {float:left; margin:0 4px;}
+	.paging ul li a {padding:2px 6px 4px; border:1px solid #d9d9d9;}
+	.btn-write {padding:10px 14px; background:#F78181; color:#fff; float:right;}

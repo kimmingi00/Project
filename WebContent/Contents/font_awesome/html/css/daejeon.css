@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+
+/* reset css */
+			* {margin:0; padding:0; box-sizing:border-box;}
+			ul, ol {list-style:none;}
+			/* 모든 태그에 바깥 여백과 안쪽여백을 0으로 초기화시킨다 */
+			a {
+				text-decoration:none;
+				color:#333;
+				}
+
+
+
+.header {
+			background:#0B0B61;
+			overflow:hidden;
+			}
+.header .navi {
+			
+			width:1000px; margin:0 auto;
+
+							}
+.header .navi ul li {
+			width:166.666666666676px;
+			float:left;
+			padding:16px; line-height:300%;
+}
+.header .navi ul li a {
+			color:#fff;
+			text-align:center;
+			display:block;
+}

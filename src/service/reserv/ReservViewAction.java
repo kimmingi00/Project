@@ -17,12 +17,14 @@ public class ReservViewAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		int idx = Integer.parseInt(request.getParameter("idx"));
+		int idx = Integer.parseInt(request.getParameter("p_idx"));
 		
 		ProductDAO dao = ProductDAO.getInstance();
 		
 		ProductVO vo = dao.ProductView(idx);
+		String savePath = "/Contents/img/product_img";
 		
+		request.setAttribute("savePath", savePath);
 		request.setAttribute("pvo", vo);
 		
 		

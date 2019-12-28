@@ -1,0 +1,115 @@
+﻿@charset "utf-8";
+
+			/* reset css */
+			* {margin:0; padding:0; box-sizing:border-box;}
+			ul, ol {list-style:none;}
+			/* 모든 태그에 바깥 여백과 안쪽여백을 0으로 초기화시킨다 */
+			a {
+				text-decoration:none;
+				color:#333;
+				}
+			a:hover {
+				text-decoration:underline;
+				}
+			
+			.wrap {/* border-top:1px solid #ccc;
+			       border-left:1px solid #ccc;
+				   border-right:1px solid #ccc;
+				   border-bottom:1px solid #ccc; */
+				   border:1px solid#ccc;
+				   width:600px;
+				   margin:15px auto;
+				   padding:30px;
+				   /* 
+						숫자 1개 : 상우하좌
+						숫자 2개 : 상하, 좌우
+						숫자 3개 : 상, 좌우, 하
+						숫자 4개 : 상, 우, 하, 좌
+						*/
+
+						}
+			.wrap h2 {
+						/* margin-bottom:16px; */
+						margin:16px 0;
+						}
+
+			.wrap p {
+						border:1px solid#ccc;
+						margin:10px 0;
+						padding:10px;
+						}
+			.top {background:#0B3B0B;
+			                 }
+			.header {
+					width:1000px;
+					margin:0 auto;
+					/* border:1px solid #F00; */
+					overflow:hidden;
+					
+					}
+			
+			.header .logo {
+								float:left;
+								margin-top:0px;
+								}
+
+			
+			.header nav .nav {
+								float:right;
+									}
+			
+			
+			
+			.header nav ul li {
+								float:left;/*왼쪽 공중부양 정렬 */
+								width:110px;/* 가로폭 */
+								text-align:center; /*가운데정렬*/
+								/* border:1px solid#ccc; */ 
+								padding-top:10px;
+								text-decoration:#FAFAFA;
+								}
+			.header nav ul li a {color:#fff;}
+			
+			
+								/*
+								 float 시키면 공중부양이 되어 정렬되어진다. 그래서 부모 높이가 인식이 안된다.
+								 해결방법
+								 1.float시킨 부모 그룹에 overflow:hidden;
+								 2. :after 가상클래스 이용
+								 a:after{
+								     content:"";clear:both;
+									 display:block;   
+										}
+										*/
+
+
+			.area { backgroud:#e9e9e9;
+			       overflow:hidden;
+				   padding:60px 0;}
+
+			.area .inner {width:1000px;
+						  margin:0 auto;
+						 
+			                }
+
+			.area .inner01,
+			.area .inner02,
+			.area .inner03 {
+				width:33.33333%;
+				height:330px;
+				float:left;
+			}
+
+			.area .inner01 {
+					background:#fff;}
+			.area .inner02 {
+					background:#fff;}
+			.area .inner03 {
+					background:#fff;}
+			.area .inner .main-title {
+					color:#fff;
+					margin-bottom:20px; /* padding-bottom:20px*/
+					
+					}
+			.area .w100 {
+					text-decoration:#e9e9e9;	}

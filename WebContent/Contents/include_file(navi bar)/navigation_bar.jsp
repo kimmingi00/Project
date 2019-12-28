@@ -9,7 +9,7 @@
 	<link href="cssfile.css" media="screen and (min-width: 1080px) and (max-width: 1920px)" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 	<link rel="stylesheet" type="text/css" href="/Contents/CSS/CSS_Index/hsilder(navi).css">
-	
+	<link rel="stylesheet" href="/Contents/font_awesome/css/font-awesome.min.css">
 
 	
 	
@@ -54,25 +54,7 @@
 
 
 </style>
-<script src="js/jquery-1.11.0.min.js"></script>
-	<script>
-	$(document).ready(function() {
-  $(".btn").click(function() {
-    $(".modal").fadeIn();
-  });
-  $(".btn_close").click(function() {
-    $(".modal").fadeOut();
-  });
-});
-	</script>
 
-	<script type="text/javascript">
-		$(".slider").HSlider({
-			easing: 'ease',
-			animationTime: '400',
-			pagination: true
-		});
-</script>
 </head>
 <body>	
 	<header>

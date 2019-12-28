@@ -16,7 +16,7 @@ html{
 
 body{
 	/* This image will be displayed fullscreen */
-    background:black;
+ 	background:#f2f2f2;
     /*background-size:cover; */
     /* Workaround for some mobile browsers */
     min-height:100%;
@@ -25,7 +25,7 @@ body{
 	font-family: "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
 	font-size: 12px;
     font-weight: 100;
-	color: white;
+	color: black;
 }
 
 .wrap{
