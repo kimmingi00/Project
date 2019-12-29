@@ -26,6 +26,7 @@ public class ProductUploadProAction implements Action {
 		
 		request.setAttribute("b_id", b_id);
 		
+		
 
 		
 		String path = "C:\\Users\\JSLHRD\\eclipse-workspace\\Web_Project\\Project\\WebContent\\Contents\\img\\product_img";
@@ -41,6 +42,26 @@ public class ProductUploadProAction implements Action {
 		String p_indate = multi.getParameter("p_indate"); // 출발일
 		String p_outdate = multi.getParameter("p_outdate"); // 종료일
 		String p_in = multi.getParameter("p_in"); //출발지
+		
+		int cnt = Integer.parseInt(multi.getParameter("cnt"));
+		System.out.println(cnt);
+		
+		if(cnt!=0) {
+			String[] in_array = new String[cnt];
+			
+			for(int i=0; i<cnt; i++) {
+				in_array[i] = multi.getParameter("p_in"+(i+1));
+			}
+			for(int i=0; i<cnt; i++) {
+				p_in = p_in+", "+in_array[i];
+			}
+		}
+		
+		
+		
+		
+		System.out.println(p_in);
+		
 		String p_out = multi.getParameter("p_out"); //목적지
 		int p_maxpeople = Integer.parseInt(multi.getParameter("p_maxpeople")); //최대 인원
 		int p_price = Integer.parseInt(multi.getParameter("p_price")); //가격

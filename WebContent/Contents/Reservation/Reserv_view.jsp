@@ -6,15 +6,16 @@
 	<c:set var="tempDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd"/></c:set>
 	<fmt:parseDate value="${tempDate}" var="sysDate" pattern="yyyy-MM-dd"/>
 	<fmt:parseNumber value="${ sysDate.time  / (1000*60*60*24) }" integerOnly="true" var="sysDateNum"></fmt:parseNumber>
-	<div>
+	<div class="view_title">
 		<img src="/Contents/img/product_img/천지연.jpg" style="width:1900px; height:850px;">
 		<h2 style="color:white;position: absolute;left: 28%;top: 50%;font-size: 50px; text-shadow: 2px 1px 1px black;">지금, 여기관광과 함께 여행을 떠나보세요</h2>
 	</div>
-	  <h1 class="flash" style="position:absolute; left: 41%; top: 669px; text-shadow: 2px 1px 1px black;">
+	<div class="flash">
+	  <h1 style="position:absolute; left: 41%; top: 669px; text-shadow: 2px 1px 1px black;">
 	  	밑에서 상품 정보를 확인해보세요<br>
 	  	<i class="fa fa-angle-double-down" aria-hidden="true" style="position:absolute;left: 46%;top: 108px;text-shadow: 2px 1px 1px black;font-size: 52px;"></i>
 	  </h1>
-	
+	</div>
 	<section class="product">
 		<div class="cont_img">
 			<c:if test="${ pvo.p_filename==null }">
@@ -111,34 +112,31 @@
 	
 	
 <!--flash css -->
-@-webkit-keyframes flash {
-  from,
-  50%,
-  to {
-    opacity: 1;
-  }
 
-  25%,
-  75% {
-    opacity: 0;
-  }
-}
 
 @keyframes flash {
-  from,
-  50%,
-  to {
+  25% {
+  	opacity: 0;
+  	 }
+ 
+ 
+  50% {
     opacity: 1;
   }
-
-  25%,
+	
+ 
+ 
   75% {
     opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
   }
 }
 
 .flash {
-  -webkit-animation-name: flash;
+
   animation-name: flash;
 }
 
@@ -149,7 +147,7 @@
 <script>
 	function reserv() {
 		if(fm.id.value=="") {
-			fm.action="/ReservServlet?command=reserv_unregit&p_idx="+fm.idx.value+"&reserv_cnt="+fm.reserv_cnt.value;
+			fm.action="/ReservServlet?command=reserv_ok&p_idx="+fm.idx.value+"&reserv_cnt="+fm.reserv_cnt.value;
 			fm.submit();
 		}else {
 			fm.action="/ReservServlet?command=reserv_regit&p_idx="+fm.idx.value+"&reserv_cnt="+fm.reserv_cnt.value;

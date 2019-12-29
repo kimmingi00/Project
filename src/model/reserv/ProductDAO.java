@@ -319,7 +319,7 @@ public class ProductDAO {
 		
 		
 		String query="update product set p_reservpeople = p_reservpeople + ?,"
-				+ "p_customer = p_customer + ? where p_idx = ?";
+				+ "p_customer = p_customer||? where p_idx = ?";
 		
 		try {
 			conn = DBConn.getConnection();
@@ -327,6 +327,35 @@ public class ProductDAO {
 			pstmt.setInt(1, reserv_cnt);
 			pstmt.setString(2, p_customer);
 			pstmt.setInt(3, p_idx);
+			row = pstmt.executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			DBConn.close(conn, pstmt);
+		}
+		
+		
+		return row;
+		
+	}
+	
+	
+	
+	
+	public int memReservNumAdd(String p_idx, String id) {
+		int row=0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		
+		
+		String query="update member set reserv_num = reserv_num||? where id = ?";
+		
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, p_idx);
+			pstmt.setString(2, id);
 			row = pstmt.executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();

@@ -9,7 +9,9 @@ import service.reserv.ProductUploadAction;
 import service.reserv.ProductUploadProAction;
 import service.reserv.ProductViewAction;
 import service.reserv.ReservMainAction;
+import service.reserv.ReservOKAction;
 import service.reserv.ReservRegitAction;
+import service.reserv.ReservUnregitAction;
 import service.reserv.ReservViewAction;
 import service.reserv.UploadMainAction;
 
@@ -49,6 +51,10 @@ public class ReservActionFactory {
 			action = new ReservViewAction();
 		}else if(command.equals("reserv_regit")) {
 			action = new ReservRegitAction();
+		}else if(command.equals("reserv_Unregit")) {
+			action = new ReservUnregitAction();
+		}else if(command.equals("reserv_ok")) {
+			action = new ReservOKAction();
 		}
 		
 		/* 
