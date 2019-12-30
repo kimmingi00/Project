@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    font-family: sans-serif;
+  }
+
+  .box {
+    position: absolute;
+    top: 41%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28rem;
+    padding: 2.5rem;
+    box-sizing: border-box;
+    border: 1px solid #dadce0;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+
+  }
+
+  .box h2 {
+    margin: 0px 0 -0.125rem;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    color: #202124;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .box p {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .1px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .box .inputBox {
+    position: relative;
+  }
+
+  .box .inputBox input {
+    width: 93%;
+    padding: 0.625rem 10px;
+    font-size: 1rem;
+    letter-spacing: 0.062rem;
+    margin-bottom: 1.875rem;
+    border: 1px solid #ccc;
+    background: transparent;
+    border-radius: 4px;
+
+  }
+
+  .box .inputBox label {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    padding: 0.625rem 0;
+    font-size: 1rem;
+    color: grey;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+
+  .box .inputBox input:focus ~ label,
+  .box .inputBox input:valid ~ label,
+  .box .inputBox input:not([value=""]) ~ label {
+    top: -1.125rem;
+    left: 10px;
+    color: #363636;
+    font-size: 0.75rem;
+    background-color: white;
+    height: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .box .inputBox input:focus {
+    outline: none;
+    border: 2px solid #363636;
+  }
+  .box input[type="submit"] {
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: #;
+    padding: 0.625rem 1.25rem;
+    cursor: pointer;
+    border-radius: 0.312rem;
+    font-size: 1rem;
+    float: right;
+  }
+
+  .box input[type="submit"]:hover {
+    background-color: #909090;
+  }
+
+  .logo{position:fixed; top:0%; left:44%;}
+
+  a:link {text-decoration: none; color: #333333;}
+  a:visited {text-decoration: none; color: #333333;}
+  a:active {text-decoration: none; color: #333333;}
+  a:hover {text-decoration: underline; color: red;}
+
+  .onelogin{position:fixed; top:64%; left:740px;}
+
+  .button {display: inline-block;border-radius: 4px;background-color: #6F6F6F;border: none;color: #000000;text-align: center;font-size: 28px;padding: 13px;width: 140px;transition: all 0.5s;cursor: pointer;margin: 5px;}
+  .button span {cursor: pointer;display: inline-block;position: relative;transition: 0.5s;}
+  .button span:after {content: '\00bb';position: absolute;opacity: 0;top: 0;right: -20px;transition: 0.5s;}
+  .button:hover span {padding-right: 25px;}
+  .button:hover span:after {opacity: 1;right: 0;}
+
+  	body {background-color:#FFFFF8;}
