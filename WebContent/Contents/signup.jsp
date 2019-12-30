@@ -131,11 +131,7 @@
 
                   <div class="inputBox">
                         <input type="text" name="tel"  style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
-                        <label><font size="4">전화번호</font></label>휴대폰 인증을 실시해주세요.
-                  </div>
-
-                  <div class="inputBox">
-                  <input type=button style="width:130px;" value="휴대폰 인증" onClick="">
+                        <label><font size="4">전화번호</font></label>
                   </div>
 
                   <div class="inputBox">
@@ -163,7 +159,6 @@
               </div>
               <br>
 
-        </div>
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 //이메일 입력방식 선택

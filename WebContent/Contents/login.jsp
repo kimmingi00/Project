@@ -30,7 +30,7 @@
                           <span class="txt_lab"><font size="5" class="google2">자동 로그인</font></span>
                       </label>
                       &nbsp; &nbsp; &nbsp; &nbsp;
-                        <button class="button" style="vertical-align:middle"><span>로그인 </span></button>
+                        <button class="button">로그인</button>
                 </form>
               </div>
               <br>
