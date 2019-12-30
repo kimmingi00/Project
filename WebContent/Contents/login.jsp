@@ -37,7 +37,7 @@
           <table>
             <tr>
               <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-              <td><a href="confirm.html"><font size="4">회원가입</font></a></td>
+              <td><a href="confirm.jsp"><font size="4">회원가입</font></a></td>
               <td>&nbsp; | &nbsp; </td>
               <td><a href="#"><font size="3">아이디찾기</a></td>
               <td>&nbsp; | &nbsp;</td>

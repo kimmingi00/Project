@@ -16,7 +16,7 @@
                 //0초면 초기화 후 이동되는 사이트
                 if (count == 0) {
                     clearInterval(countdown);
-                    window.open('login.html', "_self");
+                    window.open('login.jsp', "_self");
                     }
                 count--;//카운트 감소
             }, 1000);
