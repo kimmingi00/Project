@@ -9,7 +9,7 @@
 
   <style type="text/css">
       body{
-        margin-top: 17%;
+        margin-top: 17%; background-color:#f2f2f2;
       }
     </style>
 
@@ -79,9 +79,9 @@
         member.p_in.focus();
         return;
       }else {
-    	  cnt++;
-    	  cell1.innerHTML = "<td><input type='text' name='p_in"+cnt+"' style='width:180px;' required onkeyup='this.setAttribute('value', this.value);' value=''><label><font size='4'>탑승지</font></label><input type='button' value='X' style='WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px' onclick='delete_row(member.cnt.value)'></td>";
-          member.cnt.value=cnt;	
+    	  member.cnt.value=my_tbody.rows.length+2;	
+    	  cell1.innerHTML = "<td><input type='text' name='p_in"+cnt+"' style='width:180px;' required onkeyup='this.setAttribute('value', this.value);' value=''><input type='time' name='p_intime"+cnt+"' style='width:100px;'><input type='button' value='X' style='WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px' onclick='delete_row(member.cnt.value)'></td>";
+          cnt--;
       }
 
     }
@@ -92,18 +92,19 @@
       if (my_tbody.rows.length < 1) return;
       // my_tbody.deleteRow(0); // 상단부터 삭제
       my_tbody.deleteRow( my_tbody.rows.length-1 ); // 하단부터 삭제
-      cnt--;
-      member.cnt.value=cnt;
+      
+      member.cnt.value=my_tbody.rows.length+1;
+      
     }
 
 
     </script>
 
-
+	<section>	
         <div class="box">
                 <center><font size="6">상품 업로드</font></center>
                 <br>
-                <form name="member" method="post" enctype="multipart/form-data" action="/ReservServlet?command=ProductUploadPro&b_id=${ b_user.b_id }">
+                <form name="member" method="post" enctype="multipart/form-data" action="ReservServlet?command=ProductUploadPro&b_id=${ b_user.b_id }">
                   <div class="inputBox">
                     <input type="text" name="p_title" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
                     <label><font size="4">관광상품 이름</font></label>
@@ -114,11 +115,11 @@
                     <label><font size="4">관광상품 내용</font></label>
                   </div>
 
-                <div class="inputBox" >
-                  <input type="text" name="p_indate" id="datepicker1" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
-                  <label><font size="4">출발일자</font></label>
-                  <input type="time" name="p_intime" style="width:180px;" value="">
-                </div>
+	                <div class="inputBox" >
+	                  <input type="text" name="p_indate" id="datepicker1" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
+	                  <label><font size="4">출발일자</font></label>
+	                  <input type="time" name="p_intime" style="width:180px;" value="">
+	                </div>
 
                   <div class="inputBox">
                         <input type="text" name="p_outdate" id="datepicker2" style="width:180px;"required onkeyup="this.setAttribute('value', this.value);" value="">
@@ -129,8 +130,8 @@
                   <div class="inputBox" id="p_in">
                           <input type="text" name="p_in" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
                           <label><font size="4">탑승지</font></label>
+                          <input type="hidden" name="cnt" value="2">
                           <input type="button" value="지역추가"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" onclick="add_row(member.cnt.value)">
-                          <input type="hidden" name="cnt" value="0">
                   </div>
 
                   <table>
@@ -142,6 +143,18 @@
                   <div class="inputBox">
                         <input type="text" name="p_out" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
                         <label><font size="4">목적지</font></label>
+                  </div>
+
+                  <div class="inputBox">
+                        <input type="text" name="p_spot" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
+                        <label><font size="4">관광지 탑승지</font></label>
+                        <input type="time" name="p_spottime" style="width:180px;" value="">
+                  </div>
+
+                  <div class="inputBox">
+                        <input type="text" name="p_stopover" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
+                        <label><font size="4">하차지</font></label>
+                        <input type="time" name="p_stoptime" style="width:180px;" value="">
                   </div>
 
                   <div class="inputBox">
@@ -158,9 +171,13 @@
                     <span><font size="4">테마</font></span>
                     <br><br>
                     <div class="sub-thema">
-                      <input type="checkbox" name="thema" value="팀장은 김민기">팀장은 김민기
-                      <input type="checkbox" name="thema" value="팀장은 김민기">팀장은 김민기
-                      <input type="checkbox" name="thema" value="팀장은 김민기">팀장은 김민기
+                      <input type="checkbox" name="thema" value="해돋이여행">해돋이여행
+                      <input type="checkbox" name="thema" value="단풍맞이여행">단풍맞이여행
+                      <input type="checkbox" name="thema" value="사찰여행">사찰여행
+                      <input type="checkbox" name="thema" value="축제여행">축제여행
+                      <input type="checkbox" name="thema" value="겨울여행">겨울여행
+                      <input type="checkbox" name="thema" value="여름휴가">여름휴가
+                      <input type="checkbox" name="thema" value="꽃구경">꽃구경
                     </div>
                   </div>
 
@@ -174,9 +191,9 @@
                   <input type="reset" value="다시쓰기"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" >
 
                 </form>
-              </div>
-              <br>
-
         </div>
+    </section>      
+
+        
 </body>
 </html>

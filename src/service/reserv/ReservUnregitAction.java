@@ -17,19 +17,21 @@ public class ReservUnregitAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		
 		int p_idx = Integer.parseInt(request.getParameter("p_idx"));
 		int reserv_cnt = Integer.parseInt(request.getParameter("reserv_cnt"));
-		String id = request.getParameter("id");
-		
-		String p_customer = id+"("+reserv_cnt+")";
 		
 		ProductDAO dao = ProductDAO.getInstance();
 		
-		int row = dao.reservProduct(p_idx, p_customer, reserv_cnt);
+		ProductVO pvo = dao.ProductView(p_idx);
+		String savePath = "/Contents/img/product_img";
 		
-		request.setAttribute("row", row);
+		request.setAttribute("savePath", savePath);
+		request.setAttribute("p_idx", p_idx);
+		request.setAttribute("reserv_cnt", reserv_cnt);
+		request.setAttribute("pvo", pvo);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/ReservServlet?command=reserv_main");
+		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/Reserv_unregit.jsp");
 		rd.forward(request, response);
 	}
 

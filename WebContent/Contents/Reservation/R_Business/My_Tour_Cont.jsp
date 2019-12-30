@@ -25,7 +25,7 @@
 </body>
 
 <style>
-	section {margin-top:20%; color:white; text-align:center;}
+	section {margin-top:20%; color:black; text-align:center;}
 	
 </style>
 <script type="text/javascript">

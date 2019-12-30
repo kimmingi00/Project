@@ -18,10 +18,27 @@
 </body>
 <style>
 	
-	section {margin-top:20%; color:white; text-align:center;}
+	section {margin-top:20%; color:black; text-align:center;}
 	p {margin-bottom:20px;}
 	.title {font-size: 30px; font-weight:bold;}
-	.btn {margin-bottom:20px; background-color:black; color:white; font-size:25px;}
+	.btn {
+			margin-bottom:20px; background-color:#07c; color:white; 
+		border-color: #07c;
+    	border-width: 1px;
+    	border-style: solid;
+    	font-size: 17px;
+    	font-weight: 400;
+    	text-align: center;
+    	white-space: nowrap;
+    	line-height: 1.17648;
+	    min-width: 28px;
+	    padding-left: 16px;
+	    padding-right: 16px;
+	    padding-top: 8px;
+	    padding-bottom: 8px;
+	    border-radius: 18px;
+	    background: #0071e3;
+}
 	
 	
 </style>

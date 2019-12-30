@@ -37,30 +37,42 @@ public class ProductUploadProAction implements Action {
 		MultipartRequest multi = new MultipartRequest(request, path, sizeLimit, 
 				encType, new DefaultFileRenamePolicy()); // 첨부파일 업로드
 		
+		int cnt = Integer.parseInt(multi.getParameter("cnt"));
+		
+		
 		String p_title = multi.getParameter("p_title"); // 상품 이름
 		String p_contents = multi.getParameter("p_contents"); // 상품 내용
 		String p_indate = multi.getParameter("p_indate"); // 출발일
 		String p_outdate = multi.getParameter("p_outdate"); // 종료일
 		String p_in = multi.getParameter("p_in"); //출발지
+		String p_intime = multi.getParameter("p_intime");
+		String p_outtime = multi.getParameter("p_outtime");
+		String p_spot = multi.getParameter("p_spot");
+		String p_spottime = multi.getParameter("p_spottime");
+		String p_stopover = multi.getParameter("p_stopover");
+		String p_stoptime = multi.getParameter("p_stoptime");
 		
-		int cnt = Integer.parseInt(multi.getParameter("cnt"));
-		System.out.println(cnt);
 		
 		if(cnt!=0) {
 			String[] in_array = new String[cnt];
-			
-			for(int i=0; i<cnt; i++) {
-				in_array[i] = multi.getParameter("p_in"+(i+1));
+			String[] time_array = new String[cnt];
+			for(int i=0; i<cnt-2; i++) {
+				in_array[i] = multi.getParameter("p_in"+(i+2));
+				time_array[i] = multi.getParameter("p_intime"+(i+2));
+				
 			}
+			
+		
 			for(int i=0; i<cnt; i++) {
 				p_in = p_in+", "+in_array[i];
+				p_intime = p_intime+", "+time_array[i];
 			}
 		}
 		
 		
 		
 		
-		System.out.println(p_in);
+		
 		
 		String p_out = multi.getParameter("p_out"); //목적지
 		int p_maxpeople = Integer.parseInt(multi.getParameter("p_maxpeople")); //최대 인원
@@ -68,7 +80,6 @@ public class ProductUploadProAction implements Action {
 		String[] tema = multi.getParameterValues("thema"); //테마
 		String p_filename = multi.getFilesystemName("p_filename"); //파일 이름
 		
-		System.out.println(p_in);
 		
 		String theme="";
 		if(tema!=null) {
@@ -85,7 +96,12 @@ public class ProductUploadProAction implements Action {
 		pvo.setB_id(b_id); pvo.setP_title(p_title); pvo.setP_contents(p_contents);
 		pvo.setP_indate(p_indate); pvo.setP_outdate(p_outdate); pvo.setP_in(p_in);
 		pvo.setP_out(p_out); pvo.setP_maxpeople(p_maxpeople); pvo.setP_price(p_price);
-		pvo.setTheme(theme); pvo.setP_filename(p_filename);
+		pvo.setTheme(theme); pvo.setP_filename(p_filename); 
+		
+		pvo.setP_intime(p_intime); pvo.setP_outtime(p_outtime); pvo.setP_spot(p_spot);
+		pvo.setP_spottime(p_spottime); pvo.setP_stopover(p_stopover); pvo.setP_stoptime(p_stoptime);
+		
+		
 		
 		ProductDAO dao = ProductDAO.getInstance();
 		

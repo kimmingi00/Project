@@ -14,15 +14,15 @@
 	
 	
 	<style type="text/css" media="screen and (min-width: 1080px) and (max-width:1920px)">
-
+ 
 	*{margin: 0; padding: 0;}
 	li{list-style: none;}
 	a{text-decoration: none;}
 
-	.nav{width:1200px; margin: 0 auto;}
+	.article{width:1200px; margin: 0 auto;}
 	.clearfix{content:''; display: block; clear:both;}
 
-	header{height: 75px; background-color: #242424; border:1px solid #white;
+	.header{height: 75px; background-color: #242424; border:1px solid #white;
 					position:fixed; width:100%; z-index: 9999; top:0; left:0;}
 	h1{color:white; line-height: 150px; float: left;}
 
@@ -57,11 +57,11 @@
 
 </head>
 <body>	
-	<header>
-		<div class = "nav">
-				<nav>
+	<span class ="header">
+		<div class = "article">
+				<span>
 						<ul class ="logo">
-							<li><font size="6"><a href="/Contents/index.jsp"> LOGO</font></a> </li>
+							<li><font size="6"><a href="/IndexServlet?command=index"> LOGO</font></a> </li>
 						</ul>
 					<ul class="menu">
 						<li><a href="/ReservServlet?command=reserv_main"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
@@ -69,11 +69,10 @@
 						<li><a href="/BoardServlet?command=board_notice"><font size="4">공지사항 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="####"><font size="4">문의하기 </font>&nbsp; &nbsp; &nbsp;</a></li>
 					</ul>
-				</nav>
+				</span>
 		</div>
 
 		<div class = "login">
-			<a href="###.jsp">
 				<div class="menubar">
       		<li style="color:white; margin-top:11px;">
       			<c:if test="${!empty user }">${ user.name }님</c:if>
@@ -104,5 +103,5 @@
 				</div>
 			</a>
 		</div>
-	</header>
+	</span>
 

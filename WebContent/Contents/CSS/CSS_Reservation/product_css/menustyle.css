@@ -42,6 +42,14 @@ a { text-decoration: none; }
  * Styling navigation
  */
 
+header {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 22.5rem;
+  margin-top:150px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+}
+
 /**
  * Styling top level items
  */

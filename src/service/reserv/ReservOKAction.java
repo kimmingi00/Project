@@ -29,7 +29,7 @@ public class ReservOKAction implements Action {
 		
 	
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/ReservServlet?command=reserv_ok");
+		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/Reserv_ok.jsp");
 		rd.forward(request, response);
 	}
 

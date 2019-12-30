@@ -20,7 +20,49 @@ public class ProductVO {
 	private String p_regdate;
 	private String p_picture;
 	private String p_customer;
+	private String p_intime;
+	private String p_outtime;
+	private String p_spot;
+	private String p_spottime;
+	private String p_stopover;
+	private String p_stoptime;
 	
+	public String getP_intime() {
+		return p_intime;
+	}
+	public void setP_intime(String p_intime) {
+		this.p_intime = p_intime;
+	}
+	public String getP_outtime() {
+		return p_outtime;
+	}
+	public void setP_outtime(String p_outtime) {
+		this.p_outtime = p_outtime;
+	}
+	public String getP_spot() {
+		return p_spot;
+	}
+	public void setP_spot(String p_spot) {
+		this.p_spot = p_spot;
+	}
+	public String getP_spottime() {
+		return p_spottime;
+	}
+	public void setP_spottime(String p_spottime) {
+		this.p_spottime = p_spottime;
+	}
+	public String getP_stopover() {
+		return p_stopover;
+	}
+	public void setP_stopover(String p_stopover) {
+		this.p_stopover = p_stopover;
+	}
+	public String getP_stoptime() {
+		return p_stoptime;
+	}
+	public void setP_stoptime(String p_stoptime) {
+		this.p_stoptime = p_stoptime;
+	}
 	public int getP_idx() {
 		return p_idx;
 	}

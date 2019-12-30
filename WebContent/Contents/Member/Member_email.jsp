@@ -12,9 +12,12 @@
          if(semail.row.value==0) {
         	 opener.member.email.value=semail.email.value;
         	 opener.member.email_check.value=1;
-        }else {
+        }else if(semail.row.value==1){
         	opener.business.b_email.value=semail.email.value;
         	opener.business.b_email_check.value=1;
+        }else{
+        	opener.fm.email.value=semail.email.value;
+        	opener.fm.email_check.value=1;
         }         
         self.close();
          

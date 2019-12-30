@@ -2,6 +2,7 @@
 <%@ page import="controller.reserv.*" %>
 <%@ include file="/Contents/include_file(navi bar)/navigation_bar.jsp" %> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+ <link rel="stylesheet"  href="/Contents/Index/imgslider_css/lightslider.css"/>
 	<c:set var="now" value="<%=new java.util.Date()%>" />
 	<c:set var="tempDate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd"/></c:set>
 	<fmt:parseDate value="${tempDate}" var="sysDate" pattern="yyyy-MM-dd"/>
@@ -21,10 +22,23 @@
 			<c:if test="${ pvo.p_filename==null }">
 				<img src="/Contents/img/product_img/no-image.png" style="width:650px; height:340px; margin-left:11%; margin-top: 2%;">
 			</c:if>
-				<c:if test="${ pvo.p_filename!=null }">
-				<img src="${ savePath }/${pvo.p_filename}" style="width:650px; height:340px; margin-left:11%; margin-top: 2%;">
-			</c:if>
-		</div>
+			<c:if test="${ pvo.p_filename!=null }">			
+			    <div class="demo">
+			        <div class="item">
+			            <div class="clearfix" style="max-width:474px;">
+			                <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+			                    <li data-thumb="${ savePath }/${pvo.p_filename}" >
+			                        <img src="${ savePath }/${pvo.p_filename}" style="width:650px; height:340px;" />
+			                    </li>
+			                    <li data-thumb="/Contents/Index/imgslider_image/thumb/cS-1.jpg">
+			                        <img src="/Contents/Index/imgslider_image/cS-1.jpg" />
+			                    </li>
+			                </ul>
+			            </div>
+			        </div>
+			    </div>
+		    </c:if>	
+	    </div>
 		<div class="cont_info">
 			<h2>${ pvo.p_title }</h2>
 			
@@ -101,8 +115,8 @@
 	    border-radius: 18px;
 	    background: #0071e3;
 		}
-	.cont_image {position:absolute;  }
-	.cont_info {margin-top: -24%; margin-left:67%;}
+	.cont_img { margin-left:125px; padding:75px; }
+	.cont_info {margin-top: -31%; margin-left:64%;}
 	.cont_info p {font-size:20px;}
 	
 	.product_cont {margin-top:7%; color:black; width:1500px; height:500px; 
@@ -171,6 +185,28 @@
 		
 	}
 </script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/Contents/Index/imgslider_js/lightslider.js"></script>
+    <script>
+    	 $(document).ready(function() {
+			$("#content-slider").lightSlider({
+                loop:true,
+                keyPress:true
+            });
+            $('#image-gallery').lightSlider({
+                gallery:true,
+                item:1,
+                thumbItem:9,
+                slideMargin: 0,
+                speed:500,
+                auto:true,
+                loop:true,
+                onSliderLoad: function() {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }
+            });
+		});
+    </script>
 
 </body>
 

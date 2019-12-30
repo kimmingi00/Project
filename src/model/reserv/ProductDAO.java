@@ -78,8 +78,10 @@ public class ProductDAO {
 
 		String query="insert into product(p_idx, b_id, p_title, p_contents, p_indate,"
 				+ " p_outdate, p_in, p_out, p_reservpeople, p_maxpeople, p_price, theme,"
-				+ "p_filename, p_readcnt, p_picture) values("
-				+ "seq_p_idx.nextval, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?)";
+				+ "p_filename, p_readcnt, p_picture, p_intime, p_outtime, p_spot, "
+				+ "p_spottime, p_stopover, p_stoptime) values("
+				+ "seq_p_idx.nextval, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"
+				+ "?,?)";
 		
 		
 		try {
@@ -98,6 +100,12 @@ public class ProductDAO {
 			pstmt.setString(11, pvo.getP_filename());
 			pstmt.setInt(12, pvo.getP_readcnt());
 			pstmt.setString(13, pvo.getP_picture());
+			pstmt.setString(14, pvo.getP_intime());
+			pstmt.setString(15, pvo.getP_outtime());
+			pstmt.setString(16, pvo.getP_spot());
+			pstmt.setString(17, pvo.getP_spottime());
+			pstmt.setString(18, pvo.getP_stopover());
+			pstmt.setString(19, pvo.getP_stoptime());
 			row = pstmt.executeUpdate();
 			
 			

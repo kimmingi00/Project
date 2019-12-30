@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
 
     <style type="text/css">
       body{
-        margin-top: 17%;
+        margin-top: 27%;
       }
     </style>
 
@@ -71,6 +72,16 @@
         member.p_out.focus();
         return false;
       }
+      if(member.p_spot.value==""){
+        alert("관광지 탑승지를 입력해주세요");
+        member.p_spot.focus();
+        return false;
+      }
+      if(member.p_stopover.value==""){
+        alert("하차지를 입력해주세요");
+        member.p_stopover.focus();
+        return false;
+      }
       member.submit();
     }
 
@@ -87,7 +98,7 @@
         member.p_in.focus();
         return;
       }else {
-        cell1.innerHTML = "<td><input type='text' name='p_in1' style='width:180px;' required onkeyup='this.setAttribute('value', this.value);' value=''><label><font size='4'>탑승지</font></label><input type='button' value='X' style='WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px' onclick='delete_row()'></td>";
+        cell1.innerHTML = "<td><input type='text' name='p_in1' style='width:180px;' required onkeyup='this.setAttribute('value', this.value);' value=''><label><font size='4'>탑승지</font></label><input type='time' name='p_boardtime' style='width:100px;'><input type='button' value='X' style='WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px' onclick='delete_row()'></td>";
       }
 
     }
@@ -134,7 +145,7 @@
 
                   <div class="inputBox" id="p_in">
                           <input type="text" name="p_in" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
-                          <label><font size="4">탑승지</font></label>
+                          
                           <input type="button" value="지역추가"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" onclick="add_row()">
                   </div>
 
@@ -147,6 +158,19 @@
                   <div class="inputBox">
                         <input type="text" name="p_out" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
                         <label><font size="4">목적지</font></label>
+                        <input type="time" name="p_otime" style="width:180px;" value="">
+                  </div>
+
+                  <div class="inputBox">
+                        <input type="text" name="p_spot" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
+                        <label><font size="4">관광지 탑승지</font></label>
+                        <input type="time" name="p_spottime" style="width:180px;" value="">
+                  </div>
+
+                  <div class="inputBox">
+                        <input type="text" name="p_stopover" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
+                        <label><font size="4">하차지</font></label>
+                        <input type="time" name="p_stptime" style="width:180px;" value="">
                   </div>
 
                   <div class="inputBox">

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+u<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +13,14 @@
 
     </style>
 
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion();
+    $('#accordion input[type="checkbox"]').click(function(e) {
+        e.stopPropagation();
+    });
+  });
+  </script>
 </head>
 
 
@@ -38,7 +46,7 @@
        <center>
           <font size="4">
           개인정보취급방침 이용약관 동의 (필수)
-       </font><input type="checkbox" name="c1" id="c1" style="width:20px;height:20px;"></a></h3>
+       </font><input type="checkbox" name="c1" id="c1"/ style="width:20px;height:20px;"></a></h3>
 
        </center>
        <center>
@@ -63,7 +71,7 @@
        <br>
 
           <font size="4">개인정보 수집 및 이용에 대한 안내 (필수)
-          </font><input type="checkbox" name="c2" id="c2" style="width:20px;height:20px;"></a></h3>
+          </font><input type="checkbox" name="c2" id="c2"/ style="width:20px;height:20px;"></a></h3>
       </center>
    <div>
        <center>
@@ -81,7 +89,7 @@
 
     <center>
           <font size="4">위치정보 이용약관 동의 (선택)
-       </font><input type="checkbox" name="c3" id="c3" style="width:20px;height:20px;"></center></a>
+       </font><input type="checkbox" name="c3" id="c3"/ style="width:20px;height:20px;"></center></a>
    <div>
        <center>
      <textarea readonly="readonly" rows="8" cols="66">
@@ -110,7 +118,13 @@
  </div>
 
 <br>
-<hr/>
+  <tr>
+      <center>
+   <td align="left"><font size="4"> 이벤트 등 프로모션 알림 메일 수신 (선택)</font>
+    </td>
+   <td><input type="checkbox" name="c4" id="c4" style="width:20px;height:20px;"></td><hr/>
+    </center>
+  </tr>
 
   <br>
  <div align="center">
@@ -122,63 +136,54 @@
 
 </form>
 
+<!-- 체크박스 이벤트처리 -->
 <script>
-   var doc = document;
-   var form1 = doc.getElementById('form1');
-   var inputs = form1.getElementsByTagName('INPUT');
-   var form1_data = {
-      "c1": false,
-      "c2": false,
-      "c3": false
-   }; // 창에 새로 들어왔을때 체크박스 3개는 무조건 false
-   var c1 = doc.getElementById('c1');
-   var c2 = doc.getElementById('c2');
-   var c3 = doc.getElementById('c3');
-   function checkboxListener() {
-      form1_data[this.name] = this.checked;
-      if(this.checked) {
-         // submit 할때 체크하지 않아 색이 변한 font 를 다시 원래 색으로 바꾸는 부분.
-         this.parentNode.style.color = "#000";
-      }
-   }
-      c1.onclick = c2.onclick = c3.onclick = checkboxListener;
-      var all = doc.getElementById('all');
-      all.onclick = function() {
-         if (this.checked) {
-            setCheckbox(form1_data, true);
-         } else {
-            setCheckbox(form1_data, false);
-         }
-      };
-      function setCheckbox(obj, state) {
-         for (var x in obj) {
-            obj[x] = state;
-            for(var i = 0; i < inputs.length; i++) {
-               if(inputs[i].type == "checkbox") {
-                  inputs[i].checked = state;
-               }
-            }
-         }
-      }
-
-   form1.onsubmit = function(e) {
-      e.preventDefault(); // 서브밋 될때 화면이 깜빡이지 않게 방지
-      if ( !form1_data['c1'] ) {
-         alert('개인정보취급방침 이용약관 동의를 해주세요.');
-         c1.parentNode.style.color = 'red';
-         return false;
-      }
-      if ( !form1_data['c2'] ) {
-         alert('개인정보 수집 및 이용약관 동의를 해주세요.');
-      c2.parentNode.style.color = 'red';
-         return false;
-      }
-      this.submit();
+var doc = document;
+  var form1 = doc.getElementById('form1');
+  var inputs = form1.getElementsByTagName('INPUT');
+  var form1_data = {
+   "c1": false,
+   "c2": false,
+   "c3": false
+  };
+  var c1 = doc.getElementById('c1');
+  var c2 = doc.getElementById('c2');
+  var c3 = doc.getElementById('c3');
+  function checkboxListener() {
+   form1_data[this.name] = this.checked;
+  }
+   c1.onclick = c2.onclick = c3.onclick = checkboxListener;
+   var all = doc.getElementById('all');
+   all.onclick = function() {  //전체 체크를 누를 시 모든 체크박스 활성화
+    if (this.checked) {
+     setCheckbox(form1_data, true);
+    } else {
+     setCheckbox(form1_data, false);
+    }
    };
+   function setCheckbox(obj, state) {
+    for (var x in obj) {
+     obj[x] = state;
+     for(var i = 0; i < inputs.length; i++) {
+      if(inputs[i].type == "checkbox") {
+       inputs[i].checked = state;
+      }
+     }
+
+    }
+   }
+  form1.onsubmit = function(e) {
+   e.preventDefault();
+   if ( !form1_data['c1'] ) {
+    alert('이용동의 약관에 동의하지 않았습니다.');
+    return false;
+   }
+   if ( !form1_data['c2'] ) {
+    alert('개인정보 수집 및 이용에 대한 안내를 동의하지 않았습니다.');
+    return false;
+   }
+   this.submit();
+  };
 </script>
-
-
-
-
 </body>
 </html>
