@@ -1,39 +1,41 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ include file="/Contents/include_file(navi bar)/navigation_bar.jsp" %>
 
- <title>게시판 작성</title>
+<title>QNA</title>
 
-
- <body topmargin="0" leftmargin="0">
-   <input type="hidden" name="idx" value="${vo.idx}"/>
-  <input type="hidden" name="filename2" value="${vo.filename}"/>
 <div class="notice">
-     <font style="font-family:HoonYunpilsupkyukR;color:#000000;" size="9"><center style="margin:20px;">글수정</center></font>
-     <form method="post" name="board" enctype="multipart/form-data" action="BoardServlet?command=board_notice_modify_pro">
+     <font style="font-family:HoonYunpilsupkyukR;color:#000000;" size="9"><center style="margin:30px">답글쓰기</center></font>
+     
+       <form method="post" action="BoardServlet?command=board_qna_reply_pro&page=${page}&idx=${board.q_idx}" name="boardForm">
+        <input type="hidden" name="id" value="${user.userid}">
+    <input type="hidden" name="idx" value="${board.q_idx}"/>
+    <input type="hidden" name="q_re_ref" value="${board.q_re_ref}"/>
+    <input type="hidden" name="q_re_lev" value="${board.q_re_lev}"/>
+    <input type="hidden" name="q_re_seq" value="${board.q_re_seq}"/>
 	  <table border="0">
 
        <tr>
          <td width="18%" align="right"></td>
          <td><font size="6" color="#000000" style=font-family:HoonYunpilsupkyukR;>아이디</font></td>
          <td>
-         <input type="text" size="60" name="id" style="text-align:center;" value="${board.id}" readonly></td>
+         <input type="text" size="60" name="id" style="text-align:center;width:500px;" value="${user.userid}" readonly></td>
        </tr>
        
 	   <tr>
          <td align="right"></td>
-         <td><font size="6" color="#000000" style=font-family:HoonYunpilsupkyukR;>제목</font></td>
-         <td><input type="text" size="60" name="title" value="${board.title}" style="text-align:center;"></td>
+         <td><font size="6"  color="#000000" style=font-family:HoonYunpilsupkyukR;>제목</font></td>
+         <td><input type="text" size="60" name="title" style=text-align:center;width:500px;></td>
        </tr>
        
        <tr>
          <td align="right"></td>
-         <td><font size="6"  color="#000000" style=font-family:HoonYunpilsupkyukR;>내용</font></td>
-         <td><textarea wrap="physical" rows="30" name="contents" cols="100" style="border-radius:24px;text-align:center;">${board.contents}</textarea></td>
+         <td><font size="6" color="#000000" style=font-family:HoonYunpilsupkyukR;>내용</font></td>
+         <td><textarea wrap="physical" rows="30" name="contents" cols="100" style="border-radius:24px;text-align:center;width:500px;"></textarea></td>
        </tr>
        
        	<tr>
 		  <td align="right"></td>
-		  <td><font size="6" color="#000000" style=font-family:HoonYunpilsupkyukR;>파일첨부</font></td>
+		  <td><font size="6"  color="#000000" style=font-family:HoonYunpilsupkyukR;>파일첨부</font></td>
 		  <td><input type="file" name="filename" size="60"></td>
 		  </tr>
 		 
@@ -50,10 +52,13 @@
 </div>
 
 
+
+
+
 <script>
 	function send(){
 	alert("전송합니다");
-	board.submit();
+	boardForm.submit();
 }
 	
 	function back(){

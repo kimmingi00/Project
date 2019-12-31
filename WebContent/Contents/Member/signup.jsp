@@ -16,7 +16,7 @@ body {
 
 }
 h1 {font-size: 3em; margin: 20px 0; color: #FFF;}
-.container {position: relative; top:20px; width: 800px; margin: 10px auto; position:relative; border-top-left-radius: 36px;	border-top-right-radius: 36px;	border-bottom-left-radius: 36px;	border-bottom-right-radius: 36px; }
+.container {position: relative; left:50px; top:20px; width: 800px; margin: 10px auto; position:relative; border-top-left-radius: 36px;	border-top-right-radius: 36px;	border-bottom-left-radius: 36px;	border-bottom-right-radius: 36px; }
 ul.tabs {margin: 0;	padding: 0;	float: left;list-style: none;	height: 48px;	width: 100%;}
 ul.tabs li {width:350px; min-height: 50px; float: left;	margin: 0; padding: 0; height: 31px; line-height: 31px; border: 1px solid #999; border-left: none; background: #F0F0F0; overflow: hidden;}
 ul.tabs li a {text-decoration: none; color: #000; display: block;	font-size: 1.2em; padding: 0 20px; outline: none; }
@@ -25,6 +25,20 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {background: #fff; borde
 .tab_content {padding: 20px;}
 .tab_content h3 a{color: #254588;}
 .tab_content img {float: left;	margin: 0 20px 20px 0; padding: 5px;}
+
+.button {position:relative; left:100px;
+	cursor: pointer; display: inline-block; text-align: center; font-size: 17px;
+    line-height: 1.17648; font-weight: 400; letter-spacing: -.022em;
+    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    min-width: 28px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;
+    border-radius: 18px; background: #ffffff; color: #000000;}
+
+.cansel {position:relative; left:130px;
+	cursor: pointer; display: inline-block; text-align: center; font-size: 17px;
+    line-height: 1.17648; font-weight: 400; letter-spacing: -.022em;
+    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    min-width: 28px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;
+    border-radius: 18px; background: #ffffff; color: #000000;}
 </style>
 
 <script>
@@ -208,7 +222,7 @@ function emailcheck2(b_email01, b_email02, b_selectEmail){
                   <div class="inputBox" >
                     <input type="text" name="id" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
                     <label><font size="4">아이디</font></label>5~16자 이내의 영문, 숫자
-                    <input type= "button" value="중복검사" onClick="javascript:id_check()"></input>
+                    <input type= "button" value="중복검사" onClick="javascript:id_check()" style="width:140px;"></input>
                     <input type= "hidden" name="check" value="0"></input> 
                   </div>
 
@@ -246,8 +260,8 @@ function emailcheck2(b_email01, b_email02, b_selectEmail){
                       <input type=button style="width:130px;" value="이메일 인증" onClick="emailcheck(member.str_email01.value, member.str_email02.value, member.selectEmail.value)">
                     </div>
 					<input type="hidden" name="email_check" value="0">
-                    <a href="javascript:send()"><input type="button" value="등록완료."  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" ></a>
-                    <a href="javascript:cansel()"><input type="button" value="취소하기." style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" ></a>
+                    <a href="javascript:send()"><input type="button" class="button" value="등록완료"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" ></a>
+                    <a href="javascript:cansel()"><input type="button" class="cansel" value="취소하기" style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" ></a>
 
                   
           </div>
@@ -268,8 +282,8 @@ function emailcheck2(b_email01, b_email02, b_selectEmail){
                   <div class="inputBox" >
                     <input type="text" name="b_id" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
                     <label><font size="4">아이디</font></label>5~16자 이내의 영문, 숫자
-                    <input type= "button" value="중복검사" onClick="javascript:b_id_check()"></input>
-                  	<input type= "hidden" name="b_check" value="0"></input> 
+                    <input type= "button" value="중복검사" onClick="javascript:b_id_check()" style="width:140px;"></input>
+                  	<input type= "hidden" name="b_check" value="0" ></input> 
                   </div>
 
                     <div class="inputBox">
@@ -307,10 +321,12 @@ function emailcheck2(b_email01, b_email02, b_selectEmail){
                       <input type=button style="width:130px;" value="이메일 인증" onClick="emailcheck2(b_email01.value, b_email02.value, b_selectEmail.value)">
                       </div>
                       <input type="hidden" name="b_email_check" value="0"></input>
+                      
 
-                    <a href="javascript:busi_send()"><input type="button" value="등록완료."  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" ></a>
-                    <a href="javascript:cansel()"><input type="button" value="취소하기." style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" ></a>
-
+                <a href="javascript:busi_send()"><input type="button" class="button" value="등록완료"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" ></a>
+                <a href="javascript:cansel()"><input type="button" class="cansel" value="취소하기" style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" ></a>
+	
+				
                   </form>
                 </div>
 

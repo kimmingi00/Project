@@ -15,7 +15,7 @@ body {
 
 }
 h1 {font-size: 3em; margin: 20px 0; color: #FFF;}
-.container {position: relative; top:150px; width: 800px; margin: 10px auto; position:relative; border-top-left-radius: 36px;	border-top-right-radius: 36px;	border-bottom-left-radius: 36px;	border-bottom-right-radius: 36px; }
+.container {position: relative; left:50px; top:150px; width: 800px; margin: 10px auto; position:relative; border-top-left-radius: 36px;	border-top-right-radius: 36px;	border-bottom-left-radius: 36px;	border-bottom-right-radius: 36px; }
 ul.tabs {margin: 0;	padding: 0;	float: left;list-style: none;	height: 48px;	width: 100%;}
 ul.tabs li {width:350px; min-height: 50px; float: left;	margin: 0; padding: 0; height: 31px; line-height: 31px; border: 1px solid #999; border-left: none; background: #F0F0F0; overflow: hidden;}
 ul.tabs li a {text-decoration: none; color: #000; display: block;	font-size: 1.2em; padding: 0 20px; outline: none; }
@@ -25,7 +25,12 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {background: #fff; borde
 .tab_content h3 a{color: #254588;}
 .tab_content img {float: left;	margin: 0 20px 20px 0; padding: 5px;}
 
-
+.button {position:relative; left:50px;
+	cursor: pointer; display: inline-block; text-align: center; font-size: 17px;
+    line-height: 1.17648; font-weight: 400; letter-spacing: -.022em;
+    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    min-width: 28px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;
+    border-radius: 18px; background: #ffffff; color: #000000;}
 
 </style>
 </head>
@@ -107,7 +112,7 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {background: #fff; borde
                             <span class="txt_lab"><font size="5">자동 로그인</font></span>
                         </label>
                         &nbsp; &nbsp; &nbsp; &nbsp;
-                          <button class="button" style="vertical-align:middle"><span>로그인 </span></button>
+                          <button class="button"><span>로그인 </span></button>
                   </form>
                 </div>
                 <br>

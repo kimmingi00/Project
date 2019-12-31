@@ -53,6 +53,12 @@ public class ProductDAO {
 				vo.setP_regdate(rs.getString("p_regdate"));
 				vo.setP_picture(rs.getString("p_picture"));
 				vo.setP_customer(rs.getString("p_customer"));
+				vo.setP_intime(rs.getString("p_intime"));
+				vo.setP_outtime(rs.getString("p_outtime"));
+				vo.setP_spot(rs.getString("p_spot"));
+				vo.setP_spottime(rs.getString("p_spottime"));
+				vo.setP_stopover(rs.getString("p_stopover"));
+				vo.setP_stoptime(rs.getString("p_stoptime"));
 				
 				mlist.add(vo);
 			}
@@ -79,9 +85,9 @@ public class ProductDAO {
 		String query="insert into product(p_idx, b_id, p_title, p_contents, p_indate,"
 				+ " p_outdate, p_in, p_out, p_reservpeople, p_maxpeople, p_price, theme,"
 				+ "p_filename, p_readcnt, p_picture, p_intime, p_outtime, p_spot, "
-				+ "p_spottime, p_stopover, p_stoptime) values("
+				+ "p_spottime, p_stopover, p_stoptime, place, outplace) values("
 				+ "seq_p_idx.nextval, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"
-				+ "?,?)";
+				+ "?,?,?,?)";
 		
 		
 		try {
@@ -106,6 +112,8 @@ public class ProductDAO {
 			pstmt.setString(17, pvo.getP_spottime());
 			pstmt.setString(18, pvo.getP_stopover());
 			pstmt.setString(19, pvo.getP_stoptime());
+			pstmt.setInt(20, pvo.getPlace());
+			pstmt.setInt(21, pvo.getOutplace());
 			row = pstmt.executeUpdate();
 			
 			
@@ -156,7 +164,12 @@ public class ProductDAO {
 				vo.setP_regdate(rs.getString("p_regdate"));
 				vo.setP_picture(rs.getString("p_picture"));
 				vo.setP_customer(rs.getString("p_customer"));
-				
+				vo.setP_intime(rs.getString("p_intime"));
+				vo.setP_outtime(rs.getString("p_outtime"));
+				vo.setP_spot(rs.getString("p_spot"));
+				vo.setP_spottime(rs.getString("p_spottime"));
+				vo.setP_stopover(rs.getString("p_stopover"));
+				vo.setP_stoptime(rs.getString("p_stoptime"));
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -303,7 +316,12 @@ public class ProductDAO {
 				vo.setP_regdate(rs.getString("p_regdate"));
 				vo.setP_picture(rs.getString("p_picture"));
 				vo.setP_customer(rs.getString("p_customer"));
-				
+				vo.setP_intime(rs.getString("p_intime"));
+				vo.setP_outtime(rs.getString("p_outtime"));
+				vo.setP_spot(rs.getString("p_spot"));
+				vo.setP_spottime(rs.getString("p_spottime"));
+				vo.setP_stopover(rs.getString("p_stopover"));
+				vo.setP_stoptime(rs.getString("p_stoptime"));
 				mlist.add(vo);
 			}
 		}catch(Exception e) {
@@ -373,6 +391,118 @@ public class ProductDAO {
 		
 		
 		return row;
+		
+	}
+	
+	public List<ProductVO> SelectProductList(String table, int place) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		List<ProductVO> mlist = new ArrayList<ProductVO>();
+		
+		String query = "select * from ? where outplace = ? ";
+		
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, table);
+			pstmt.setInt(2, place);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ProductVO vo = new ProductVO();
+				vo.setB_id(rs.getString("b_id"));
+				vo.setP_idx(rs.getInt("p_idx"));
+				vo.setP_title(rs.getString("p_title"));
+				vo.setP_contents(rs.getString("p_contents"));
+				vo.setP_indate(rs.getString("p_indate"));
+				vo.setP_outdate(rs.getString("p_outdate"));
+				vo.setP_in(rs.getString("p_in"));
+				vo.setP_out(rs.getString("p_out"));
+				vo.setP_reservpeople(rs.getInt("p_reservpeople"));
+				vo.setP_maxpeople(rs.getInt("p_maxpeople"));
+				vo.setP_price(rs.getInt("p_price"));
+				vo.setTheme(rs.getString("theme"));
+				vo.setP_filename(rs.getString("p_filename"));
+				vo.setP_readcnt(rs.getInt("p_readcnt"));
+				vo.setP_regdate(rs.getString("p_regdate"));
+				vo.setP_picture(rs.getString("p_picture"));
+				vo.setP_customer(rs.getString("p_customer"));
+				vo.setP_intime(rs.getString("p_intime"));
+				vo.setP_outtime(rs.getString("p_outtime"));
+				vo.setP_spot(rs.getString("p_spot"));
+				vo.setP_spottime(rs.getString("p_spottime"));
+				vo.setP_stopover(rs.getString("p_stopover"));
+				vo.setP_stoptime(rs.getString("p_stoptime"));
+				mlist.add(vo);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBConn.close(conn, pstmt, rs);
+		}
+		
+		
+		
+		
+		return mlist;
+		
+	}
+	
+	public List<ProductVO> SelectProductList2(String table, int outplace) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		List<ProductVO> mlist = new ArrayList<ProductVO>();
+		
+		String query = "select * from ? where outplace = ?";
+		
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, table);
+			pstmt.setInt(2, outplace);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ProductVO vo = new ProductVO();
+				vo.setB_id(rs.getString("b_id"));
+				vo.setP_idx(rs.getInt("p_idx"));
+				vo.setP_title(rs.getString("p_title"));
+				vo.setP_contents(rs.getString("p_contents"));
+				vo.setP_indate(rs.getString("p_indate"));
+				vo.setP_outdate(rs.getString("p_outdate"));
+				vo.setP_in(rs.getString("p_in"));
+				vo.setP_out(rs.getString("p_out"));
+				vo.setP_reservpeople(rs.getInt("p_reservpeople"));
+				vo.setP_maxpeople(rs.getInt("p_maxpeople"));
+				vo.setP_price(rs.getInt("p_price"));
+				vo.setTheme(rs.getString("theme"));
+				vo.setP_filename(rs.getString("p_filename"));
+				vo.setP_readcnt(rs.getInt("p_readcnt"));
+				vo.setP_regdate(rs.getString("p_regdate"));
+				vo.setP_picture(rs.getString("p_picture"));
+				vo.setP_customer(rs.getString("p_customer"));
+				vo.setP_intime(rs.getString("p_intime"));
+				vo.setP_outtime(rs.getString("p_outtime"));
+				vo.setP_spot(rs.getString("p_spot"));
+				vo.setP_spottime(rs.getString("p_spottime"));
+				vo.setP_stopover(rs.getString("p_stopover"));
+				vo.setP_stoptime(rs.getString("p_stoptime"));
+				mlist.add(vo);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBConn.close(conn, pstmt, rs);
+		}
+		
+		
+		
+		
+		return mlist;
 		
 	}
 }

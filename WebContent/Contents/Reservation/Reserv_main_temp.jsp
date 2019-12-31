@@ -163,7 +163,7 @@
                 <a href="####">
                     <div class="txt"><h3>평점 1위<br><br>한라산</h3>예약인원수20/25<br>가격 20,000원<br>★★★★★</div>
                 </a>
-                </section>
+              </section>
             </li>
 
             <li>
@@ -172,7 +172,7 @@
                 <a href="####">
                     <div class="txt"><h3>평점 2위<br><br>백두산</h3>예약인원수20/25<br>가격 30,000원<br>★★★★★</div>
                 </a>
-                </section>
+              </section>
             </li>
 
             <li>
@@ -181,7 +181,7 @@
                 <a href="####">
                     <div class="txt"><h3>평점 3위<br><br>히말라야</h3>예약인원수20/25<br>가격 40,000원<br>★★★★★</div>
                 </a>
-                </section>
+              </section>
             </li>
         </ul>
       </div>

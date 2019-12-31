@@ -12,7 +12,9 @@
 		
         <table align="center">
         <c:if test="${empty mlist}">
-			<p style="font-size:40px;">등록된 상품이 없습니다</p>
+        	
+				<p style="font-size:40px;">등록된 상품이 없습니다</p>
+				
 		</c:if>
 		<c:if test="${!empty mlist}">
 		<c:set var="cnt" value="0"></c:set>
@@ -73,6 +75,7 @@
     .product_table{position:relative; width:65%; top:230px;  margin:auto;}
     .product_table { border-collapse: collapse;  }
     .product_table td { color: #ffffff; text-align: center;}
+    
 
   	</style>
 

@@ -26,7 +26,21 @@ public class ProductVO {
 	private String p_spottime;
 	private String p_stopover;
 	private String p_stoptime;
+	private int place;
+	private int outplace;
 	
+	public int getOutplace() {
+		return outplace;
+	}
+	public void setOutplace(int outplace) {
+		this.outplace = outplace;
+	}
+	public int getPlace() {
+		return place;
+	}
+	public void setPlace(int place) {
+		this.place = place;
+	}
 	public String getP_intime() {
 		return p_intime;
 	}

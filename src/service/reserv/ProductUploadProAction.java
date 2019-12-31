@@ -1,10 +1,8 @@
 package service.reserv;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +18,8 @@ public class ProductUploadProAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		request.setCharacterEncoding("utf-8");
 		
 		String b_id = request.getParameter("b_id");
@@ -39,7 +39,7 @@ public class ProductUploadProAction implements Action {
 		
 		int cnt = Integer.parseInt(multi.getParameter("cnt"));
 		
-		
+		System.out.println("cnt : "+cnt);
 		String p_title = multi.getParameter("p_title"); // 상품 이름
 		String p_contents = multi.getParameter("p_contents"); // 상품 내용
 		String p_indate = multi.getParameter("p_indate"); // 출발일
@@ -51,11 +51,11 @@ public class ProductUploadProAction implements Action {
 		String p_spottime = multi.getParameter("p_spottime");
 		String p_stopover = multi.getParameter("p_stopover");
 		String p_stoptime = multi.getParameter("p_stoptime");
-		
-		
+		int place = Integer.parseInt(multi.getParameter("place"));
+		int outplace = Integer.parseInt(multi.getParameter("outplace"));
 		if(cnt!=0) {
-			String[] in_array = new String[cnt];
-			String[] time_array = new String[cnt];
+			String[] in_array = new String[cnt-2];
+			String[] time_array = new String[cnt-2];
 			for(int i=0; i<cnt-2; i++) {
 				in_array[i] = multi.getParameter("p_in"+(i+2));
 				time_array[i] = multi.getParameter("p_intime"+(i+2));
@@ -69,8 +69,8 @@ public class ProductUploadProAction implements Action {
 			}
 		}
 		
-		
-		
+		System.out.println("p_in : "+p_in);
+		System.out.println("p_intime : "+p_intime);
 		
 		
 		
@@ -79,7 +79,22 @@ public class ProductUploadProAction implements Action {
 		int p_price = Integer.parseInt(multi.getParameter("p_price")); //가격
 		String[] tema = multi.getParameterValues("thema"); //테마
 		String p_filename = multi.getFilesystemName("p_filename"); //파일 이름
+		int fcnt = Integer.parseInt(multi.getParameter("fcnt"));
+		System.out.println("fcnt : "+fcnt);
 		
+		if(fcnt!=0) {
+			String[] file_array = new String[fcnt];
+			
+			for(int i=0; i<fcnt; i++) {
+				file_array[i]=multi.getFilesystemName("p_filename"+(i+1));
+			}
+			
+			for(int i=0; i<file_array.length; i++) {
+				p_filename = p_filename+", "+file_array[i];
+			}
+		}
+		
+		System.out.println("p_filename : "+p_filename);
 		
 		String theme="";
 		if(tema!=null) {
@@ -100,7 +115,7 @@ public class ProductUploadProAction implements Action {
 		
 		pvo.setP_intime(p_intime); pvo.setP_outtime(p_outtime); pvo.setP_spot(p_spot);
 		pvo.setP_spottime(p_spottime); pvo.setP_stopover(p_stopover); pvo.setP_stoptime(p_stoptime);
-		
+		pvo.setPlace(place); pvo.setOutplace(outplace);
 		
 		
 		ProductDAO dao = ProductDAO.getInstance();

@@ -63,6 +63,10 @@
         member.p_out.focus();
         return false;
       }
+      if(member.place.value==0){
+          alert("지역을 선택해주세요");
+          return false;
+        }
       member.submit();
     }
 
@@ -96,11 +100,39 @@
       member.cnt.value=my_tbody.rows.length+1;
       
     }
+	
+    function add_file(fcnt) {
+        var my_tbody = document.getElementById('plus_file');
+        // var row = my_tbody.insertRow(0); // 상단에 추가
+        var row = my_tbody.insertRow( my_tbody.rows.length ); // 하단에 추가
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+       
+        if(my_tbody.rows.length > 4){
+          alert("파일은 최대 5개까지 입니다");
+          member.p_file.focus();
+          return;
+        }else {
+             fcnt++;
+           cell1.innerHTML = "<td><input type='file' id='p_filename"+fcnt+"' name='p_filename"+fcnt+"' style='width:180px;' required onkeyup='this.setAttribute('value', this.value);' value=''><input type='button' value='X' id='p_button"+fcnt+"' name='p_button' style='WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px' onclick='delete_filerow("+fcnt+")'></td>";
+            member.fcnt.value=fcnt;
+        }
+
+      }
+      //Row 삭제
+      function delete_filerow(fcnt) {
+        var my_tbody = document.getElementById('plus_file');
+        if (my_tbody.rows.length < 1) return;
+        // my_tbody.deleteRow(0); // 상단부터 삭제
+        $("#p_filename"+fcnt).remove();// 삭제
+        $("#p_button"+fcnt).remove();
+      }
+      
 
 
     </script>
 
-	<section>	
+	<section style="margin-top:26%;">	
         <div class="box">
                 <center><font size="6">상품 업로드</font></center>
                 <br>
@@ -115,22 +147,24 @@
                     <label><font size="4">관광상품 내용</font></label>
                   </div>
 
-	                <div class="inputBox" >
-	                  <input type="text" name="p_indate" id="datepicker1" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
-	                  <label><font size="4">출발일자</font></label>
-	                  <input type="time" name="p_intime" style="width:180px;" value="">
-	                </div>
-
-                  <div class="inputBox">
-                        <input type="text" name="p_outdate" id="datepicker2" style="width:180px;"required onkeyup="this.setAttribute('value', this.value);" value="">
-                        <label><font size="4">도착일자</font></label>
-                        <input type="time" name="p_outtime" style="width:180px;" value="">
+	              <div class="inputBox">
+                  	<span><font size="4">출발지 지역</font></span>
+                  	<br><br>
+                  	<select name="place" style="height:30px;">
+                  		<option value="0">지역 선택</option>
+                  		<option value="1">서울/경기/인천</option>
+                  		<option value="2">강원도</option>
+                  		<option value="3">대전/충청남도/충청북도</option>
+                  		<option value="4">광주/전라남도/전라북도</option>
+                  		<option value="5">부산/대구/경상남도/경상북도</option>
+                  	</select>
+                  
                   </div>
-
-                  <div class="inputBox" id="p_in">
+	              
+	              <div class="inputBox" id="p_in">
                           <input type="text" name="p_in" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
                           <label><font size="4">탑승지</font></label>
-                          <input type="hidden" name="cnt" value="2">
+                          <input type="text" name="cnt" value="2">
                           <input type="button" value="지역추가"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" onclick="add_row(member.cnt.value)">
                   </div>
 
@@ -139,11 +173,41 @@
 
                     </tbody>
                   </table>
-
-                  <div class="inputBox">
+	              
+	              <div class="inputBox" >
+	                  <input type="text" name="p_indate" id="datepicker1" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
+	                  <label><font size="4">출발일자</font></label>
+	                  <input type="time" name="p_intime" style="width:180px;" value="">
+	              </div>
+	              
+	              <div class="inputBox">
+                  	<span><font size="4">도착지 지역</font></span>
+                  	<br><br>
+                  	<select name="outplace" style="height:30px;">
+                  		<option value="0">지역 선택</option>
+                  		<option value="1">서울/경기/인천</option>
+                  		<option value="2">강원도</option>
+                  		<option value="3">대전/충청남도/충청북도</option>
+                  		<option value="4">광주/전라남도/전라북도</option>
+                  		<option value="5">부산/대구/경상남도/경상북도</option>
+                  	</select>
+                  
+                  </div>
+	              
+	               <div class="inputBox">
                         <input type="text" name="p_out" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
                         <label><font size="4">목적지</font></label>
                   </div>
+
+                  <div class="inputBox">
+                        <input type="text" name="p_outdate" id="datepicker2" style="width:180px;"required onkeyup="this.setAttribute('value', this.value);" value="">
+                        <label><font size="4">도착일자</font></label>
+                        <input type="time" name="p_outtime" style="width:180px;" value="">
+                  </div>
+
+                  
+
+                 
 
                   <div class="inputBox">
                         <input type="text" name="p_spot" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
@@ -168,24 +232,25 @@
                   </div>
 
                   <div class="thema">
-                    <span><font size="4">테마</font></span>
-                    <br><br>
-                    <div class="sub-thema">
-                      <input type="checkbox" name="thema" value="해돋이여행">해돋이여행
-                      <input type="checkbox" name="thema" value="단풍맞이여행">단풍맞이여행
-                      <input type="checkbox" name="thema" value="사찰여행">사찰여행
-                      <input type="checkbox" name="thema" value="축제여행">축제여행
-                      <input type="checkbox" name="thema" value="겨울여행">겨울여행
-                      <input type="checkbox" name="thema" value="여름휴가">여름휴가
-                      <input type="checkbox" name="thema" value="꽃구경">꽃구경
-                    </div>
+                    <span><font size="4">옵션</font></span><br>
+                    <span style="margin:60px;"><input type="checkbox" name="thema" value="1">식사여부</span>
                   </div>
+                  
+                  
+                  
+                 
+                     <div class="inputBox" id="p_file">
+                        <input type="file" name="p_filename" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
+                        <input type="button" name="0" value="파일추가"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" onclick="add_file(member.fcnt.value)">
+                        <input type="text" name="fcnt" value="0">
+                  </div>
+                  
+         <table id="plus_file" class="inputBox">
+                    <tbody>
+                    </tbody>
+            </table>
+                 
 
-                  <div class="thema">
-                    <label><font size="4">첨부파일</font></label>
-                    <br><br>
-                    <input type="file" name="p_filename" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
-                  </div>
 
                   <input type="button" value="등록"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" onclick="send();">
                   <input type="reset" value="다시쓰기"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" >

@@ -83,7 +83,7 @@
 						<li><a href="/ReservServlet?command=reserv_main"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="/ReservServlet?command=upload_main"><font size="4">사업자 상품등록 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="/BoardServlet?command=board_notice"><font size="4">공지사항 </font>&nbsp; &nbsp; &nbsp;</a></li>
-						<li><a href="####"><font size="4">문의하기 </font>&nbsp; &nbsp; &nbsp;</a></li>
+						<li><a href="/BoardServlet?command=board_qna"><font size="4">문의하기 </font>&nbsp; &nbsp; &nbsp;</a></li>
 					</ul>
 				</nav>
 		</div>
@@ -147,7 +147,6 @@
 						 <a href="javascript:void(0)" class="btn_close">
 						 <B><FONT size=5><br>  &nbsp; &nbsp; X</FONT></B>
 					 	</a>
-						<br><br><br><br>
 							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 만약 모두가 많은 것을 만들기에만 바쁘다면 <br></font></B>
 							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 완벽하게 할 수 있을까요? <br></font></B>
 							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 헷갈리기 시작합니다. <br></font></B>
@@ -159,11 +158,11 @@
 							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 기쁨, 경험, 회상, 추억<br></font></B>
 							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 그리고 난 후 의도에 맞게 시작합니다. <br></font></B>
 							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 시간이 좀 걸리지요. <br></font></B>
-							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 수천 번의 no끝에 얻는 단 하나의 yes <br></font></B>
+							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 수천 번의 NO끝에 얻는 단 하나의 YES <br></font></B>
 							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 심플하게, 완벽하게 다시 시작하기도 합니다.<br></font></B>
 							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 우리의 손길이 닿은 모든 것이 사람들의 삶에 닿을 수 있을 때까지 <br></font></B>
 							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 그때 비로소 우리는 이름을 씁니다. <br></font></B>
-							<B> <font size="5"> &nbsp; &nbsp;  &nbsp;-여기관광-<br><br><br> </font></B>
+							<B> <font size="5"><br> &nbsp; &nbsp; &nbsp; -여기관광-<br></font></B>
 							<B> <font size="4"><br> &nbsp; &nbsp;  &nbsp; &nbsp; 팀장 = 김민기 <br></font></B>
 							<B> <font size="4"><br>&nbsp; &nbsp;  &nbsp; &nbsp;  팀원 = 장재희 이하균 안준혁 이예리 </font></B>
 					 </p>
