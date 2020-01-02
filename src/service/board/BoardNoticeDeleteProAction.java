@@ -37,7 +37,7 @@ public class BoardNoticeDeleteProAction implements Action {
 		
 		request.setAttribute("row", row);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Contents/Board/board_notice_delete_pro.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/Contents/Board/Notice/board_notice_delete_pro.jsp");
 		dispatcher.forward(request, response);
 	}
 

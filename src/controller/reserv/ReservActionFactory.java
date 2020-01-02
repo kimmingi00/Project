@@ -8,7 +8,10 @@ import service.reserv.ProductModifyProAction;
 import service.reserv.ProductUploadAction;
 import service.reserv.ProductUploadProAction;
 import service.reserv.ProductViewAction;
+import service.reserv.ReservDeleteAction;
 import service.reserv.ReservMainAction;
+import service.reserv.ReservModifyAction;
+import service.reserv.ReservModifyProAction;
 import service.reserv.ReservOKAction;
 import service.reserv.ReservRegitAction;
 import service.reserv.ReservUnregitAction;
@@ -58,6 +61,14 @@ public class ReservActionFactory {
 			action = new ReservOKAction();
 		}else if(command.equals("Reserv_Unregit_pro")) {
 			action = new ReservUnregitProAction();
+		}else if(command.equals("reserv_modify")) {
+			action = new ReservModifyAction();
+		}else if(command.equals("reserv_modify_pro")) {
+			action = new ReservModifyProAction(); 
+		}else if(command.equals("reserv_delete")) {
+			action = new ReservDeleteAction();
+		}else if(command.equals("unregit_modify")) {
+			//action = new UnregitModifyAction();
 		}
 		
 		/* 

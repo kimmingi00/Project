@@ -2,8 +2,6 @@ package model.message;
 
 public class MessageVO {
 	private String send_id;
-	private String id;
-	private String b_id;
 	private String title;
 	private String contents;
 	private String receive_id;
@@ -29,18 +27,7 @@ public class MessageVO {
 	public void setSend_id(String send_id) {
 		this.send_id = send_id;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getB_id() {
-		return b_id;
-	}
-	public void setB_id(String b_id) {
-		this.b_id = b_id;
-	}
+	
 	public String getTitle() {
 		return title;
 	}

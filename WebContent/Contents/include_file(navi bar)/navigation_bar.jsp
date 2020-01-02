@@ -19,7 +19,7 @@
 	li{list-style: none;}
 	a{text-decoration: none;}
 
-	.article{width:1200px; margin: 0 auto;}
+	.navi_article{width:1200px; margin: 0 auto;}
 	.clearfix{content:''; display: block; clear:both;}
 
 	.header{height: 75px; background-color: #242424; border:1px solid #white;
@@ -58,13 +58,13 @@
 </head>
 <body>	
 	<span class ="header">
-		<div class = "article">
+		<div class = "navi_article">
 				<span>
 						<ul class ="logo">
 							<li><font size="6"><a href="/IndexServlet?command=index"> LOGO</font></a> </li>
 						</ul>
 					<ul class="menu">
-						<li><a href="/ReservServlet?command=reserv_main"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
+						<li><a href="/ReservServlet?command=reserv_main&row=0&place=0&outplace=0"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="/ReservServlet?command=upload_main"><font size="4">사업자 상품등록 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="/BoardServlet?command=board_notice"><font size="4">공지사항 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="/BoardServlet?command=board_qna"><font size="4">문의하기 </font>&nbsp; &nbsp; &nbsp;</a></li>
@@ -84,21 +84,21 @@
       			
          		<ul>
          		<c:if test="${empty user&&empty b_user }">
-           			<li><a href="/MemberServlet?command=member_login">로그인</a></li>
-		        	<li><a href="/MemberServlet?command=member_confirm">회원가입</a></li>
+           			<li><a href="/MemberServlet?command=member_login" style="color:white;">로그인</a></li>
+		        	<li><a href="/MemberServlet?command=member_confirm" style="color:white;">회원가입</a></li>
 		        </c:if>
 		        <c:if test="${!empty user||!empty b_user }">
-           			<li><a href="/MemberServlet?command=member_logout">로그아웃</a></li>
-		          	<li><a href="#">회원정보</a></li>
+           			<li><a href="/MemberServlet?command=member_logout" style="color:white;">로그아웃</a></li>
+		          	<li><a href="#" style="color:white;">회원정보</a></li>
 		         </c:if> 
          		</ul>
 
       		</li>
       			<c:if test="${!empty user }">
-					<a href="/MessageServlet?command=MyMsgList&id=${ user.id }&user_num=1"><img src="/Contents/img/index_img/message.png"></a>
+					<a href="/MessageServlet?command=MyMsgList&id=${ user.id }&user_num=1" style="color:white;"><img src="/Contents/img/index_img/message.png"></a>
 				</c:if>
 				<c:if test="${!empty b_user }">
-					<a href="/MessageServlet?command=MyMsgList&id=${ b_user.b_id }&user_num=2"><img src="/Contents/img/index_img/message.png"></a>
+					<a href="/MessageServlet?command=MyMsgList&id=${ b_user.b_id }&user_num=2" style="color:white;"><img src="/Contents/img/index_img/message.png"></a>
 				</c:if>
 				</div>
 			</a>

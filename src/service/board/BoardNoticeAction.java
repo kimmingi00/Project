@@ -77,7 +77,7 @@ public class BoardNoticeAction implements Action {
 		request.setAttribute("key", key);
 		
 		
-		RequestDispatcher dispatcher =request.getRequestDispatcher("/Contents/Board/Notice/board_notice.jsp");
+		RequestDispatcher dispatcher =request.getRequestDispatcher("/Contents/Board/Notice/notice.jsp");
 		dispatcher.forward(request, response);
 	}
 

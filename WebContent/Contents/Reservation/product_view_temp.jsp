@@ -58,7 +58,7 @@
       <div class="cont_info">
          <h2>${ pvo.p_title }</h2>
 
-         <p>출발일 : ${ pvo.p_indate }/
+         <p>출발일 : ${ pvo.p_indate }&nbsp;&nbsp;/
          <fmt:parseDate value="${ pvo.p_indate }" var="indate" pattern="yyyy-MM-dd"/>
          <fmt:parseNumber value="${ indate.time  / (1000*60*60*24) }" integerOnly="true" var="indateNum"></fmt:parseNumber>
           <font style="font-weight:bold;">현재 ${indateNum-sysDateNum}일 남음</font></p>

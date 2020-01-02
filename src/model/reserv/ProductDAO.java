@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.member.UnRegitVO;
 import util.DBConn;
 
 public class ProductDAO {
@@ -365,6 +366,34 @@ public class ProductDAO {
 		
 	}
 	
+	public int reservUnregitProduct(int p_idx, String p_unregit, int reserv_cnt) {
+		int row=0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		
+		
+		String query="update product set p_reservpeople = p_reservpeople + ?,"
+				+ "p_unregit = p_unregit||? where p_idx = ?";
+		
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, reserv_cnt);
+			pstmt.setString(2, p_unregit);
+			pstmt.setInt(3, p_idx);
+			row = pstmt.executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			DBConn.close(conn, pstmt);
+		}
+		
+		
+		return row;
+		
+	}
+	
 	
 	
 	
@@ -372,7 +401,7 @@ public class ProductDAO {
 		int row=0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
+		p_idx = ", "+p_idx;
 		
 		
 		String query="update member set reserv_num = reserv_num||? where id = ?";
@@ -401,13 +430,13 @@ public class ProductDAO {
 		
 		List<ProductVO> mlist = new ArrayList<ProductVO>();
 		
-		String query = "select * from ? where outplace = ? ";
+		String query = "select * from "+table+" where outplace = ? ";
 		
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, table);
-			pstmt.setInt(2, place);
+			//pstmt.setString(1, table);
+			pstmt.setInt(1, place);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -457,13 +486,13 @@ public class ProductDAO {
 		
 		List<ProductVO> mlist = new ArrayList<ProductVO>();
 		
-		String query = "select * from ? where outplace = ?";
+		String query = "select * from "+table+" where place = ? ";
 		
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, table);
-			pstmt.setInt(2, outplace);
+			//pstmt.setString(1, table);
+			pstmt.setInt(1, outplace);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -505,4 +534,192 @@ public class ProductDAO {
 		return mlist;
 		
 	}
+	
+
+public int reservUpdate(String p_customer, int p_idx) {
+	Connection conn=null;
+	PreparedStatement pstmt = null;
+
+	
+	int row=0;
+
+	String query="update product set p_customer = ? where p_idx = ?";
+	
+	
+	try {
+		conn = DBConn.getConnection();
+		pstmt = conn.prepareStatement(query);
+		pstmt.setString(1, p_customer);
+		pstmt.setInt(2, p_idx);
+		row = pstmt.executeUpdate();
+		
+		
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		DBConn.close(conn, pstmt);
+	}
+	
+	
+	
+	
+	
+	return row;
+	
+}
+
+public int customerSearch(String id, int p_idx) {
+	Connection conn=null;
+	PreparedStatement pstmt = null;
+
+	
+	if(id.equals("")) id="zxvxckl;vjiowejhriopqhriwqporwhjia;jkf;ds;";
+	
+	int row=0;
+
+	String query="select * from product where p_customer like '%"+id+"%' and p_idx = ?";
+	
+	try {
+		conn = DBConn.getConnection();
+		pstmt = conn.prepareStatement(query);
+		pstmt.setInt(1, p_idx);
+		row = pstmt.executeUpdate();
+		
+		
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		DBConn.close(conn, pstmt);
+	}
+	
+	
+	
+	
+	
+	return row;
+	
+}
+
+public int reservPeopleUpdate(int p_reservpeople, int p_idx) {
+	Connection conn=null;
+	PreparedStatement pstmt = null;
+
+	
+	int row=0;
+
+	String query="update product set p_reservpeople = ? where p_idx = ?";
+	
+	
+	try {
+		conn = DBConn.getConnection();
+		pstmt = conn.prepareStatement(query);
+		pstmt.setInt(1, p_reservpeople);
+		pstmt.setInt(2, p_idx);
+		row = pstmt.executeUpdate();
+		
+		
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		DBConn.close(conn, pstmt);
+	}
+	
+	
+	
+	
+	
+	return row;
+	
+}
+
+public int unregitPeopleUpdate(int p_reservpeople, int p_idx) {
+	Connection conn=null;
+	PreparedStatement pstmt = null;
+
+	
+	int row=0;
+
+	String query="update product set p_reservpeople = ? where p_idx = ?";
+	
+	
+	try {
+		conn = DBConn.getConnection();
+		pstmt = conn.prepareStatement(query);
+		pstmt.setInt(1, p_reservpeople);
+		pstmt.setInt(2, p_idx);
+		row = pstmt.executeUpdate();
+		
+		
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		DBConn.close(conn, pstmt);
+	}
+	
+	return row;
+	
+}
+
+public int unregitLogin( String ur_email, String ur_pass) {
+	Connection conn=null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	String query = "select ur_pass from unregit_user where ur_email=?";
+	int row = 0;
+	try {
+		conn=DBConn.getConnection();
+		pstmt = conn.prepareStatement(query);
+		pstmt.setString(1, ur_email);
+		rs = pstmt.executeQuery();
+		if(rs.next()) {
+			String dbpass = rs.getString("ur_pass");
+			if(dbpass.equals(ur_pass)) {
+				query = "update member set lastdate=sysdate where id=?";
+				pstmt = conn.prepareStatement(query);
+				pstmt.setString(1, ur_email);
+				pstmt.executeUpdate();
+				row = 1;
+			} else {
+				row = 0;
+			}
+		} else {
+			row = -1;
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally  {
+		DBConn.close(conn, pstmt, rs);
+	}
+	
+	return row;
+}
+
+public UnRegitVO getUnregit( String ur_email) {
+	Connection conn=null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	String query = "select * from unregit_user where ur_email=?";
+	UnRegitVO vo = null;
+	try {
+		conn=DBConn.getConnection();
+		pstmt = conn.prepareStatement(query);
+		pstmt.setString(1, ur_email);
+		rs = pstmt.executeQuery();
+		if(rs.next()) {
+			vo = new UnRegitVO();
+			
+			vo.setUr_email(rs.getString("ur_email"));
+			vo.setUr_name(rs.getString("ur_name"));
+			vo.setUr_tel(rs.getString("ur_tel"));
+			vo.setUr_pass(rs.getString("ur_pass"));
+				
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally  {
+		DBConn.close(conn, pstmt, rs);
+	}
+	
+	return vo;
+}
 }

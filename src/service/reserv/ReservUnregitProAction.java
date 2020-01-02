@@ -60,7 +60,6 @@ public class ReservUnregitProAction implements Action {
 			}
 			
 		}
-				System.out.println(row);
 		request.setAttribute("row", row);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/Reserv_unregit_ok.jsp");

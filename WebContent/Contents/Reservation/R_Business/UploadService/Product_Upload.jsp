@@ -9,7 +9,7 @@
 
   <style type="text/css">
       body{
-        margin-top: 17%; background-color:#f2f2f2;
+        margin-top: 28%; background-color:#f2f2f2;
       }
     </style>
 
@@ -64,9 +64,57 @@
         return false;
       }
       if(member.place.value==0){
-          alert("지역을 선택해주세요");
+          alert("출발지역을 선택해주세요");
           return false;
         }
+      if(member.outplace.value==0){
+            alert("도착지역을 선택해주세요");
+            return false;
+        }
+
+      if(member.p_spot.value==""){
+          alert("집결지를 입력해주세요");
+          member.p_spot.focus(); 
+          return false;
+        }
+
+      if(member.p_spottime.value==""){
+          alert("집결시간을 입력해주세요");
+          member.p_spottime.focus();
+          return false;
+        }
+
+      if(member.p_stopover.value==""){
+          alert("하차지를 입력해주세요");
+          member.p_stopover.focus();
+          return false;
+        }
+      if(member.p_stoptime.value==""){
+          alert("하차지를 입력해주세요");
+          member.p_stoptime.focus();
+          return false;
+        }
+      if(member.p_maxpeople.value==""){
+          alert("예약 가능 인원을 입력해주세요");
+          member.p_maxpeople.focus();
+          return false;
+        }
+      if(member.p_price.value==""){
+          alert("가격을 입력해주세요");
+          member.p_price.focus();
+          return false;
+        }
+      if(isNaN(member.p_price.value)){
+          alert("가격은 숫자만 입력 가능합니다");
+          member.p_price.focus();
+          return false;
+        }
+      if(isNaN(member.p_maxpeople.value)){
+          alert("예약 가능 인원은 숫자만 입력 가능합니다");
+          member.p_maxpeople.focus();
+          return false;
+        }
+      
       member.submit();
     }
 
@@ -128,6 +176,8 @@
         $("#p_button"+fcnt).remove();
       }
       
+      
+      
 
 
     </script>
@@ -147,10 +197,10 @@
                     <label><font size="4">관광상품 내용</font></label>
                   </div>
 
-	              <div class="inputBox">
+	              <div class="inputBox" >
                   	<span><font size="4">출발지 지역</font></span>
-                  	<br><br>
-                  	<select name="place" style="height:30px;">
+                  	
+                  	<select name="place" style="height:30px; margin-left: 105px;    ">
                   		<option value="0">지역 선택</option>
                   		<option value="1">서울/경기/인천</option>
                   		<option value="2">강원도</option>
@@ -161,12 +211,18 @@
                   
                   </div>
 	              
-	              <div class="inputBox" id="p_in">
+	              <div class="inputBox" id="p_in" style=" margin-top: 30px;">
                           <input type="text" name="p_in" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
                           <label><font size="4">탑승지</font></label>
-                          <input type="text" name="cnt" value="2">
+                          <input type="hidden" name="cnt" value="2">
                           <input type="button" value="지역추가"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" onclick="add_row(member.cnt.value)">
                   </div>
+                  
+                  <div class="inputBox" >
+	                  <input type="text" name="p_indate" id="datepicker1" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
+	                  <label><font size="4">출발일자</font></label>
+	                  <input type="time" name="p_intime" style="width:180px;" value="">
+	              </div>
 
                   <table>
                     <tbody id="add_p_in" class="inputBox">
@@ -174,16 +230,12 @@
                     </tbody>
                   </table>
 	              
-	              <div class="inputBox" >
-	                  <input type="text" name="p_indate" id="datepicker1" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);"  value="">
-	                  <label><font size="4">출발일자</font></label>
-	                  <input type="time" name="p_intime" style="width:180px;" value="">
-	              </div>
+	              
 	              
 	              <div class="inputBox">
                   	<span><font size="4">도착지 지역</font></span>
-                  	<br><br>
-                  	<select name="outplace" style="height:30px;">
+                  	
+                  	<select name="outplace" style="height:30px; margin-left: 105px;">
                   		<option value="0">지역 선택</option>
                   		<option value="1">서울/경기/인천</option>
                   		<option value="2">강원도</option>
@@ -194,8 +246,8 @@
                   
                   </div>
 	              
-	               <div class="inputBox">
-                        <input type="text" name="p_out" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
+	               <div class="inputBox" style="margin-top: 30px;">
+                        <input type="text" name="p_out" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="" >
                         <label><font size="4">목적지</font></label>
                   </div>
 
@@ -242,7 +294,7 @@
                      <div class="inputBox" id="p_file">
                         <input type="file" name="p_filename" style="width:180px;" required onkeyup="this.setAttribute('value', this.value);" value="">
                         <input type="button" name="0" value="파일추가"  style="WIDTH: 95pt; HEIGHT: 30pt; font-size : 16px" onclick="add_file(member.fcnt.value)">
-                        <input type="text" name="fcnt" value="0">
+                        <input type="hidden" name="fcnt" value="0">
                   </div>
                   
          <table id="plus_file" class="inputBox">
@@ -261,4 +313,5 @@
 
         
 </body>
+<%@ include file="/Contents/include_file(navi bar)/footer.jsp" %>
 </html>

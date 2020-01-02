@@ -21,30 +21,35 @@ public class MsgSendProAction implements Action {
 		String title = request.getParameter("title");
 		String contents = request.getParameter("contents");
 		String receive_id = request.getParameter("receive_id");
+		MessageDAO dao = MessageDAO.getInstance();
+		int row=0;
 		
-		String id = "";
-		String b_id = "";
-		int receive_user = Integer.parseInt(request.getParameter("receive_user"));
-		
-		if(receive_user==1) {
-			id = receive_id;
-			b_id = "not";
-		}else {
-			b_id = receive_id;
-			id = "not";
+		int cnt = dao.selectId(receive_id);
+		if(cnt == 0 ) {
+			cnt = dao.selectB_id(receive_id);
+			
+			if(cnt == 0 ) {
+				MessageVO mvo = new MessageVO();
+				
+				mvo.setContents(contents); 
+				mvo.setReceive_id(receive_id); mvo.setSend_id(send_id);
+				mvo.setTitle(title); 
+				
+				
+				
+				row = dao.msgSend(mvo);
+				
+			}
 		}
 		
-		MessageVO mvo = new MessageVO();
 		
-		mvo.setB_id(b_id); mvo.setContents(contents); mvo.setId(id);
-		mvo.setReceive_id(receive_id); mvo.setSend_id(send_id);
-		mvo.setTitle(title); 
 		
-		MessageDAO dao = MessageDAO.getInstance();
-		
-		int row = dao.msgSend(mvo);
 		
 		request.setAttribute("row", row);
+		
+		
+		
+		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Message/send_ok.jsp");
 		rd.forward(request, response);

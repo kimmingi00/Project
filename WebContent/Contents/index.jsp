@@ -80,7 +80,7 @@
 							<li><font size="6"><a href="/IndexServlet?command=index"> LOGO</font></a> </li>
 						</ul>
 					<ul class="menu">
-						<li><a href="/ReservServlet?command=reserv_main"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
+						<li><a href="/ReservServlet?command=reserv_main&row=0&place=0&outplace=0"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="/ReservServlet?command=upload_main"><font size="4">사업자 상품등록 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="/BoardServlet?command=board_notice"><font size="4">공지사항 </font>&nbsp; &nbsp; &nbsp;</a></li>
 						<li><a href="/BoardServlet?command=board_qna"><font size="4">문의하기 </font>&nbsp; &nbsp; &nbsp;</a></li>

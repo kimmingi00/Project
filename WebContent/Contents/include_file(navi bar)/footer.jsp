@@ -35,21 +35,21 @@
        <p class="footer-company-name">ⓒ칠면조 Corp &copy; 2019</p>
        </span>
        <span class="footer-center">
-             <table>
-             	<tr>
-             		<td>
+           
+             	<ul>
+             		<li>
                 		<i class="fa fa-envelope"></i>
                    		<p><font size="4">dlgkrbs1@naver.com</font></p>
-                	</td>
-                </tr>
+                	</li>
+                </ul>
             
 		
-             <tr>
-             	  <td>
+             <ul>
+             	  <li>
                 		<i class="fa fa-phone"></i>
                    		<p><font size="4">010-4907-3585</font></p>
-             	  </td>
-             </tr>
+             	  </li>
+             </ul>
 
              <span>
                 
@@ -59,7 +59,7 @@
                      		<font size="4">어덕마을로 10번길 95-6</font></p>
              </span>
              
-              </table>
+             
        </span>
 
        <span class="footer-right">
@@ -69,10 +69,10 @@
                 </p>
             <br>
              <span class="footer-icons" >
-                <a href="#"><img src="/Contents/img/footer_img/facebook.png" style="width:50px; height:50px;"></a>&nbsp;
-                <a href="#"><img src="/Contents/img/footer_img/instagram.png" style="width:50px; height:50px;"></a>&nbsp;
-                <a href="#"><img src="/Contents/img/footer_img/kakaotalk.png" style="width:50px; height:50px;"></a>&nbsp;
-                <a href="#"><img src="/Contents/img/footer_img/youtube.png" style="width:50px; height:50px;"></a>&nbsp;
+                <a href="https://www.fb.com"><img src="/Contents/img/footer_img/facebook.png" style="width:50px; height:50px;"></a>&nbsp;
+                <a href="https://www.instagram.com/?hl=ko"><img src="/Contents/img/footer_img/instagram.png" style="width:50px; height:50px;"></a>&nbsp;
+                <a href="https://www.kakaocorp.com/service/KakaoTalk"><img src="/Contents/img/footer_img/kakaotalk.png" style="width:50px; height:50px;"></a>&nbsp;
+                <a href="https://www.youtube.com"><img src="/Contents/img/footer_img/youtube.png" style="width:50px; height:50px;"></a>&nbsp;
              </span>
        </span>
        </footer>

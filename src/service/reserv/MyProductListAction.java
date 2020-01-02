@@ -18,7 +18,6 @@ public class MyProductListAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String b_id = request.getParameter("b_id");
-		
 		ProductDAO dao = ProductDAO.getInstance();
 		
 		List<ProductVO> mlist = dao.MyTourList(b_id);

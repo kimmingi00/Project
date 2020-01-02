@@ -39,7 +39,6 @@ public class ProductUploadProAction implements Action {
 		
 		int cnt = Integer.parseInt(multi.getParameter("cnt"));
 		
-		System.out.println("cnt : "+cnt);
 		String p_title = multi.getParameter("p_title"); // 상품 이름
 		String p_contents = multi.getParameter("p_contents"); // 상품 내용
 		String p_indate = multi.getParameter("p_indate"); // 출발일
@@ -61,16 +60,13 @@ public class ProductUploadProAction implements Action {
 				time_array[i] = multi.getParameter("p_intime"+(i+2));
 				
 			}
-			
 		
-			for(int i=0; i<cnt; i++) {
+			for(int i=0; i<in_array.length; i++) {
 				p_in = p_in+", "+in_array[i];
 				p_intime = p_intime+", "+time_array[i];
 			}
 		}
 		
-		System.out.println("p_in : "+p_in);
-		System.out.println("p_intime : "+p_intime);
 		
 		
 		
@@ -80,7 +76,6 @@ public class ProductUploadProAction implements Action {
 		String[] tema = multi.getParameterValues("thema"); //테마
 		String p_filename = multi.getFilesystemName("p_filename"); //파일 이름
 		int fcnt = Integer.parseInt(multi.getParameter("fcnt"));
-		System.out.println("fcnt : "+fcnt);
 		
 		if(fcnt!=0) {
 			String[] file_array = new String[fcnt];
@@ -94,7 +89,6 @@ public class ProductUploadProAction implements Action {
 			}
 		}
 		
-		System.out.println("p_filename : "+p_filename);
 		
 		String theme="";
 		if(tema!=null) {

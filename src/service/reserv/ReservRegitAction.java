@@ -33,7 +33,7 @@ public class ReservRegitAction implements Action {
 		
 		request.setAttribute("row", row);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/ReservServlet?command=reserv_main");
+		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Reservation/reserv_complete.jsp");
 		rd.forward(request, response);
 	}
 

@@ -34,33 +34,7 @@ public class QnaBoardDAO {
 		
 
 		
-		/*
-		//샘플 메소드
-		public 리턴타입 메소드명(매개변수) guestList() throws Exception{
-			String querty="";
-			//리턴타입
-			
-			
-			try {
-				
-			}catch(Exception e) {
-				e.printStackTrace();
-			}finally {
-				try {
-					if(rs!= null) rs.close();
-					if(rs!= null) pstmt.close();
-					if(rs!= null) conn.close();
-				}catch(Exception e) {}
-			}
-			//return
-			
-			return list;
-			}
-			*/
 		
-		
-		
-		//전체 글수 카운트
 		public int boardCount() {
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -72,7 +46,7 @@ public class QnaBoardDAO {
 					pstmt = conn.prepareStatement(query);
 					rs = pstmt.executeQuery();
 					while(rs.next()) {
-						row=rs.getInt("cnt"); //select 문에서 쓴 cnt를 넣어라( count(*)이거를 cnt라는 변수로쓴거)
+						row=rs.getInt("cnt"); 
 					}
 			}catch(Exception e) {
 				e.printStackTrace();
@@ -88,7 +62,7 @@ public class QnaBoardDAO {
 		
 		
 		
-		//전체글목록
+	
 		public List<QnaBoardVO> boardList() {
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -228,7 +202,6 @@ public class QnaBoardDAO {
 		
 		
 		
-		//페이지 처리용(검색 X)
 		public List<QnaBoardVO> boardList(int pagestart , int endpage) {
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -288,7 +261,6 @@ public class QnaBoardDAO {
 			return list;
 		}
 		
-		//페이지 처리용(검색 포함)
 			public List<QnaBoardVO> boardList(String s_query,int pagestart,int endpage) {
 				Connection conn = null;
 				PreparedStatement pstmt = null;
@@ -332,7 +304,6 @@ public class QnaBoardDAO {
 			}
 		
 		
-		//전체 글수 카운트(검색조건 포함)
 		public int boardCount(String search,String key) {
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -344,7 +315,7 @@ public class QnaBoardDAO {
 					pstmt = conn.prepareStatement(query);
 					rs = pstmt.executeQuery();
 					while(rs.next()) {
-						row=rs.getInt("cnt"); //select 문에서 쓴 cnt를 넣어라( count(*)이거를 cnt라는 변수로쓴거)
+						row=rs.getInt("cnt"); 
 					}
 			}catch(Exception e) {
 				e.printStackTrace();
@@ -358,20 +329,18 @@ public class QnaBoardDAO {
 			return row;
 		}
 		
-		//전체 글수 카운트(검색조건 포함)
 			public int boardCount(String s_query) {
 				Connection conn = null;
 				PreparedStatement pstmt = null;
 				ResultSet rs = null;
 				int row = 0;
-				//s_query = subject like '% 제목검색%'
 				String query = "select count(*) as cnt from qna where " + s_query;
 				try {
 						conn = getConnection();
 						pstmt = conn.prepareStatement(query);
 						rs = pstmt.executeQuery();
 						while(rs.next()) {
-							row=rs.getInt("cnt"); //select 문에서 쓴 cnt를 넣어라( count(*)이거를 cnt라는 변수로쓴거)
+							row=rs.getInt("cnt"); 
 						}
 				}catch(Exception e) {
 					e.printStackTrace();
@@ -386,7 +355,6 @@ public class QnaBoardDAO {
 			}
 		
 		
-		//전체글목록(검색조건 포함)
 			public List<QnaBoardVO> boardList(String search,String key) {
 				Connection conn = null;
 				PreparedStatement pstmt = null;
@@ -427,10 +395,8 @@ public class QnaBoardDAO {
 				return list;
 			}
 		
-		//등록메소드
 			public int boardInsert(QnaBoardVO vo){
 				String query="insert into qna(q_idx,id,q_contents,q_title,filename,q_readcnt,q_re_ref,q_re_lev,q_re_seq) values(qna_seq.nextval,?,?,?,?,?,?,?,?)";
-				//리턴타입
 				int row=0;
 
 				try {
@@ -442,7 +408,7 @@ public class QnaBoardDAO {
 					pstmt.setString(3, vo.getQ_title());
 					pstmt.setString(4, vo.getFilename());
 					pstmt.setInt(5, vo.getQ_readcnt());
-					 if(vo.getQ_re_seq()==0) // re_seq==0 은 답변글이 없는경우, 즉 부모글일경우    
+					 if(vo.getQ_re_seq()==0) //     
 			                pstmt.setInt(6, num);    
 			            else
 			                pstmt.setInt(6, vo.getQ_re_ref());
@@ -466,10 +432,8 @@ public class QnaBoardDAO {
 				return row;
 				}
 		
-			//1개만 검색 /게시판 검색
 			public QnaBoardVO boardSelect(int idx){
 				String query="select * from qna where q_idx=?";
-				//리턴타입
 				QnaBoardVO vo = new QnaBoardVO();
 				try {
 					conn=getConnection();
@@ -505,10 +469,8 @@ public class QnaBoardDAO {
 			
 			
 			
-			//조회수
 			public void boardReadcnt(int idx){
 				String query="update qna set q_readcnt = q_readcnt + 1 where q_idx=?";
-				//리턴타입
 				int row=0;
 				try {
 					conn=getConnection();
@@ -526,10 +488,8 @@ public class QnaBoardDAO {
 				}
 				//return
 				}
-			//수정 메소드
 			public int boardEdit(QnaBoardVO vo){
 				String query="update qna set q_contents=?,q_title=?,filename=?,q_regdate=sysdate where q_idx = ? ";
-				//리턴타입
 				int row=0;
 				try {
 					conn=getConnection();
@@ -553,7 +513,6 @@ public class QnaBoardDAO {
 				return row;
 				}
 
-				//삭제
 					public int boardDelete(int idx){
 						Connection conn = null;
 						PreparedStatement pstmt = null;
@@ -587,17 +546,15 @@ public class QnaBoardDAO {
 				    {
 				        boolean result = false;
 				        
-				        int ref = board.getQ_re_ref();     // 원본글 번호(그룹번호)
-				        int seq = board.getQ_re_seq();     // 답변글의 순서
+				        int ref = board.getQ_re_ref();      
+				        int seq = board.getQ_re_seq();     
 				        
 				        try {    
 				            StringBuffer sql = new StringBuffer();
 				            
 				            conn = getConnection();
-				            conn.setAutoCommit(false); // 자동 커밋을 false로 한다.
+				            conn.setAutoCommit(false); 
 				            
-				            // ref(그룹번호)와 seq(답글순서)을 확인하여 원본 글에 다른 답변 글이 있으면, 
-				            // 답변 글 중 답변 글보다 상위에 있는 글의 seq보다 높은 글의 seq값을 1씩 증가시킨다.
 				            sql.append("update qna set q_re_seq=q_re_seq+1 ");
 				            sql.append("where Q_RE_REF = ? and Q_RE_SEQ > ?");
 				            
@@ -608,12 +565,12 @@ public class QnaBoardDAO {
 				            int flag = pstmt.executeUpdate();
 				            if(flag > 0){
 				                result = true;
-				                conn.commit(); // 완료시 커밋
+				                conn.commit(); 
 				            }
 				            
 				        } catch (Exception e) {
 				            try {
-				                conn.rollback(); // 오류시 롤백
+				                conn.rollback(); 
 				                if(conn!= null) conn.close();
 				            } catch (SQLException sqle) {
 				            	

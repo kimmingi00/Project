@@ -1,57 +1,61 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ include file="/Contents/include_file(navi bar)/navigation_bar.jsp" %>
 
- <title>게시판 작성</title>
+<title>modify</title>
 
- <body topmargin="0" leftmargin="0">
+<section>
+<center>
+<div class="notice">
     <input type="hidden" name="idx" value="${vo.q_idx}"/>
   <input type="hidden" name="filename2" value="${vo.filename}"/>
-<div class="notice">
-     <font style="font-family:HoonYunpilsupkyukR;color:#000000;" size="9"><center style="margin:20px;">글수정</center></font>
-     <form method="post" name="board" enctype="multipart/form-data" action="BoardServlet?command=board_qna_modify_pro&idx=${board.q_idx}&page=${page}">
-	  <table border="0">
+  
+     <div style="margin-top:30px;">
+     <font style="color:#000000;" class="alert" size="4">
+     <img src="/Contents/img/board_img/qupdate2.png"  width="64px;" height="64px;"style="margin-left:130px;"></a>
+     	글수정
+     </font>
+     </div>
+ 
+     <form method="post" name="board" enctype="multipart/form-data" action="BoardServlet?command=board_qna_modify_pro&idx=${board.q_idx}&page=${page}" >
+     
+	  <table border="0" style="margin-top:30px;width:90%;margin-left:10px">
 
        <tr>
-         <td width="18%" align="right"></td>
-         <td><font size="6" color="#000000" style=font-family:HoonYunpilsupkyukR;>아이디</font></td>
+         <td><font size="3" color="#000000" class="alert">아이디</font></td>
          <td>
-         <input type="text" size="60" name="id" style="text-align:center;width:500px;" value="${board.id}" readonly /></td>
-         <td></td>
+         <input type="text" size="60" name="id" style="text-align:center;width:200px;" value="${board.id}" readonly></td>
        </tr>
-       
 	   <tr>
-         <td align="right"></td>
-         <td><font size="6" color="#000000" style=font-family:HoonYunpilsupkyukR;>제목</font></td>
-         <td><input type="text" size="60" name="title" value="${board.q_title}" style="text-align:center;width:500px;"></td>
-         <td></td>
+         <td><font size="3"  color="#000000" class="alert">제목</font></td>
+         <td><input type="text" size="60" name="title" style=text-align:center;width:400px; value="${board.q_title}"></td>
        </tr>
-       
        <tr>
-         <td align="right"></td>
-         <td><font size="6"  color="#000000" style=font-family:HoonYunpilsupkyukR;>내용</font></td>
-         <td><textarea wrap="physical" rows="30" name="contents" cols="100" style="border-radius:24px;text-align:center;width:500px;">${board.q_contents}</textarea></td>
-         <td></td>
+      
+         <td><font size="3" color="#000000" class="alert">내용</font></td>
+         <td><textarea wrap="physical" rows="30" name="contents" cols="100" style="border-radius:24px;text-align:center;width:90%;height:300px">${board.q_contents}</textarea></td>
        </tr>
        
        	<tr>
-		  <td align="right"></td>
-		  <td><font size="6" color="#000000" style=font-family:HoonYunpilsupkyukR;>파일첨부</font></td>
-		  <td><input type="file" name="filename" size="60"></td>
-		  <td></td>
+		  
+		  <td><font size="3"  color="#000000" class="alert">파일첨부</font></td>
+		  <td><input type="file" name="filename" size="60" style="width:180px;position:relative;top:4px;"></td>
 		  </tr>
 		 
 		<tr>
-          <td align="right">&nbsp;</td>
-          <td><font size="6">&nbsp;</font></td>
-          <td>
-            <a href="javascript:send()"><img src="Board/img/write.png" border=0></a>&nbsp;&nbsp;&nbsp;
-            <a href="javascript:back()"><img src="Board/img/cancel.png" border=0></a>
+          <td style="position:relative;left:480px;">
+          <center>
+            <a href="javascript:send()"><img src="/Contents/img/board_img/qupdate2.png" style="width:64px;height:64px"></a>
+            <a href="javascript:back()"><img src="/Contents/img/board_img/qback.png" style="position:relative;bottom:3px;width:64px;height:64px"></a>
+            </center>
           </td>
         </tr>
+        
       </table>
+    
       </form>
-</div>
-
+	</div>
+  </center>
+</section>
 
 
 
@@ -70,12 +74,11 @@
 
 <style>
 	
-    body{background-color: #000000}
+    body{background-color: #f2f2f2;}
     .notice {border-radius: 12px; -moz-border-radius: 12px; -khtml-border-radius: 12px; -webkit-border-radius: 12px;
-      position: relative; top: 130px; width: 97%; height: 85%; border: 24px solid #ffffff;
-      background-color: #ffffff; overflow: auto;}
+      position: relative; top: 130px; width: 60%; height:740px; border: 24px solid #f2f2f2;
+      background-color: #ffffff; overflow: auto; margin-bottom: 170px;}
     .add{position: absolute; right: 90px; top:710px;}
-	
 	
     @font-face {
       font-family: 'HoonYunpilsupkyukR';
@@ -84,10 +87,11 @@
     table{width: 100%;}
     th, td {padding: 10px; text-align: center;}
     th{background-color: #003800;}
-    input{border-radius: 12px; height:45px;}
-
- 
+    input{border-radius: 12px; height:30px;}
+    
+ .alert{ line-height: 1.0625; font-weight: 600; letter-spacing: -.009em;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial","sans-serif";}
   </style>
-
   </body>
+  <%@ include file="/Contents/include_file(navi bar)/footer.jsp" %>
   </html>

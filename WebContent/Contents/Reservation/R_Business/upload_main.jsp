@@ -13,22 +13,22 @@
 		</div>	
 	</c:if>
 	<c:if test="${ !empty b_user }">
-		<p class="title">지금 바로 여기관광의 서비스를 이용해보세요</p>
-		<p>여기관광은 사업자 여러분들의 더 나은 수익과 편의성을 위해 다양한 서비스를 제공하고 있습니다</p>
-		<a href="/ReservServlet?command=ProductUpload&b_id=${ b_user.b_id }"><button class="btn">&nbsp;  관광 상품 등록 >>  &nbsp;</button></a><br>
-		<a href="/ReservServlet?command=MyTourList&b_id=${ b_user.b_id }"><button class="btn">&nbsp;  나의 관광 상품 >>  &nbsp;</button></a>
+		<p class="title" style="padding-top: 100px; ">지금 바로 여기관광의 서비스를 이용해보세요</p>
+		<p style="font-size:20px;">여기관광은 사업자 여러분들의 더 나은 수익과 편의성을 위해 다양한 서비스를 제공하고 있습니다</p>
+		<a href="/ReservServlet?command=ProductUpload&b_id=${ b_user.b_id }"><button class="button">&nbsp;  관광 상품 등록 >>  &nbsp;</button></a><br>
+		<a href="/ReservServlet?command=MyTourList&b_id=${ b_user.b_id }"><button class="button">&nbsp;  나의 관광 상품 >>  &nbsp;</button></a>
 	</c:if>
 	</section>
 
 </body>
 <style>
 	
-	section {margin-top:12%; color:black; text-align:center; margin-left:24%; background-color:white; 
+	section {margin-top:6%; color:black; text-align:center; margin-left:24%; background-color:white; 
 				width:1000px; height:500px;
 				
 				}
 	p {margin-bottom:20px;}
-	.title {font-size: 30px; font-weight:bold;}
+	.title {font-size: 40px; font-weight:bold;}
 	.btn {margin-bottom:20px; background-color:white; color:black; font-size:25px;}
 	.no_b_id {font-size:30px; padding-top:110px;
 				
@@ -38,8 +38,10 @@
     line-height: 1.17648; font-weight: 400; letter-spacing: -.022em;
     font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
     min-width: 28px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;
-    border-radius: 18px; background: #ffffff; color: #000000;}
+    border-radius: 18px; background: #ffffff; color: #000000;
+    margin-top: 40px;
+    }
 </style>
 
-
+<%@ include file="/Contents/include_file(navi bar)/footer.jsp" %>
 </html>
