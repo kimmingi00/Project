@@ -26,7 +26,7 @@ public class BusinessLoginProAction implements Action {
 		BASE64Encoder Base64Encoder = new BASE64Encoder();
 		pass=Base64Encoder.encode(s.GetHashCode());
 		int row=dao.BusinessLogin(id, pass);	
-		request.setAttribute("row", row);
+		//request.setAttribute("row", row);
 
 		if(row==1) { 
 			BusinessVO user = dao.getBusiness(id);

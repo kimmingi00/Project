@@ -24,7 +24,7 @@
 
     <footer class="footer-distributed">
        <span class="footer-left">
-       <h3><font size="6">L O G O </font></h3>
+       <h3><font size="6"><img src="/Contents/img/icon/여기관광.jpg" style="width: 112px; margin-top: 10px;"></font></h3>
        <p class="footer-links">
        <font size="3"><a href="#"> 회사 소개 </a></font>   |
        <font size="3"><a href="#"> 이용 약관 </a></font>   |

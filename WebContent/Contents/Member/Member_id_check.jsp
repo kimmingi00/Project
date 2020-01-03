@@ -1,15 +1,24 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <HTML>
 <HEAD>
 <TITLE>사용자의 아이디를 체크합니다.</TITLE>
+    <link rel="stylesheet" href="/Contents/CSS/CSS_Member/signupstyle.css">
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 <STYLE TYPE="text/css">
-<!--
-body { font-family: 돋움, Verdana; font-size: 9pt}
+
+body { font-family: 돋움, Verdana; font-size: 9pt background: #ffffff;}
 td   { font-family: 돋움, Verdana; font-size: 9pt; text-decoration: none; color: #000000} 
---->
+  .btn {
+   cursor: pointer; display: inline-block; text-align: center; font-size: 17px;
+    line-height: 1.17648; font-weight: 400; letter-spacing: -.022em;
+    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    min-width: 28px; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px;
+    border-radius: 18px; background: #ffffff; color: #000000;}
+    
 </STYLE>
+
 <script>
 	function id_check(){
 		var user = frm.id.value;
@@ -18,7 +27,7 @@ td   { font-family: 돋움, Verdana; font-size: 9pt; text-decoration: none; colo
 			frm.id.focus();
 			return;
 		}
-		frm.action="/MemberServlet?command=member_idCheckPro";
+		frm.action="/MemberServlet?command=member_idCheck";
 		frm.submit();
 	}
 	function win_close(){
@@ -27,21 +36,36 @@ td   { font-family: 돋움, Verdana; font-size: 9pt; text-decoration: none; colo
 		self.close();
 	}
 </script>
+
+
+
 </HEAD>
 <BODY bgcolor="#FFFFFF">
-<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=330>
-  <TR BGCOLOR=#7AAAD5>
-    <td align=left><img src="Contents/img/u_b02.gif"></td>
-    <td align=center><FONT COLOR="#FFFFFF"><b>아이디 중복 체크</FONT></td>
-    <td align=right><img src="Contents/img/u_b03.gif"></td>
-  </tr>
-</table>
+
+
 <TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=330>
 <TR BGCOLOR=#948DCF>
   <TD>
     <TABLE CELLPADDING=4 CELLSPACING=1 BORDER=0 WIDTH=330>
   	  <TR BGCOLOR="#FFFFFF">
         <TD ALIGN="center">
+        	<form name="frm" method="post" action="MemberServlet?command=member_idCheck">
+	 <div class="tab_container" style="margin-top:10px;width:477;height:182;">
+         <div class="box" style="top:115px;border:none;width:400px;left:111.5;" >
+                    <div class="inputBox" style="width:300px;marign-top:100px;left: 44px;bottom: 27px;">
+                      <input type="text" name="id" maxlength=16 style="width:300px;" required onkeyup="this.setAttribute('value', this.value);"  value="${id}" >
+                      <label><font size="4">아이디</font></label>
+                      <input type=hidden name="id2" value="${ id }">
+                    </div>
+                    </div>
+                    </div>
+                    <input class="btn" type=button border=0 vspace=0 onclick="id_check()" style="position:relative;position:relative;left: 222px;bottom: 129px;" value="확인"/>
+                    <input class="btn" type=button border=0 vspace=0 onclick="win_close()" style="position:relative;position:relative;left: 0px;right: 0px;border-right-width: 0px;margin-right: 20‒;margin-right: 70px;top: 21px;" value="사용하기"/>
+	</form>
+        
+        
+        
+       <div style="position:relative;bottom: 125px;width: 495px;height: 83px;">
 	<c:if test="${ row==0 }">
           <br><FONT FACE="굴림"><B>사용 가능합니다.</B></FONT><br>
          <BR><FONT COLOR="#483cae"><b>${ id }</b></FONT>는 아직 사용되지 않은 아이디입니다.
@@ -52,11 +76,8 @@ td   { font-family: 돋움, Verdana; font-size: 9pt; text-decoration: none; colo
     	<BR><FONT COLOR="#483cae"><b>${ id }</b></FONT>는 이미 사용 중인 아이디입니다<br>
     	다른 아이디를 사용하여 주십시오.
 	</c:if>
-	<form name="frm" method="post" action="MemberServlet?command=member_idCheckPro"  >
-           <INPUT NAME=id type=text size=16 maxlength=16 value="${ id }">
-      	   <input type=image src="Contents/img/u_bt08.gif" border=0 vspace=0 onclick="id_check()">
-      	   <input type=hidden name="id2" value="${ id }">
-	</form>
+</div>
+	
         </TD>
       </TR>
     </TABLE>
@@ -64,16 +85,26 @@ td   { font-family: 돋움, Verdana; font-size: 9pt; text-decoration: none; colo
 </TR>
 </TABLE>
 
-<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH=330>
-  <TR BGCOLOR=#7AAAD5>
-    <td align=left><img src="Contents/img/u_b04.gif"></td>
-    <td align=right><img src="Contents/img/u_b05.gif"></td>
-  </tr>
-  <tr>
-    <td colspan=3 align=center>
-      <a href="javascript:win_close()"><img src="Contents/img/u_bt13.gif" border=0 vspace=5></a>
-    </td>
-  </tr>
-</table>
+
+
+<script>
+$(document).ready(function() {
+
+	//Default Action
+	$(".tab_content").hide(); //Hide all content
+	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
+	$(".tab_content:first").show(); //Show first tab content
+
+	//On Click Event
+	$("ul.tabs li").click(function() {
+		$("ul.tabs li").removeClass("active"); //Remove any "active" class
+		$(this).addClass("active"); //Add "active" class to selected tab
+		$(".tab_content").hide(); //Hide all tab content
+		var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+		$(activeTab).fadeIn(); //Fade in the active content
+		return false;
+	});
+});
+</script>
 </BODY>
 </HTML>

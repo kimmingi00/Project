@@ -20,13 +20,15 @@ public class MemberLoginProAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberDAO dao=MemberDAO.getInstance();
 		request.setCharacterEncoding("utf-8");
+		
 		String id=request.getParameter("id");
 		String pass=request.getParameter("pass");
+		
 		SHA256 s = new SHA256(pass.getBytes());
 		BASE64Encoder Base64Encoder = new BASE64Encoder();
 		pass=Base64Encoder.encode(s.GetHashCode());
 		int row=dao.memberLogin(id, pass);	
-		request.setAttribute("row", row);
+		//request.setAttribute("row", row);
 
 		if(row==1) { 
 			MemberVO user = dao.getMember(id);
@@ -35,8 +37,11 @@ public class MemberLoginProAction implements Action {
 			session.setAttribute("user", user);
 			session.setMaxInactiveInterval(1800); 
 			request.setAttribute("id", id);
+			
+			request.setAttribute("admin", user.getAdmin());
+			
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/IndexServlet?command=index");
+		RequestDispatcher rd = request.getRequestDispatcher("/IndexServlet?command=index&admin="+user.getAdmin());
 		rd.forward(request, response);
 		}
 		else  {

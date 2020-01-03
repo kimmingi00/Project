@@ -61,7 +61,7 @@
 		<div class = "navi_article">
 				<span>
 						<ul class ="logo">
-							<li><font size="6"><a href="/IndexServlet?command=index"> LOGO</font></a> </li>
+							<li><font size="6"><a href="/IndexServlet?command=index"> <img src="/Contents/img/icon/여기관광.jpg" style="width: 112px; margin-top: 10px;"></font></a> </li>
 						</ul>
 					<ul class="menu">
 						<li><a href="/ReservServlet?command=reserv_main&row=0&place=0&outplace=0"><font size="4">여행상품 둘러보기 </font>&nbsp; &nbsp; &nbsp;</a></li>
@@ -89,7 +89,7 @@
 		        </c:if>
 		        <c:if test="${!empty user||!empty b_user }">
            			<li><a href="/MemberServlet?command=member_logout" style="color:white;">로그아웃</a></li>
-		          	<li><a href="#" style="color:white;">회원정보</a></li>
+		          	<li><a href="/MemberServlet?command=member_bm" style="color:white;">회원정보</a></li>
 		         </c:if> 
          		</ul>
 

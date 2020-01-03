@@ -59,16 +59,23 @@
 			 <font style="font-weight:bold;">지난 여행입니다</font></p>
 		</c:if>	
 		
-			<p>도착일 : ${ pvo.p_outdate }</p>
 			
-				<p>출발지 : 
-					<c:forEach var="plus" items="${ plus }" begin="0" end="${ fn:length(plus) }" >
-				   		 ${ plus }
+			
+				 
+					<c:forEach var="place" items="${ place }" varStatus="stat">
+				   	<p>출발지${ stat.count } :
+				   		 ${ place }&nbsp;/&nbsp;
+				   		 <c:forEach var="time" items="${ time }" begin="${ stat.index }" end="${ stat.index }" >
+				   		 ${time }
+				   		 </c:forEach>
+				   		 
+				   	</p>	 
 				   	</c:forEach>
 				
-				</p>
-			
+				
+			<p>도착일 : ${ pvo.p_outdate }&nbsp;/&nbsp;도착시간 : ${ pvo.p_outtime } </p>
 			<p>도착지 : ${ pvo.p_out }</p>
+			
 			<p>현재 예약인원 : ${ pvo.p_reservpeople }명&nbsp;/&nbsp;정원 : ${ pvo.p_maxpeople }명</p>
 			<p>예약 가능 인원 : <font style="font-weight:bold;">${ pvo.p_maxpeople-pvo.p_reservpeople }명</font></p>
 			<p>가격 : ${ pvo.p_price }원</p>
@@ -83,7 +90,7 @@
 					
 					<c:if test="${ (indateNum-sysDateNum) > 0 }">
 
-						<c:if test="${ row == 0 }">
+						<c:if test="${ row == 0 || !empty cnt}">
 							<p>
 							  예약 인원&nbsp;&nbsp;&nbsp;&nbsp;
 							 <a href="javascript:cnt_down()"><i class="fa fa-angle-left" aria-hidden="true" style="color:#0071e3;"></i></a>&nbsp;
@@ -119,7 +126,7 @@
 	
 	<section class="product_cont">
 		<div class="cont_contents">
-			<p>${ pvo.p_contents }</p>
+			<p>${ contents }</p>
 		</div>	
 	</section>
 <style>
@@ -240,6 +247,6 @@
             });
 		});
     </script>
-
+<%@ include file="/Contents/include_file(navi bar)/footer.jsp" %>
 </body>
 </html>

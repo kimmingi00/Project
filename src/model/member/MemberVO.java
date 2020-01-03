@@ -2,7 +2,7 @@ package model.member;
 
 public class MemberVO {
 	private int admin;
-	private String id,name,pass,tel,email,favorite,theme,regdate,lastdate,reserv_num;
+	private String id,name,pass,tel,email,favorite,theme,regdate,lastdate;
 	public int getAdmin() {
 		return admin;
 	}
@@ -63,11 +63,6 @@ public class MemberVO {
 	public void setlastdate(String lastdate) {
 		this.lastdate = lastdate;
 	}
-	public String getReserv_num() {
-		return reserv_num;
-	}
-	public void setReserv_num(String reserv_num) {
-		this.reserv_num = reserv_num;
-	}
+	
 	
 }

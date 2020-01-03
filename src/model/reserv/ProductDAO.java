@@ -722,4 +722,43 @@ public UnRegitVO getUnregit( String ur_email) {
 	
 	return vo;
 }
+
+public ProductVO Cust(String p_customer) {
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    
+    ProductVO pvo = new ProductVO();
+    
+    String query = "select * from product where p_customer like '%"+p_customer+"%'";
+    
+    try {
+       conn = DBConn.getConnection();
+       pstmt = conn.prepareStatement(query);
+       rs = pstmt.executeQuery();
+       
+       while(rs.next()) {
+           pvo = new ProductVO();
+          
+          pvo.setP_title(rs.getString("p_title"));
+          pvo.setP_contents(rs.getString("p_contents"));
+          pvo.setP_indate(rs.getString("p_indate"));
+          pvo.setP_outdate(rs.getString("p_outdate"));
+          pvo.setP_in(rs.getString("p_in"));
+          pvo.setP_out(rs.getString("p_out"));
+          pvo.setP_price(rs.getInt("p_price"));
+          pvo.setP_regdate(rs.getString("p_regdate"));
+          pvo.setP_customer(rs.getString("p_customer"));
+          
+       }
+    }catch(Exception e) {
+       e.printStackTrace();
+    }finally {
+       DBConn.close(conn, pstmt, rs);
+    }
+    
+    
+    return pvo;
+    
+ }
 }

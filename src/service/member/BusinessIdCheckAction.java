@@ -8,16 +8,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.member.BusinessDAO;
-import model.member.MemberDAO;
 import service.Action;
 
 public class BusinessIdCheckAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+		BusinessDAO dao=BusinessDAO.getInstance();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/Contents/Member/Business_id_check.jsp");
+		String b_id = request.getParameter("b_id");
+		
+		String temp = dao.userSearch(b_id);
+		
+		int row=0;
+		
+		if(!temp.equals("")) {
+			row=1;
+		}
+		
+		request.setAttribute("b_id", b_id);
+		request.setAttribute("row", row);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("Contents/Member/Member_id_check2.jsp");
 		rd.forward(request, response);
 		
 	}

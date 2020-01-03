@@ -51,7 +51,7 @@ public class BusinessDAO {
 						vo.setB_pass(rs.getString("b_pass"));
 						vo.setB_rating(rs.getInt("b_rating"));
 						vo.setB_regdate(rs.getString("b_regdate").substring(0,10));
-						vo.setB_tel(rs.getString(rs.getString("b_tel")));
+						vo.setB_tel(rs.getString("b_tel"));
 						list.add(vo);
 					}
 					
@@ -181,7 +181,24 @@ public class BusinessDAO {
 					return bvo;
 				
 			}
-			
+			public int delete(BusinessVO vo) {
+				Connection conn = null;
+				PreparedStatement pstmt=null;
+				String query="delete from business where b_id=?";
+					
+				int row=0;
+				try {
+					conn=getConnection();
+					pstmt=conn.prepareStatement(query);
+					pstmt.setString(1,vo.getB_id());
+					row=pstmt.executeUpdate();
+					
+					
+				} catch (Exception e) {
+				}finally {
+				}
+					return row ;
+			}	
 			public int BusinessLogin( String id, String pass) {
 				Connection conn=null;
 				PreparedStatement pstmt = null;
@@ -222,5 +239,63 @@ public class BusinessDAO {
 				}
 				
 				return row;
-			}	
+			}
+			public String BusinessIdSearch(String b_tel,String b_name) {
+				Connection conn=null;
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				int row = 0;
+
+				// Query 문 작성
+				String query = "select b_id from business where b_name=? and b_tel=?";
+				String b_id = null;
+				try {
+					conn=getConnection();
+					pstmt = conn.prepareStatement(query);
+					pstmt.setString(1, b_name);
+					pstmt.setString(2, b_tel);
+					rs = pstmt.executeQuery();
+					while(rs.next()) {
+						b_id = rs.getString("b_id");
+					}
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					try {
+						if (rs != null)
+							rs.close();
+						if (pstmt != null)
+							pstmt.close();
+						if(conn!=null)
+							conn.close();
+					} catch (Exception e) {
+						e.printStackTrace();
+					} // Finally 끝
+				}
+				// Return
+				return b_id;
+				
+	}
+			public int passEdit(BusinessVO vo) {
+				Connection conn = null;
+				PreparedStatement pstmt=null;
+				String query="update business set b_pass=? where b_id=?";
+					
+				int row=0;
+				try {
+					conn=getConnection();
+					pstmt=conn.prepareStatement(query);
+					pstmt.setString(1,vo.getB_pass());
+					System.out.println(vo.getB_pass()+" dao1");
+					pstmt.setString(2, vo.getB_id());
+					System.out.println(vo.getB_id()+" dao2");
+					row=pstmt.executeUpdate();
+					
+					
+				} catch (Exception e) {
+				}finally {
+				}
+					return row ;
+			}		
 }

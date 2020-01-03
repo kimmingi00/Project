@@ -20,6 +20,7 @@ public class MemberWriteProAction implements Action {
 		request.setCharacterEncoding("utf-8");
 		MemberDAO dao=MemberDAO.getInstance();
 		
+		
 	String enctype="utf-8";
 		
 		String tel=request.getParameter("tel");
@@ -60,16 +61,23 @@ public class MemberWriteProAction implements Action {
 			vo.setName(name);
 			vo.setPass(Base64Encoder.encode(s.GetHashCode()));
 			vo.setId(id);
-			vo.setReserv_num(reserv_num);
 			vo.setTheme(them);
 			vo.setFavorite(fa);
 		
 			
 			
 			int row=dao.MemberWrite(vo);
+			request.setAttribute("vo", vo);
 			request.setAttribute("row", row);
-			RequestDispatcher rd=
-					request.getRequestDispatcher("Contents/Member/complete.jsp");
+			request.setAttribute("id", id);
+			
+			RequestDispatcher rd = null;
+			
+			if(row==1) {
+				rd=request.getRequestDispatcher("Contents/Member/complete.jsp");
+			}else {
+				rd=request.getRequestDispatcher("/MemberServlet?command=member_login");
+			}
 			rd.forward(request, response);
 	}
 	}

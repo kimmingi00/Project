@@ -36,8 +36,8 @@ public class SelectProductListAction implements Action {
 		
 		ProductDAO dao = ProductDAO.getInstance();
 		
-		List<ProductVO> mlist = dao.SelectProductList(table, place);
 		
+		List<ProductVO> mlist = dao.SelectProductList(table, place);
 		
 	    String savePath = "/Contents/img/product_img";
 		

@@ -1,7 +1,6 @@
 package service.reserv;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,14 +34,29 @@ public class ReservViewAction implements Action {
 			idd = vo.getP_customer().split("[\\(]");
 		}
 		
-		
+		int cnt = 0;
 		int row = dao.customerSearch(id, idx);
-		System.out.println("row : "+row);
 		
 		if(id.equals("")) {
-			
+			cnt = 1;
+			request.setAttribute("cnt", cnt);
 		}
 		
+			String contents = vo.getP_contents();
+			
+			StringBuffer buf = new StringBuffer();
+			
+			for(int i=0; i<contents.length(); i++) {
+				if(contents.charAt(i)=='\n') {
+					buf.append("<br>");
+				}else {
+					buf.append(contents.charAt(i));
+				}
+			}
+			
+		contents = buf.toString();
+		
+		request.setAttribute("contents", contents);
 		request.setAttribute("row", row);
 		request.setAttribute("savePath", savePath);
 		request.setAttribute("pvo", vo);
